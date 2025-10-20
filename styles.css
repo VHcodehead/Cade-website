@@ -122,6 +122,12 @@ body {
     animation: dropIn 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s forwards;
 }
 
+.featured-video-wrapper::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
 @keyframes dropIn {
     0% {
         opacity: 0;
@@ -167,17 +173,18 @@ body {
 
 /* Company Description - Overlaid on Video */
 .company-description {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
     text-align: center;
     padding: 4rem 3rem 3rem;
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.85) 70%, transparent 100%);
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.85) 70%, transparent 100%) !important;
     backdrop-filter: blur(10px);
-    z-index: 10;
-    opacity: 0;
-    animation: fadeInOverlay 1.5s ease 1.5s forwards;
+    z-index: 100 !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
 }
 
 @keyframes fadeInOverlay {
