@@ -123,7 +123,7 @@ body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 20%;
+    padding-bottom: 15%;
     background: #000;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
@@ -564,7 +564,7 @@ body {
     }
 
     .featured-video-container-new {
-        padding-bottom: 30%;
+        padding-bottom: 22%;
     }
 
     .company-description-new {
@@ -650,7 +650,7 @@ body {
     }
 
     .featured-video-container-new {
-        padding-bottom: 35%;
+        padding-bottom: 25%;
     }
 
     .company-description-new {
