@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VLACOVISION - Creative Production</title>
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
     <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        // Debug video loading
+        window.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('featured-video-iframe');
+            if (iframe) {
+                console.log('Featured video iframe found, src:', iframe.src);
+                iframe.addEventListener('load', function() {
+                    console.log('Featured video iframe loaded successfully');
+                });
+                iframe.addEventListener('error', function(e) {
+                    console.error('Featured video iframe error:', e);
+                });
+            } else {
+                console.error('Featured video iframe NOT found in DOM!');
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -24,9 +41,10 @@
     <section class="featured-video">
         <div class="featured-video-wrapper">
             <div class="featured-video-container">
-                <iframe src="https://player.vimeo.com/video/944146494?autoplay=1&loop=1&muted=1&controls=1&byline=0&title=0&portrait=0"
+                <iframe id="featured-video-iframe" src="https://player.vimeo.com/video/944146494?autoplay=1&loop=1&muted=1&controls=1&byline=0&title=0&portrait=0"
                         frameborder="0"
                         allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen
                         style="position:absolute;top:0;left:0;width:100%;height:100%;">
                 </iframe>
             </div>
