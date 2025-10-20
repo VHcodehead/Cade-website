@@ -122,7 +122,7 @@ body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 45%;
+    padding-bottom: 56.25%;
     background: #000;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
@@ -142,9 +142,9 @@ body {
     left: 0;
     right: 0;
     text-align: center;
-    padding: 4rem 3rem 3rem;
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.85) 70%, transparent 100%);
-    backdrop-filter: blur(10px);
+    padding: 2rem 2rem 1.5rem;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0.4) 60%, transparent 100%);
+    backdrop-filter: blur(5px);
     z-index: 100;
     opacity: 0;
     transform: translateY(30px);
@@ -152,21 +152,21 @@ body {
 }
 
 .company-description-new h3 {
-    font-size: 1.3rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 5px;
-    margin-bottom: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
     color: var(--white);
     text-transform: uppercase;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .company-description-new p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--white);
-    letter-spacing: 0.3px;
-    max-width: 800px;
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: rgba(245, 245, 245, 0.85);
+    letter-spacing: 0.5px;
+    max-width: 900px;
     margin: 0 auto;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
@@ -562,21 +562,21 @@ body {
     }
 
     .featured-video-container-new {
-        padding-bottom: 60%;
+        padding-bottom: 75%;
     }
 
     .company-description-new {
-        padding: 3rem 1.5rem 2rem;
+        padding: 1.5rem 1rem 1rem;
     }
 
     .company-description-new h3 {
-        font-size: 1.1rem;
-        letter-spacing: 3px;
+        font-size: 0.65rem;
+        letter-spacing: 2px;
     }
 
     .company-description-new p {
-        font-size: 0.95rem;
-        line-height: 1.7;
+        font-size: 0.6rem;
+        line-height: 1.5;
     }
 
     .featured-video-wrapper {
@@ -647,21 +647,21 @@ body {
     }
 
     .featured-video-container-new {
-        padding-bottom: 65%;
+        padding-bottom: 85%;
     }
 
     .company-description-new {
-        padding: 2.5rem 1.5rem 1.5rem;
+        padding: 1.5rem 1rem 1rem;
     }
 
     .company-description-new h3 {
-        font-size: 0.95rem;
-        letter-spacing: 3px;
+        font-size: 0.6rem;
+        letter-spacing: 2px;
     }
 
     .company-description-new p {
-        font-size: 0.85rem;
-        line-height: 1.6;
+        font-size: 0.55rem;
+        line-height: 1.5;
     }
 
     .video-info h3 {
