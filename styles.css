@@ -51,9 +51,9 @@ body {
 }
 
 .logo-img {
-    height: 8px;
+    height: 20px;
     width: auto;
-    max-width: 80px;
+    max-width: none;
     display: block;
     filter: brightness(1);
     transition: all 0.3s ease;
@@ -401,8 +401,8 @@ body {
     }
 
     .logo-img {
-        height: 7px;
-        max-width: 70px;
+        height: 16px;
+        max-width: none;
     }
 
     .nav {
@@ -467,8 +467,8 @@ body {
 
 @media (max-width: 480px) {
     .logo-img {
-        height: 6px;
-        max-width: 60px;
+        height: 14px;
+        max-width: none;
     }
 
     .nav a {
