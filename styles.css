@@ -100,33 +100,35 @@ body {
 
 /* Featured Video Section - Hero */
 .featured-video {
-    padding-top: 70px;
+    padding-top: 100px;
+    padding-bottom: 4rem;
     background-color: var(--black);
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
 }
 
 .featured-video-wrapper {
     width: 100%;
-    max-width: 1920px;
+    max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    padding: 0 2rem;
+    padding: 0 3rem;
     opacity: 0;
-    animation: dropIn 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+    transform: translateY(-300px) scale(0.7);
+    animation: dropIn 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s forwards;
 }
 
 @keyframes dropIn {
     0% {
         opacity: 0;
-        transform: translateY(-200px) scale(0.8);
+        transform: translateY(-300px) scale(0.7);
     }
-    60% {
-        transform: translateY(20px) scale(1.02);
+    70% {
+        transform: translateY(30px) scale(1.05);
     }
     100% {
         opacity: 1;
@@ -152,15 +154,6 @@ body {
     height: 100%;
 }
 
-.featured-video-info {
-    text-align: center;
-    margin-top: 2.5rem;
-    margin-bottom: 3rem;
-    padding: 0 2rem;
-    opacity: 0;
-    animation: fadeInUp 1s ease 0.8s forwards;
-}
-
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -172,32 +165,15 @@ body {
     }
 }
 
-.featured-video-info h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 3px;
-    margin-bottom: 0.5rem;
-    color: var(--white);
-    text-transform: uppercase;
-}
-
-.featured-video-info p {
-    font-size: 0.9rem;
-    color: var(--light-gray);
-    letter-spacing: 0.5px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 /* Company Description */
 .company-description {
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 3rem auto 0;
-    padding: 3rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     opacity: 0;
-    animation: fadeInUp 1s ease 1.2s forwards;
+    animation: fadeInUp 1.2s ease 1s forwards;
 }
 
 .company-description h3 {
@@ -489,26 +465,26 @@ body {
     }
 
     .featured-video {
-        padding-top: 60px;
-        min-height: 70vh;
+        padding-top: 80px;
+        padding-bottom: 3rem;
     }
 
     .featured-video-wrapper {
-        padding: 0 1rem;
+        padding: 0 1.5rem;
+        max-width: 100%;
     }
 
-    .featured-video-info {
-        margin-top: 1.5rem;
-        margin-bottom: 2rem;
+    .company-description {
+        padding: 2rem 1.5rem;
+        margin-top: 2rem;
     }
 
-    .featured-video-info h2 {
-        font-size: 1.2rem;
-        letter-spacing: 2px;
+    .company-description h3 {
+        font-size: 1rem;
     }
 
-    .featured-video-info p {
-        font-size: 0.8rem;
+    .company-description p {
+        font-size: 0.9rem;
     }
 
     .video-grid {
@@ -552,15 +528,23 @@ body {
     }
 
     .featured-video {
-        min-height: 60vh;
+        padding-top: 70px;
     }
 
-    .featured-video-info h2 {
-        font-size: 1rem;
+    .featured-video-wrapper {
+        padding: 0 1rem;
     }
 
-    .featured-video-info p {
-        font-size: 0.75rem;
+    .company-description {
+        padding: 1.5rem 1rem;
+    }
+
+    .company-description h3 {
+        font-size: 0.9rem;
+    }
+
+    .company-description p {
+        font-size: 0.85rem;
     }
 
     .video-info h3 {
