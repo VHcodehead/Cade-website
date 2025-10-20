@@ -51,7 +51,7 @@ body {
 }
 
 .logo-img {
-    height: 20px;
+    height: 3px;
     width: auto;
     max-width: none;
     display: block;
@@ -401,7 +401,7 @@ body {
     }
 
     .logo-img {
-        height: 16px;
+        height: 2px;
         max-width: none;
     }
 
@@ -467,7 +467,7 @@ body {
 
 @media (max-width: 480px) {
     .logo-img {
-        height: 14px;
+        height: 2px;
         max-width: none;
     }
 
