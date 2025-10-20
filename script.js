@@ -2,13 +2,64 @@
 class VideoManager {
     constructor() {
         this.players = new Map();
-        this.init();
+        this.initFeaturedVideo();
+        this.initGridVideos();
     }
 
-    init() {
-        const videoItems = document.querySelectorAll('.video-item');
+    // Load featured video automatically
+    initFeaturedVideo() {
+        const featuredWrapper = document.querySelector('.featured-video-wrapper');
+        if (!featuredWrapper) return;
+
+        const container = featuredWrapper.querySelector('.featured-video-container');
+        const vimeoId = featuredWrapper.dataset.vimeoId;
+
+        this.loadFeaturedVideo(container, vimeoId).then(player => {
+            this.players.set('featured-' + vimeoId, player);
+            // Auto-play the featured video
+            player.play();
+        });
+    }
+
+    loadFeaturedVideo(container, vimeoId) {
+        return new Promise((resolve, reject) => {
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://player.vimeo.com/video/${vimeoId}?background=0&autoplay=1&loop=1&byline=0&title=0&portrait=0&muted=0`;
+            iframe.frameBorder = '0';
+            iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+
+            container.appendChild(iframe);
+
+            const player = new Vimeo.Player(iframe);
+
+            player.ready().then(() => {
+                player.setVolume(0.8);
+                resolve(player);
+            }).catch(error => {
+                console.error('Error loading featured video:', error);
+                reject(error);
+            });
+        });
+    }
+
+    // Initialize grid videos with hover-to-play
+    initGridVideos() {
+        this.attachVideoListeners();
+    }
+
+    attachVideoListeners() {
+        const videoItems = document.querySelectorAll('.video-grid .video-item');
 
         videoItems.forEach(item => {
+            // Skip if already initialized
+            if (item.dataset.initialized) return;
+            item.dataset.initialized = 'true';
+
             const wrapper = item.querySelector('.video-wrapper');
             const container = item.querySelector('.video-container');
             const vimeoId = item.dataset.vimeoId;
@@ -19,7 +70,6 @@ class VideoManager {
 
             // Hover to load and play
             wrapper.addEventListener('mouseenter', () => {
-                // Delay loading slightly to avoid accidental hovers
                 hoverTimeout = setTimeout(() => {
                     if (!isLoaded) {
                         this.loadVideo(container, vimeoId).then(newPlayer => {
@@ -47,7 +97,6 @@ class VideoManager {
 
     loadVideo(container, vimeoId) {
         return new Promise((resolve, reject) => {
-            // Create iframe
             const iframe = document.createElement('iframe');
             iframe.src = `https://player.vimeo.com/video/${vimeoId}?background=0&autoplay=0&loop=1&byline=0&title=0&portrait=0&muted=0`;
             iframe.frameBorder = '0';
@@ -57,11 +106,9 @@ class VideoManager {
 
             container.appendChild(iframe);
 
-            // Initialize Vimeo player
             const player = new Vimeo.Player(iframe);
 
             player.ready().then(() => {
-                // Set volume
                 player.setVolume(0.7);
                 resolve(player);
             }).catch(error => {
@@ -71,7 +118,6 @@ class VideoManager {
         });
     }
 
-    // Pause all videos except the one playing
     pauseAllExcept(exceptId) {
         this.players.forEach((player, id) => {
             if (id !== exceptId) {
@@ -166,9 +212,93 @@ function initHeaderScroll() {
     });
 }
 
+// Infinite Scroll
+class InfiniteScroll {
+    constructor(videoManager) {
+        this.videoManager = videoManager;
+        this.hiddenVideosContainer = document.querySelector('.hidden-videos');
+        this.videoGrid = document.querySelector('.video-grid');
+        this.loadingIndicator = document.querySelector('.loading-indicator');
+        this.isLoading = false;
+        this.videosPerLoad = 3;
+        this.currentIndex = 0;
+
+        if (this.hiddenVideosContainer) {
+            this.hiddenVideos = Array.from(this.hiddenVideosContainer.querySelectorAll('.video-item'));
+            this.init();
+        }
+    }
+
+    init() {
+        window.addEventListener('scroll', () => {
+            this.checkScroll();
+        });
+    }
+
+    checkScroll() {
+        if (this.isLoading || this.currentIndex >= this.hiddenVideos.length) return;
+
+        const scrollPosition = window.innerHeight + window.pageYOffset;
+        const triggerPoint = document.body.offsetHeight - 800;
+
+        if (scrollPosition > triggerPoint) {
+            this.loadMoreVideos();
+        }
+    }
+
+    loadMoreVideos() {
+        if (this.currentIndex >= this.hiddenVideos.length) return;
+
+        this.isLoading = true;
+        this.showLoading();
+
+        setTimeout(() => {
+            const videosToLoad = this.hiddenVideos.slice(
+                this.currentIndex,
+                this.currentIndex + this.videosPerLoad
+            );
+
+            videosToLoad.forEach((video, index) => {
+                const clonedVideo = video.cloneNode(true);
+                clonedVideo.style.opacity = '0';
+                this.videoGrid.appendChild(clonedVideo);
+
+                setTimeout(() => {
+                    clonedVideo.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    clonedVideo.style.transform = 'translateY(0)';
+                    clonedVideo.style.opacity = '1';
+                }, index * 100);
+            });
+
+            this.currentIndex += videosToLoad.length;
+
+            // Re-attach video listeners for new videos
+            this.videoManager.attachVideoListeners();
+
+            this.hideLoading();
+            this.isLoading = false;
+
+            // Check if all videos are loaded
+            if (this.currentIndex >= this.hiddenVideos.length) {
+                this.loadingIndicator.remove();
+            }
+        }, 600);
+    }
+
+    showLoading() {
+        this.loadingIndicator.classList.add('active');
+    }
+
+    hideLoading() {
+        this.loadingIndicator.classList.remove('active');
+    }
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     const videoManager = new VideoManager();
+    const infiniteScroll = new InfiniteScroll(videoManager);
+
     initSmoothScroll();
     initScrollAnimations();
     initParallax();
