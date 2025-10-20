@@ -2,7 +2,8 @@
 class VideoManager {
     constructor() {
         this.players = new Map();
-        this.initFeaturedVideo();
+        // Featured video now uses hardcoded iframe in HTML
+        // this.initFeaturedVideo();
         this.initGridVideos();
     }
 
