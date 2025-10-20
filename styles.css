@@ -100,22 +100,17 @@ body {
 
 /* Featured Video Section - Hero */
 .featured-video {
-    padding-top: 100px;
-    padding-bottom: 6rem;
+    padding-top: 80px;
+    padding-bottom: 3rem;
     background-color: var(--black);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     position: relative;
 }
 
 /* New working structure */
 .featured-video-wrapper-new {
     width: 100%;
-    max-width: 1600px;
-    padding: 0 3rem;
+    max-width: 100%;
+    padding: 0;
     margin: 0 auto;
     opacity: 0;
     transform: translateY(-300px) scale(0.7);
@@ -126,7 +121,7 @@ body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%;
+    padding-bottom: 45%;
     background: #000;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
@@ -142,9 +137,10 @@ body {
 
 .company-description-new {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 3rem 3rem;
     background: rgba(10, 10, 10, 0.9);
-    margin-top: -100px;
+    margin: 0 auto;
+    max-width: 1400px;
     position: relative;
     z-index: 200;
     opacity: 0;
@@ -552,18 +548,21 @@ body {
     }
 
     .featured-video {
-        padding-top: 80px;
-        padding-bottom: 3rem;
-        min-height: 80vh;
+        padding-top: 70px;
+        padding-bottom: 2rem;
     }
 
     .featured-video-wrapper-new {
-        padding: 0 1.5rem;
+        padding: 0;
+    }
+
+    .featured-video-container-new {
+        padding-bottom: 60%;
     }
 
     .company-description-new {
         padding: 2.5rem 1.5rem;
-        margin-top: -80px;
+        margin: 0 1rem;
     }
 
     .company-description-new h3 {
@@ -637,23 +636,27 @@ body {
 
     .featured-video {
         padding-top: 70px;
-        min-height: 70vh;
     }
 
-    .featured-video-wrapper {
-        padding: 0 1rem;
+    .featured-video-wrapper-new {
+        padding: 0;
     }
 
-    .company-description {
-        padding: 2.5rem 1.5rem 1.5rem;
+    .featured-video-container-new {
+        padding-bottom: 65%;
     }
 
-    .company-description h3 {
+    .company-description-new {
+        padding: 2rem 1rem;
+        margin: 0 0.5rem;
+    }
+
+    .company-description-new h3 {
         font-size: 0.95rem;
         letter-spacing: 3px;
     }
 
-    .company-description p {
+    .company-description-new p {
         font-size: 0.85rem;
         line-height: 1.6;
     }
