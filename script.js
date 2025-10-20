@@ -64,6 +64,9 @@ class VideoManager {
             const container = item.querySelector('.video-container');
             const vimeoId = item.dataset.vimeoId;
 
+            // Load thumbnail
+            this.loadThumbnail(wrapper, vimeoId);
+
             let hoverTimeout;
             let player = null;
             let isLoaded = false;
@@ -93,6 +96,12 @@ class VideoManager {
                 }
             });
         });
+    }
+
+    loadThumbnail(wrapper, vimeoId) {
+        // Use Vimeo's thumbnail API
+        const thumbnailUrl = `https://vumbnail.com/${vimeoId}.jpg`;
+        wrapper.style.backgroundImage = `url(${thumbnailUrl})`;
     }
 
     loadVideo(container, vimeoId) {

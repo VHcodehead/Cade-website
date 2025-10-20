@@ -31,22 +31,16 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0.15;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    animation: grain 0.5s steps(6) infinite;
+    animation: grain 8s steps(4) infinite;
 }
 
 @keyframes grain {
     0%, 100% { transform: translate(0, 0); }
-    10% { transform: translate(-5%, -10%); }
-    20% { transform: translate(-15%, 5%); }
-    30% { transform: translate(7%, -25%); }
-    40% { transform: translate(-5%, 25%); }
-    50% { transform: translate(-15%, 10%); }
-    60% { transform: translate(15%, 0%); }
-    70% { transform: translate(0%, 15%); }
-    80% { transform: translate(3%, 25%); }
-    90% { transform: translate(-10%, 10%); }
+    25% { transform: translate(-1%, -2%); }
+    50% { transform: translate(1%, 1%); }
+    75% { transform: translate(-2%, 1%); }
 }
 
 /* Header */
@@ -73,7 +67,7 @@ body {
 }
 
 .logo-img {
-    height: 40px;
+    height: 35px;
     width: auto;
     display: block;
     filter: brightness(1.1);
@@ -120,16 +114,16 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 12rem 4rem 8rem;
+    padding: 10rem 4rem 4rem;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-logo {
-    max-width: 400px;
+    max-width: 300px;
     width: 100%;
     height: auto;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2.5rem;
     display: block;
     opacity: 0;
     animation: fadeInLogo 1.2s ease forwards;
@@ -148,9 +142,9 @@ body {
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
     margin-bottom: 1rem;
     text-transform: uppercase;
     background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
@@ -168,13 +162,13 @@ body {
 
 /* Featured Video Section */
 .featured-video {
-    padding: 4rem 4rem 6rem;
-    background-color: var(--dark-gray);
+    padding: 2rem 2rem 4rem;
+    background-color: var(--black);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .featured-video-wrapper {
-    max-width: 1400px;
+    max-width: 1800px;
     margin: 0 auto;
     position: relative;
 }
@@ -183,10 +177,10 @@ body {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
-    background-color: var(--mid-gray);
-    border: 2px solid rgba(255, 68, 0, 0.3);
+    background-color: var(--black);
+    border: none;
     overflow: hidden;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
 }
 
 .featured-video-container iframe {
@@ -199,19 +193,20 @@ body {
 
 .featured-video-info {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .featured-video-info h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    margin-bottom: 0.75rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
     color: var(--white);
+    text-transform: uppercase;
 }
 
 .featured-video-info p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--light-gray);
     letter-spacing: 1px;
 }
@@ -285,6 +280,8 @@ body {
     width: 100%;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
     background-color: var(--mid-gray);
+    background-size: cover;
+    background-position: center;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.4s ease;
@@ -296,12 +293,24 @@ body {
     transform: scale(1.02);
 }
 
+.video-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    z-index: 1;
+}
+
 .video-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 5;
 }
 
 .video-container iframe {
@@ -315,20 +324,20 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.7) 0%, rgba(26, 26, 26, 0.6) 100%);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     padding: 1.5rem;
-    opacity: 1;
-    transition: opacity 0.4s ease;
+    opacity: 0;
+    transition: opacity 0.3s ease;
     z-index: 10;
     pointer-events: none;
 }
 
 .video-wrapper:hover .video-overlay {
-    opacity: 0;
+    opacity: 1;
 }
 
 .company-name {
@@ -336,26 +345,11 @@ body {
     letter-spacing: 3px;
     font-weight: 600;
     color: var(--white);
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .play-indicator {
-    align-self: center;
-    margin-top: auto;
-    margin-bottom: auto;
-    font-size: 0.75rem;
-    letter-spacing: 4px;
-    font-weight: 600;
-    color: var(--white);
-    padding: 1rem 2rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(255, 68, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.video-wrapper:hover .play-indicator {
-    background-color: var(--accent);
-    border-color: var(--accent);
+    display: none;
 }
 
 .video-info {
@@ -457,7 +451,7 @@ body {
     }
 
     .logo-img {
-        height: 30px;
+        height: 28px;
     }
 
     .nav {
@@ -469,17 +463,17 @@ body {
     }
 
     .hero {
-        padding: 8rem 2rem 4rem;
+        padding: 7rem 2rem 3rem;
     }
 
     .hero-logo {
-        max-width: 250px;
-        margin-bottom: 2rem;
+        max-width: 200px;
+        margin-bottom: 1.5rem;
     }
 
     .hero h1 {
-        font-size: 2.5rem;
-        letter-spacing: 4px;
+        font-size: 2rem;
+        letter-spacing: 3px;
     }
 
     .tagline {
@@ -487,16 +481,16 @@ body {
     }
 
     .featured-video {
-        padding: 3rem 2rem;
+        padding: 2rem 1rem 3rem;
     }
 
     .featured-video-info h2 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         letter-spacing: 2px;
     }
 
     .featured-video-info p {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 
     .video-grid {
