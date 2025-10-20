@@ -144,7 +144,7 @@ class VideoManager {
     loadVideo(container, vimeoId) {
         return new Promise((resolve, reject) => {
             const iframe = document.createElement('iframe');
-            iframe.src = `https://player.vimeo.com/video/${vimeoId}?background=0&autoplay=0&loop=1&byline=0&title=0&portrait=0&muted=0`;
+            iframe.src = `https://player.vimeo.com/video/${vimeoId}?background=0&autoplay=0&loop=1&byline=0&title=0&portrait=0&muted=0&controls=0`;
             iframe.frameBorder = '0';
             iframe.allow = 'autoplay; fullscreen; picture-in-picture';
             iframe.style.width = '100%';

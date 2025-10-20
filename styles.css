@@ -100,7 +100,7 @@ body {
 
 /* Featured Video Section - Hero */
 .featured-video {
-    padding-top: 60px;
+    padding-top: 59px;
     padding-bottom: 3rem;
     background-color: var(--black);
     position: relative;
@@ -122,7 +122,7 @@ body {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 35%;
+    padding-bottom: 28%;
     background: #000;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
@@ -553,7 +553,7 @@ body {
     }
 
     .featured-video {
-        padding-top: 55px;
+        padding-top: 52px;
         padding-bottom: 2rem;
     }
 
@@ -562,7 +562,7 @@ body {
     }
 
     .featured-video-container-new {
-        padding-bottom: 50%;
+        padding-bottom: 40%;
     }
 
     .company-description-new {
@@ -639,7 +639,7 @@ body {
     }
 
     .featured-video {
-        padding-top: 55px;
+        padding-top: 50px;
     }
 
     .featured-video-wrapper-new {
@@ -647,7 +647,7 @@ body {
     }
 
     .featured-video-container-new {
-        padding-bottom: 60%;
+        padding-bottom: 50%;
     }
 
     .company-description-new {
