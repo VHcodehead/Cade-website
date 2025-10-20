@@ -9,22 +9,36 @@ class VideoManager {
     // Load featured video automatically
     initFeaturedVideo() {
         const featuredWrapper = document.querySelector('.featured-video-wrapper');
-        if (!featuredWrapper) return;
+        if (!featuredWrapper) {
+            console.error('Featured video wrapper not found!');
+            return;
+        }
 
         const container = featuredWrapper.querySelector('.featured-video-container');
         const vimeoId = featuredWrapper.dataset.vimeoId;
 
+        console.log('Loading featured video with ID:', vimeoId);
+
         this.loadFeaturedVideo(container, vimeoId).then(player => {
             this.players.set('featured-' + vimeoId, player);
+            console.log('Featured video loaded successfully');
             // Auto-play the featured video
-            player.play();
+            player.play().then(() => {
+                console.log('Featured video playing');
+            }).catch(err => {
+                console.error('Autoplay failed:', err);
+            });
+        }).catch(err => {
+            console.error('Failed to load featured video:', err);
         });
     }
 
     loadFeaturedVideo(container, vimeoId) {
         return new Promise((resolve, reject) => {
+            console.log('Creating iframe for video:', vimeoId);
+
             const iframe = document.createElement('iframe');
-            iframe.src = `https://player.vimeo.com/video/${vimeoId}?background=0&autoplay=1&loop=1&byline=0&title=0&portrait=0&muted=0`;
+            iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&loop=1&autopause=0&muted=1&controls=1&byline=0&title=0&portrait=0`;
             iframe.frameBorder = '0';
             iframe.allow = 'autoplay; fullscreen; picture-in-picture';
             iframe.style.width = '100%';
@@ -33,15 +47,24 @@ class VideoManager {
             iframe.style.top = '0';
             iframe.style.left = '0';
 
+            console.log('Appending iframe to container');
             container.appendChild(iframe);
 
+            console.log('Initializing Vimeo player');
             const player = new Vimeo.Player(iframe);
 
             player.ready().then(() => {
-                player.setVolume(0.8);
+                console.log('Vimeo player ready');
+                // Start muted for autoplay compliance
+                player.setVolume(0);
+                player.play().then(() => {
+                    console.log('Video started playing');
+                }).catch(err => {
+                    console.error('Play failed:', err);
+                });
                 resolve(player);
             }).catch(error => {
-                console.error('Error loading featured video:', error);
+                console.error('Player ready failed:', error);
                 reject(error);
             });
         });
