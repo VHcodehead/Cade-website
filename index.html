@@ -38,19 +38,22 @@
     </header>
 
     <!-- Featured Video Section - Hero -->
-    <section class="featured-video">
-        <div class="featured-video-wrapper">
-            <div class="featured-video-container">
-                <iframe id="featured-video-iframe" src="https://player.vimeo.com/video/1018385941?autoplay=1&loop=1&muted=1&controls=1&byline=0&title=0&portrait=0"
+    <section class="featured-video" style="padding-top: 100px; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #0a0a0a;">
+        <div style="width: 100%; max-width: 1600px; padding: 0 3rem;">
+            <!-- Video Container -->
+            <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background: #000;">
+                <iframe id="featured-video-iframe"
+                        src="https://player.vimeo.com/video/1018385941?autoplay=1&loop=1&muted=1&controls=1&byline=0&title=0&portrait=0"
                         frameborder="0"
                         allow="autoplay; fullscreen; picture-in-picture"
                         allowfullscreen
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                        style="position:absolute;top:0;left:0;width:100%;height:100%;border:3px solid red;">
                 </iframe>
             </div>
-            <div class="company-description">
-                <h3>VLACOVISION</h3>
-                <p>A San Francisco Bay Area production house specializing in bold, authentic storytelling through film. We bring creative vision to life through production, post-production, and creative direction for brands that want to make an impact.</p>
+            <!-- Company Description -->
+            <div style="text-align: center; padding: 3rem 2rem; background: rgba(10,10,10,0.9); margin-top: -100px; position: relative; z-index: 200;">
+                <h3 style="font-size: 1.3rem; font-weight: 600; letter-spacing: 5px; margin-bottom: 1rem; color: #f5f5f5; text-transform: uppercase;">VLACOVISION</h3>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #f5f5f5; letter-spacing: 0.3px; max-width: 800px; margin: 0 auto;">A San Francisco Bay Area production house specializing in bold, authentic storytelling through film. We bring creative vision to life through production, post-production, and creative direction for brands that want to make an impact.</p>
             </div>
         </div>
     </section>
