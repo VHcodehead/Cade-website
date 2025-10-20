@@ -122,9 +122,22 @@ class VideoManager {
     }
 
     loadThumbnail(wrapper, vimeoId) {
-        // Use Vimeo's thumbnail API
-        const thumbnailUrl = `https://vumbnail.com/${vimeoId}.jpg`;
-        wrapper.style.backgroundImage = `url(${thumbnailUrl})`;
+        // Use Vimeo's oEmbed API to get thumbnail
+        fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.thumbnail_url) {
+                    // Get larger thumbnail (replace _640 with _1280)
+                    const largeThumb = data.thumbnail_url.replace('_640', '_1280');
+                    wrapper.style.backgroundImage = `url(${largeThumb})`;
+                    console.log('Thumbnail loaded for video:', vimeoId);
+                }
+            })
+            .catch(err => {
+                console.error('Failed to load thumbnail for', vimeoId, err);
+                // Fallback to vumbnail.com
+                wrapper.style.backgroundImage = `url(https://vumbnail.com/${vimeoId}.jpg)`;
+            });
     }
 
     loadVideo(container, vimeoId) {
