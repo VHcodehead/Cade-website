@@ -178,27 +178,9 @@ function initScrollAnimations() {
     });
 }
 
-// Parallax effect on scroll
+// Parallax effect on scroll - DISABLED for cleaner experience
 function initParallax() {
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.hero');
-
-                if (hero && scrolled < window.innerHeight) {
-                    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-                    hero.style.opacity = 1 - (scrolled / window.innerHeight);
-                }
-
-                ticking = false;
-            });
-
-            ticking = true;
-        }
-    });
+    // Disabled parallax effect
 }
 
 // Header scroll effect
