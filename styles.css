@@ -173,18 +173,18 @@ body {
 
 /* Company Description - Overlaid on Video */
 .company-description {
-    position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     text-align: center;
     padding: 4rem 3rem 3rem;
-    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.85) 70%, transparent 100%) !important;
+    background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.85) 70%, transparent 100%);
     backdrop-filter: blur(10px);
-    z-index: 100 !important;
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-    pointer-events: auto !important;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInOverlay 1.5s ease 1.8s forwards;
 }
 
 @keyframes fadeInOverlay {
