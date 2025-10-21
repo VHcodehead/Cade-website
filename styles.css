@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     opacity: 1;
-    animation: fadeOutIntro 2s ease 6.5s forwards;
+    animation: fadeOutIntro 1.5s ease 4s forwards;
 }
 
 @keyframes fadeOutIntro {
@@ -24,13 +24,13 @@
     }
 }
 
-/* LOGO_noBG - Spin and slide left */
+/* LOGO_noBG - Spin then move slightly left */
 #logo-spinner {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     opacity: 0;
-    animation: spinAndSlide 3s ease forwards;
+    animation: spinAndShift 2s ease forwards, moveToHeader 2s ease 3s forwards;
 }
 
 #logo-spinner img {
@@ -39,60 +39,56 @@
     display: block;
 }
 
-@keyframes spinAndSlide {
+@keyframes spinAndShift {
     0% {
         opacity: 0;
-        transform: translate(-50%, -50%) rotate(0deg) scale(0.5);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
-    20% {
+    30% {
         opacity: 1;
-        transform: translate(-50%, -50%) rotate(0deg) scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     100% {
-        opacity: 0;
-        transform: translate(-250%, -50%) rotate(360deg) scale(1);
+        opacity: 1;
+        transform: translate(-80%, -50%) rotate(360deg);
     }
 }
 
-/* Asset 12 - Scale up and fade */
+/* Asset 12 - Join in the middle */
 #asset-12 {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     opacity: 0;
-    animation: scaleAndFade 5s ease 3s forwards;
+    animation: joinMiddle 1s ease 2s forwards, moveToHeader 2s ease 3s forwards;
 }
 
 #asset-12 img {
-    height: 300px;
+    height: 400px;
     width: auto;
     display: block;
 }
 
-@keyframes scaleAndFade {
+@keyframes joinMiddle {
     0% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-    20% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    60% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.5);
-    }
-    80% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(2);
+        transform: translate(-20%, -50%);
     }
     100% {
+        opacity: 1;
+        transform: translate(-20%, -50%);
+    }
+}
+
+/* Both move upward to header and shrink */
+@keyframes moveToHeader {
+    0% {
+        top: 50%;
+    }
+    100% {
+        top: 20px;
+        transform: translate(-50%, 0) scale(0.1);
         opacity: 0;
-        transform: translate(-50%, -50%) scale(3);
     }
 }
 
@@ -138,7 +134,7 @@ body {
 .about,
 .footer {
     opacity: 0;
-    animation: fadeInContent 2.5s ease 6.5s forwards;
+    animation: fadeInContent 2s ease 4s forwards;
 }
 
 @keyframes fadeInContent {
