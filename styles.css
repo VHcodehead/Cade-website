@@ -385,22 +385,12 @@ body {
 }
 
 .video-wrapper::after {
-    content: '▶';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-    color: rgba(255, 255, 255, 0.9);
-    z-index: 2;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    transition: all 0.3s ease;
-    pointer-events: none;
+    content: '';
+    display: none;
 }
 
 .video-wrapper:hover::after {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.2);
+    display: none;
 }
 
 .video-container {
