@@ -406,6 +406,85 @@ function initUnmuteButtons() {
     });
 }
 
+// Bouncing Logo Animation
+function initBouncingLogo() {
+    const bouncingLogo = document.getElementById('bouncing-logo');
+    const headerLogo = document.getElementById('header-logo');
+
+    if (!bouncingLogo) return;
+
+    // Start position (center of screen)
+    let x = window.innerWidth / 2 - 50;
+    let y = window.innerHeight / 2 - 20;
+
+    // Random velocity
+    let vx = (Math.random() - 0.5) * 10;
+    let vy = (Math.random() - 0.5) * 10;
+
+    const speed = 5;
+    vx = vx > 0 ? speed : -speed;
+    vy = vy > 0 ? speed : -speed;
+
+    let bounceCount = 0;
+    const maxBounces = 8; // Bounce 8 times before landing
+
+    function animate() {
+        if (bounceCount >= maxBounces) {
+            // Land in header center
+            landInHeader();
+            return;
+        }
+
+        x += vx;
+        y += vy;
+
+        const logoWidth = bouncingLogo.offsetWidth;
+        const logoHeight = bouncingLogo.offsetHeight;
+
+        // Bounce off edges
+        if (x <= 0 || x + logoWidth >= window.innerWidth) {
+            vx = -vx;
+            bounceCount++;
+        }
+        if (y <= 0 || y + logoHeight >= window.innerHeight) {
+            vy = -vy;
+            bounceCount++;
+        }
+
+        // Keep within bounds
+        x = Math.max(0, Math.min(x, window.innerWidth - logoWidth));
+        y = Math.max(0, Math.min(y, window.innerHeight - logoHeight));
+
+        bouncingLogo.style.left = x + 'px';
+        bouncingLogo.style.top = y + 'px';
+
+        requestAnimationFrame(animate);
+    }
+
+    function landInHeader() {
+        const header = document.querySelector('.header');
+        const headerRect = header.getBoundingClientRect();
+        const targetX = headerRect.width / 2 - bouncingLogo.offsetWidth / 2;
+        const targetY = headerRect.top + headerRect.height / 2 - bouncingLogo.offsetHeight / 2;
+
+        bouncingLogo.style.transition = 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        bouncingLogo.style.left = targetX + 'px';
+        bouncingLogo.style.top = targetY + 'px';
+
+        setTimeout(() => {
+            bouncingLogo.style.opacity = '0';
+            headerLogo.style.opacity = '1';
+            headerLogo.style.transition = 'opacity 0.5s ease';
+
+            setTimeout(() => {
+                bouncingLogo.remove();
+            }, 500);
+        }, 1000);
+    }
+
+    animate();
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     const videoManager = new VideoManager();
@@ -416,6 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initHeaderScroll();
     initUnmuteButtons();
+    initBouncingLogo();
 
     console.log('VLACOVISION website loaded');
 });
