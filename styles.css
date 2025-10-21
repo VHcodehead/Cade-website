@@ -323,8 +323,8 @@ body {
 /* Video Grid */
 .video-grid {
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 0;
     width: 100%;
     margin: 0;
@@ -334,14 +334,13 @@ body {
 .video-item {
     position: relative;
     width: 100%;
-    margin-bottom: 3rem;
     opacity: 1;
 }
 
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 40%;
+    padding-bottom: 56.25%;
     background-color: var(--mid-gray);
     background-size: cover;
     background-position: center;
@@ -434,24 +433,21 @@ body {
 }
 
 .video-info {
-    margin-top: 1.5rem;
-    padding: 0 3rem;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 1.5rem 2rem 2rem 2rem;
+    background-color: var(--black);
 }
 
 .video-info h3 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    letter-spacing: 3px;
-    margin-bottom: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
     color: var(--white);
     text-transform: uppercase;
 }
 
 .video-info p {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--light-gray);
     letter-spacing: 0.5px;
     line-height: 1.6;
@@ -598,24 +594,21 @@ body {
     }
 
     .video-grid {
+        grid-template-columns: 1fr;
         padding: 0;
         gap: 0;
     }
 
-    .video-item {
-        margin-bottom: 2rem;
-    }
-
-    .video-wrapper {
-        padding-bottom: 56.25%;
-    }
-
     .video-info {
-        padding: 0 1.5rem;
+        padding: 1.5rem 1.5rem 2rem 1.5rem;
     }
 
     .video-info h3 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
+    }
+
+    .video-info p {
+        font-size: 0.8rem;
     }
 
     .about {
