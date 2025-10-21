@@ -421,12 +421,13 @@ function initBouncingLogo() {
     let vx = (Math.random() - 0.5) * 10;
     let vy = (Math.random() - 0.5) * 10;
 
-    const speed = 5;
+    const speed = 2; // Slower speed for more graceful animation
     vx = vx > 0 ? speed : -speed;
     vy = vy > 0 ? speed : -speed;
 
     let bounceCount = 0;
     const maxBounces = 8; // Bounce 8 times before landing
+    let rotation = 0;
 
     function animate() {
         if (bounceCount >= maxBounces) {
@@ -437,6 +438,7 @@ function initBouncingLogo() {
 
         x += vx;
         y += vy;
+        rotation += 3; // Slower spin for more graceful animation
 
         const logoWidth = bouncingLogo.offsetWidth;
         const logoHeight = bouncingLogo.offsetHeight;
@@ -457,6 +459,7 @@ function initBouncingLogo() {
 
         bouncingLogo.style.left = x + 'px';
         bouncingLogo.style.top = y + 'px';
+        bouncingLogo.style.transform = `rotate(${rotation}deg)`;
 
         requestAnimationFrame(animate);
     }
@@ -464,12 +467,13 @@ function initBouncingLogo() {
     function landInHeader() {
         const header = document.querySelector('.header');
         const headerRect = header.getBoundingClientRect();
-        const targetX = headerRect.width / 2 - bouncingLogo.offsetWidth / 2;
+        const targetX = window.innerWidth / 2 - bouncingLogo.offsetWidth / 2;
         const targetY = headerRect.top + headerRect.height / 2 - bouncingLogo.offsetHeight / 2;
 
-        bouncingLogo.style.transition = 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        bouncingLogo.style.transition = 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1), transform 1s cubic-bezier(0.34, 1.56, 0.64, 1)';
         bouncingLogo.style.left = targetX + 'px';
         bouncingLogo.style.top = targetY + 'px';
+        bouncingLogo.style.transform = 'rotate(0deg)'; // Stop rotation
 
         setTimeout(() => {
             bouncingLogo.style.opacity = '0';
