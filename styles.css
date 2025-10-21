@@ -65,7 +65,7 @@ body {
 }
 
 .logo-img {
-    height: 3px;
+    height: 35px;
     width: auto;
     max-width: none;
     display: block;
@@ -537,7 +537,7 @@ body {
     }
 
     .logo-img {
-        height: 2px;
+        height: 28px;
         max-width: none;
     }
 
@@ -639,7 +639,7 @@ body {
 
 @media (max-width: 480px) {
     .logo-img {
-        height: 2px;
+        height: 25px;
         max-width: none;
     }
 
