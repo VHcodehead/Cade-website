@@ -499,7 +499,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initHeaderScroll();
     initUnmuteButtons();
-    initBouncingLogo();
+    // Bouncing logo animation disabled - using slow fade-in instead
+    // initBouncingLogo();
 
     console.log('VLACOVISION website loaded');
 });

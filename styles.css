@@ -72,6 +72,17 @@ body {
     filter: brightness(1);
     transition: all 0.3s ease;
     object-fit: contain;
+    opacity: 0;
+    animation: slowFadeIn 8s ease forwards;
+}
+
+@keyframes slowFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .logo-img:hover {
@@ -161,7 +172,7 @@ body {
     z-index: 100;
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInOverlay 4s ease 2.5s forwards;
+    animation: fadeInOverlay 20s ease 12.5s forwards;
 }
 
 .company-description-new h3 {
