@@ -641,9 +641,14 @@ body {
     opacity: 0.7;
     transition: all 0.4s ease;
     filter: grayscale(100%) brightness(0) invert(1);
-    width: 120px;
-    height: 70px;
+    width: 120px !important;
+    height: 70px !important;
+    min-width: 120px;
+    min-height: 70px;
+    max-width: 120px;
+    max-height: 70px;
     object-fit: contain;
+    object-position: center;
 }
 
 .brand-logo:hover {
@@ -814,8 +819,12 @@ body {
     }
 
     .brand-logo {
-        width: 100px;
-        height: 60px;
+        width: 100px !important;
+        height: 60px !important;
+        min-width: 100px;
+        min-height: 60px;
+        max-width: 100px;
+        max-height: 60px;
     }
 }
 
@@ -826,8 +835,12 @@ body {
     }
 
     .brand-logo {
-        width: 80px;
-        height: 50px;
+        width: 80px !important;
+        height: 50px !important;
+        min-width: 80px;
+        min-height: 50px;
+        max-width: 80px;
+        max-height: 50px;
     }
     .logo-img {
         height: 25px;
