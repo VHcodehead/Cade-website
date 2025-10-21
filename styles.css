@@ -10,12 +10,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: hideIntro 0s ease 8s forwards;
+    opacity: 1;
+    animation: fadeOutIntro 2s ease 6.5s forwards;
 }
 
-@keyframes hideIntro {
-    to {
-        display: none;
+@keyframes fadeOutIntro {
+    0% {
+        opacity: 1;
+    }
+    100% {
         opacity: 0;
         pointer-events: none;
     }
@@ -122,6 +125,25 @@ body {
     display: none;
 }
 
+/* Main Content Fade In */
+.header,
+.featured-video,
+#video,
+.about,
+.footer {
+    opacity: 0;
+    animation: fadeInContent 2.5s ease 6.5s forwards;
+}
+
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* Header */
 .header {
     position: fixed;
@@ -161,17 +183,6 @@ body {
     filter: brightness(1);
     transition: all 0.3s ease;
     object-fit: contain;
-    opacity: 0;
-    animation: slowFadeIn 3s ease 8s forwards;
-}
-
-@keyframes slowFadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 .logo-img:hover {
