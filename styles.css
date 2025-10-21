@@ -106,23 +106,19 @@ body {
 
 /* Featured Video Section - Hero */
 .featured-video {
-    padding: 0;
-    margin: 59px 0 0 0;
+    padding: 0 !important;
+    margin: 59px 0 0 0 !important;
     background-color: var(--black);
     position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100% !important;
 }
 
 /* New working structure */
 .featured-video-wrapper-new {
-    width: 100%;
-    max-width: none;
-    padding: 0;
-    margin: 0;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
     position: relative;
     opacity: 0;
     transform: translateY(-300px) scale(0.7);
@@ -131,9 +127,12 @@ body {
 
 .featured-video-container-new {
     position: relative;
-    width: 100%;
+    width: 100% !important;
     height: 0;
     padding-bottom: 45%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
     background: #000;
     overflow: hidden;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
