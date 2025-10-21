@@ -467,6 +467,12 @@ body {
     position: relative;
     width: 100%;
     opacity: 1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.video-item:hover {
+    transform: scale(1.02);
 }
 
 .video-wrapper {

@@ -489,6 +489,16 @@ function initBouncingLogo() {
     animate();
 }
 
+// Make video items clickable
+function initVideoItemClicks() {
+    document.addEventListener('click', (e) => {
+        const videoItem = e.target.closest('.video-item');
+        if (videoItem && videoItem.dataset.projectUrl) {
+            window.location.href = videoItem.dataset.projectUrl;
+        }
+    });
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     const videoManager = new VideoManager();
@@ -499,6 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initHeaderScroll();
     initUnmuteButtons();
+    initVideoItemClicks();
     // Bouncing logo animation disabled - using slow fade-in instead
     // initBouncingLogo();
 
