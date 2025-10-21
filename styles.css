@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 :root {
     --black: #0a0a0a;
     --dark-gray: #1a1a1a;
@@ -19,7 +26,6 @@ body {
     background-color: var(--black);
     color: var(--white);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 /* Gritty Grain Texture Overlay - DISABLED */
@@ -101,9 +107,14 @@ body {
 /* Featured Video Section - Hero */
 .featured-video {
     padding: 0;
-    margin-top: 59px;
+    margin: 59px 0 0 0;
     background-color: var(--black);
     position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 /* New working structure */
