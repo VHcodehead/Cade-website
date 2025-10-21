@@ -398,6 +398,37 @@ body {
     opacity: 0.8;
 }
 
+/* Unmute Button */
+.unmute-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(10, 10, 10, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 50;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.unmute-button:hover {
+    background: rgba(10, 10, 10, 0.9);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.unmute-button svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--white);
+}
+
 .play-indicator {
     display: none;
 }
