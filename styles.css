@@ -80,28 +80,30 @@
     }
 }
 
-/* LOGO_noBG moves upward to header and shrinks */
+/* LOGO_noBG moves upward to header and shrinks - maintains left position */
 @keyframes moveSpinnerToHeader {
     0% {
         top: 50%;
         opacity: 1;
+        transform: translate(-500px, -50%) rotate(360deg);
     }
     100% {
         top: 40px;
-        transform: translate(-50%, -50%) scale(0.12);
+        transform: translate(-500px, -50%) scale(0.12);
         opacity: 0;
     }
 }
 
-/* Asset 12 moves upward to header and shrinks */
+/* Asset 12 moves upward to header and shrinks - maintains right position */
 @keyframes moveAsset12ToHeader {
     0% {
         top: 50%;
         opacity: 1;
+        transform: translate(-200px, -50%);
     }
     100% {
         top: 40px;
-        transform: translate(-50%, -50%) scale(0.12);
+        transform: translate(-200px, -50%) scale(0.12);
         opacity: 0;
     }
 }
