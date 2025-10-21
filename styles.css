@@ -27,6 +27,8 @@
 /* LOGO_noBG - Spin and slide left */
 #logo-spinner {
     position: absolute;
+    top: 50%;
+    left: 50%;
     opacity: 0;
     animation: spinAndSlide 3s ease forwards;
 }
@@ -34,6 +36,7 @@
 #logo-spinner img {
     height: 400px;
     width: auto;
+    display: block;
 }
 
 @keyframes spinAndSlide {
@@ -51,13 +54,15 @@
     }
     100% {
         opacity: 0;
-        transform: translate(-200%, -50%) rotate(360deg) scale(1);
+        transform: translate(-250%, -50%) rotate(360deg) scale(1);
     }
 }
 
 /* Asset 12 - Scale up and fade */
 #asset-12 {
     position: absolute;
+    top: 50%;
+    left: 50%;
     opacity: 0;
     animation: scaleAndFade 5s ease 3s forwards;
 }
@@ -65,6 +70,7 @@
 #asset-12 img {
     height: 300px;
     width: auto;
+    display: block;
 }
 
 @keyframes scaleAndFade {
