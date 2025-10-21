@@ -169,7 +169,7 @@ class VideoManager {
     loadVideo(container, vimeoId) {
         return new Promise((resolve, reject) => {
             const iframe = document.createElement('iframe');
-            iframe.src = `https://player.vimeo.com/video/${vimeoId}?controls=0&autoplay=0&loop=1&byline=0&title=0&portrait=0&muted=0&autopause=0`;
+            iframe.src = `https://player.vimeo.com/video/${vimeoId}?controls=0&autoplay=0&loop=1&byline=0&title=0&portrait=0&muted=1&autopause=0`;
             iframe.frameBorder = '0';
             iframe.allow = 'autoplay; fullscreen; picture-in-picture';
             iframe.style.width = '100%';
@@ -180,7 +180,7 @@ class VideoManager {
             const player = new Vimeo.Player(iframe);
 
             player.ready().then(() => {
-                player.setVolume(0.7);
+                player.setVolume(0);
                 resolve(player);
             }).catch(error => {
                 console.error('Error loading video:', error);
