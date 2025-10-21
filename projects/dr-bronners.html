@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Bronner's - VLACOVISION</title>
+    <link rel="stylesheet" href="../project-detail.css">
+    <script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html" class="back-button">← Back to Work</a>
+        <div class="logo">
+            <img src="../assets/Asset 11 (1).png" alt="VLACOVISION">
+        </div>
+    </header>
+
+    <section class="project-video">
+        <div class="project-video-container">
+            <iframe id="project-video-iframe"
+                    src="https://player.vimeo.com/video/844374776?autoplay=1&loop=1&muted=1&controls=1&byline=0&title=0&portrait=0"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+            <div class="unmute-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="muted-icon">
+                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="unmuted-icon" style="display: none;">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-details">
+        <h1>Dr. Bronner's</h1>
+
+        <div class="project-meta">
+            <div class="meta-item">
+                <h3>Client</h3>
+                <p>Dr. Bronner's</p>
+            </div>
+            <div class="meta-item">
+                <h3>Services</h3>
+                <p>Creative Direction, Production, Post-Production</p>
+            </div>
+            <div class="meta-item">
+                <h3>Year</h3>
+                <p>2023</p>
+            </div>
+        </div>
+
+        <div class="project-description">
+            <p>VLACOVISION collaborated with Dr. Bronner's to create a visual narrative celebrating their commitment to organic, fair-trade products and ethical business practices. This project explores the brand's unique philosophy of "All-One," showcasing how their dedication to environmental and social responsibility extends far beyond creating exceptional organic soaps.</p>
+
+            <p>Our creative approach emphasized the authenticity and integrity that define the Dr. Bronner's brand. We documented their sustainable sourcing practices, their commitment to fair trade partnerships, and the vibrant community of customers who share their values. The cinematography balances natural, earthy aesthetics with modern visual storytelling, creating content that feels both timeless and contemporary.</p>
+
+            <p>Through thoughtful visuals and compelling narrative structure, we've created a project that communicates Dr. Bronner's mission to unite people and planet. The film highlights how choosing organic, ethically-produced products can be part of a larger commitment to positive change, resonating with conscious consumers who believe that business can be a force for good in the world.</p>
+        </div>
+    </section>
+
+    <script>
+        const unmuteButton = document.querySelector('.unmute-button');
+        const iframe = document.getElementById('project-video-iframe');
+        const player = new Vimeo.Player(iframe);
+        let isMuted = true;
+
+        unmuteButton.addEventListener('click', () => {
+            const mutedIcon = unmuteButton.querySelector('.muted-icon');
+            const unmutedIcon = unmuteButton.querySelector('.unmuted-icon');
+
+            if (isMuted) {
+                player.setVolume(0.7);
+                mutedIcon.style.display = 'none';
+                unmutedIcon.style.display = 'block';
+            } else {
+                player.setVolume(0);
+                mutedIcon.style.display = 'block';
+                unmutedIcon.style.display = 'none';
+            }
+            isMuted = !isMuted;
+        });
+    </script>
+</body>
+</html>
