@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Syne } from 'next/font/google';
 import './globals.css';
+import { MotionProvider } from '@/components/providers/motion-provider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap' });
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable}`}>
       <body className="bg-bg-base text-text-primary font-body">
-        {children}
+        <MotionProvider>
+          {children}
+        </MotionProvider>
       </body>
     </html>
   );
