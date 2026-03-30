@@ -17,10 +17,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Authentication
 
-- [ ] **AUTH-01**: Admin user can log in with email/password at /admin/login
-- [ ] **AUTH-02**: Admin routes (/admin/**) protected — unauthenticated users redirected to login
+- [x] **AUTH-01**: Admin user can log in with email/password at /admin/login
+- [x] **AUTH-02**: Admin routes (/admin/**) protected — unauthenticated users redirected to login
 - [x] **AUTH-03**: Admin session persists across browser refresh (HTTP-only cookies)
-- [ ] **AUTH-04**: Admin user can log out from any admin page
+- [x] **AUTH-04**: Admin user can log out from any admin page
 
 ### Portfolio - Public
 
@@ -127,10 +127,10 @@ Deferred to future release. Tracked but not in current roadmap.
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Complete |
-| AUTH-01 | Phase 2 | Pending |
-| AUTH-02 | Phase 2 | Pending |
+| AUTH-01 | Phase 2 | Complete |
+| AUTH-02 | Phase 2 | Complete |
 | AUTH-03 | Phase 2 | Complete |
-| AUTH-04 | Phase 2 | Pending |
+| AUTH-04 | Phase 2 | Complete |
 | PORT-01 | Phase 3 | Pending |
 | PORT-02 | Phase 3 | Pending |
 | PORT-03 | Phase 3 | Pending |

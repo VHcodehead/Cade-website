@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-01-PLAN.md
-last_updated: "2026-03-30T22:49:08.938Z"
+stopped_at: Completed 02-02-PLAN.md
+last_updated: "2026-03-30T23:08:45.159Z"
 last_activity: 2026-03-30 — Roadmap created, 49/49 requirements mapped to 6 phases
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
   percent: 0
 ---
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-foundation-and-infrastructure P01 | 18 | 2 tasks | 12 files |
 | Phase 01-foundation-and-infrastructure P02 | 22 | 2 tasks | 11 files |
 | Phase 02-auth-system-and-data-layer P01 | 2 | 2 tasks | 8 files |
+| Phase 02-auth-system-and-data-layer P02 | 30 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -71,6 +72,9 @@ Recent decisions affecting current work:
 - [Phase 02-auth-system-and-data-layer]: Used jose HS256 for session JWT — symmetric key sufficient for single-server admin auth
 - [Phase 02-auth-system-and-data-layer]: SESSION_COOKIE_NAME exported constant shared between session.ts and dal.ts — prevents cookie name mismatch
 - [Phase 02-auth-system-and-data-layer]: Only userId in JWT payload — email/role never stored in token
+- [Phase 02-auth-system-and-data-layer]: proxy.ts runs in Edge Runtime — bcryptjs excluded; constant-time dummy hash used in login Server Action for timing attack prevention
+- [Phase 02-auth-system-and-data-layer]: Generic 'Invalid credentials.' error for both unknown email and wrong password — prevents user enumeration
+- [Phase 02-auth-system-and-data-layer]: verifySession() in page component not layout — Next.js layouts do not re-run on client-side navigation
 
 ### Pending Todos
 
@@ -85,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T22:49:08.936Z
-Stopped at: Completed 02-01-PLAN.md
+Last session: 2026-03-30T23:08:45.157Z
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
