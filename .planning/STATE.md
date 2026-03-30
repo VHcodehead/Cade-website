@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-foundation-and-infrastructure/01-01-PLAN.md
-last_updated: "2026-03-30T21:48:57.162Z"
+stopped_at: Completed 01-foundation-and-infrastructure/01-02-PLAN.md
+last_updated: "2026-03-30T21:59:37.450Z"
 last_activity: 2026-03-30 — Roadmap created, 49/49 requirements mapped to 6 phases
 progress:
   total_phases: 6
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -51,6 +51,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-foundation-and-infrastructure P01 | 18 | 2 tasks | 12 files |
+| Phase 01-foundation-and-infrastructure P02 | 22 | 2 tasks | 11 files |
 
 ## Accumulated Context
 
@@ -64,6 +65,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation-and-infrastructure]: Manual scaffold over create-next-app: npm naming restriction on uppercase directory name; identical outcome achieved manually
 - [Phase 01-foundation-and-infrastructure]: Tailwind v4 CSS-first: @theme in globals.css, no tailwind.config.js — v4 configuration-free pattern
 - [Phase 01-foundation-and-infrastructure]: Next.js 16.2.1 confirmed available; scaffolded with Turbopack, App Router, TypeScript, src/ dir structure
+- [Phase 01-foundation-and-infrastructure]: Prisma 7 uses PrismaPg adapter pattern — datasource URL in prisma.config.ts, not schema.prisma; PrismaClient constructor requires explicit adapter
+- [Phase 01-foundation-and-infrastructure]: Prisma 7 client import requires explicit /client.ts path — no index.ts generated; use from '../generated/prisma/client'
 
 ### Pending Todos
 
@@ -78,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-30T21:48:57.160Z
-Stopped at: Completed 01-foundation-and-infrastructure/01-01-PLAN.md
+Last session: 2026-03-30T21:59:37.448Z
+Stopped at: Completed 01-foundation-and-infrastructure/01-02-PLAN.md
 Resume file: None
