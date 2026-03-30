@@ -41,3 +41,11 @@ model ContactSubmission {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+model AdminUser {
+  id             String   @id @default(cuid())
+  email          String   @unique
+  hashedPassword String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}

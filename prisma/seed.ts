@@ -1,5 +1,6 @@
 import { PrismaClient } from '../src/generated/prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
+import bcryptjs from 'bcryptjs';
 
 const adapter = new PrismaPg({
   connectionString: process.env.DATABASE_URL,
@@ -285,7 +286,19 @@ async function main() {
   });
 
   console.log('SiteConfig seeded.');
-  console.log('Seed complete: 22 projects + SiteConfig.');
+
+  const adminEmail = process.env.ADMIN_EMAIL ?? 'admin@vlacovision.com';
+  const adminPassword = process.env.ADMIN_PASSWORD ?? 'changeme';
+  const hashedPassword = await bcryptjs.hash(adminPassword, 12);
+
+  await db.adminUser.upsert({
+    where: { email: adminEmail },
+    update: {},
+    create: { email: adminEmail, hashedPassword },
+  });
+  console.log(`  Admin user seeded: ${adminEmail}`);
+
+  console.log('Seed complete: 22 projects + SiteConfig + AdminUser.');
 }
 
 main()
