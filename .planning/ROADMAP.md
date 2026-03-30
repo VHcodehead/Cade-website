@@ -29,8 +29,8 @@
   5. The design system tokens (color palette, type scale, spacing) are defined in Tailwind config and produce correct dark editorial output on a test component
 **Plans:** 2/2 plans complete
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold Next.js 16, move legacy files, establish dark editorial design system
-- [ ] 01-02-PLAN.md — Prisma 7 schema + seed data, SEO redirects, Framer Motion LazyMotion provider
+- [x] 01-01-PLAN.md — Scaffold Next.js 16, move legacy files, establish dark editorial design system
+- [x] 01-02-PLAN.md — Prisma 7 schema + seed data, SEO redirects, Framer Motion LazyMotion provider
 
 ### Phase 2: Auth System and Data Layer
 **Goal**: Admin authentication is secure and complete — every subsequent admin feature can be built assuming `verifySession()` is already enforced
@@ -41,7 +41,10 @@ Plans:
   2. The admin user can log in with email/password at `/admin/login` and land on the admin dashboard
   3. Refreshing any admin page while authenticated keeps the user logged in (session survives browser refresh)
   4. Clicking "Log out" from any admin page clears the session and redirects to `/admin/login` — the back button does not expose admin content
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 02-01-PLAN.md — Install auth deps, AdminUser model + migration + seed, session.ts + dal.ts
+- [ ] 02-02-PLAN.md — proxy.ts route protection, login/logout actions, login page UI, admin layout
 
 ### Phase 3: Public Portfolio
 **Goal**: A potential client who visits the site experiences the full production quality of VLACOVISION — cinematic video, brand credibility, and a clear path to make contact
@@ -96,7 +99,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Infrastructure | 2/2 | Complete   | 2026-03-30 |
-| 2. Auth System and Data Layer | 0/? | Not started | - |
+| 2. Auth System and Data Layer | 0/2 | Planning complete | - |
 | 3. Public Portfolio | 0/? | Not started | - |
 | 4. Cinematic Animations | 0/? | Not started | - |
 | 5. Admin CMS | 0/? | Not started | - |
@@ -163,4 +166,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-03-30*
-*Last updated: 2026-03-30 — Phase 1 plans created (2 plans, 2 waves)*
+*Last updated: 2026-03-30 — Phase 2 plans created (2 plans, 2 waves)*
