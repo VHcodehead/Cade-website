@@ -41,7 +41,7 @@ Plans:
   2. The admin user can log in with email/password at `/admin/login` and land on the admin dashboard
   3. Refreshing any admin page while authenticated keeps the user logged in (session survives browser refresh)
   4. Clicking "Log out" from any admin page clears the session and redirects to `/admin/login` — the back button does not expose admin content
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 - [ ] 02-01-PLAN.md — Install auth deps, AdminUser model + migration + seed, session.ts + dal.ts
 - [ ] 02-02-PLAN.md — proxy.ts route protection, login/logout actions, login page UI, admin layout
@@ -99,7 +99,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation and Infrastructure | 2/2 | Complete   | 2026-03-30 |
-| 2. Auth System and Data Layer | 0/2 | Planning complete | - |
+| 2. Auth System and Data Layer | 1/2 | In Progress|  |
 | 3. Public Portfolio | 0/? | Not started | - |
 | 4. Cinematic Animations | 0/? | Not started | - |
 | 5. Admin CMS | 0/? | Not started | - |
