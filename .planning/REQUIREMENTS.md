@@ -145,6 +145,12 @@ Deferred to future release. Tracked but not in current roadmap.
 | LEAD-02 | Phase 3 | Pending |
 | LEAD-03 | Phase 3 | Pending |
 | LEAD-04 | Phase 3 | Pending |
+| SEO-01 | Phase 3 | Pending |
+| SEO-02 | Phase 3 | Pending |
+| SEO-03 | Phase 3 | Pending |
+| SEO-04 | Phase 3 | Pending |
+| RESP-01 | Phase 3 | Pending |
+| RESP-02 | Phase 3 | Pending |
 | ANIM-01 | Phase 4 | Pending |
 | ANIM-02 | Phase 4 | Pending |
 | ANIM-03 | Phase 4 | Pending |
@@ -156,22 +162,16 @@ Deferred to future release. Tracked but not in current roadmap.
 | ADMIN-04 | Phase 5 | Pending |
 | ADMIN-05 | Phase 5 | Pending |
 | ADMIN-06 | Phase 5 | Pending |
-| ADMIN-07 | Phase 5 | Pending |
 | ADMIN-08 | Phase 5 | Pending |
 | ADMIN-09 | Phase 5 | Pending |
 | ADMIN-10 | Phase 5 | Pending |
 | ADMIN-11 | Phase 5 | Pending |
 | ADMIN-12 | Phase 5 | Pending |
+| RESP-03 | Phase 5 | Pending |
+| ADMIN-07 | Phase 6 | Pending |
 | ANLYT-01 | Phase 6 | Pending |
 | ANLYT-02 | Phase 6 | Pending |
 | ANLYT-03 | Phase 6 | Pending |
-| SEO-01 | Phase 3 | Pending |
-| SEO-02 | Phase 3 | Pending |
-| SEO-03 | Phase 3 | Pending |
-| SEO-04 | Phase 3 | Pending |
-| RESP-01 | Phase 3 | Pending |
-| RESP-02 | Phase 3 | Pending |
-| RESP-03 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 49 total
@@ -180,4 +180,4 @@ Deferred to future release. Tracked but not in current roadmap.
 
 ---
 *Requirements defined: 2026-03-30*
-*Last updated: 2026-03-30 after initial definition*
+*Last updated: 2026-03-30 after roadmap creation — ADMIN-07 moved from Phase 5 to Phase 6*
