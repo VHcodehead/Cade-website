@@ -26,3 +26,11 @@ Thumbs.db
 # Build
 dist/
 build/
+
+# Next.js
+.next/
+out/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

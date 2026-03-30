@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #0A0A0A;
+  --color-bg-card: #111111;
+  --color-bg-section: #1A1A1A;
+  --color-text-primary: #F5F5F5;
+  --color-text-muted: rgba(245, 245, 245, 0.6);
+  --color-accent: #FF4400;
+
+  --font-heading: var(--font-syne), var(--font-inter), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  /* Spacing scale (8px grid) */
+  --spacing-1: 0.5rem;   /* 8px */
+  --spacing-2: 1rem;     /* 16px */
+  --spacing-3: 1.5rem;   /* 24px */
+  --spacing-4: 2rem;     /* 32px */
+  --spacing-8: 4rem;     /* 64px */
+  --spacing-16: 8rem;    /* 128px */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
