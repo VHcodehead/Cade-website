@@ -27,7 +27,7 @@
   3. Visiting the old URL pattern (e.g., `/projects/title.html`) redirects to the new route with a 301 — no SEO link rot
   4. The Framer Motion `LazyMotion` wrapper is present in the root layout and the bundle analyzer shows animation features are not eagerly loaded
   5. The design system tokens (color palette, type scale, spacing) are defined in Tailwind config and produce correct dark editorial output on a test component
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
 - [ ] 01-01-PLAN.md — Scaffold Next.js 16, move legacy files, establish dark editorial design system
 - [ ] 01-02-PLAN.md — Prisma 7 schema + seed data, SEO redirects, Framer Motion LazyMotion provider
@@ -95,7 +95,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Infrastructure | 0/2 | Planning complete | - |
+| 1. Foundation and Infrastructure | 1/2 | In Progress|  |
 | 2. Auth System and Data Layer | 0/? | Not started | - |
 | 3. Public Portfolio | 0/? | Not started | - |
 | 4. Cinematic Animations | 0/? | Not started | - |

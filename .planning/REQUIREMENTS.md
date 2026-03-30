@@ -9,11 +9,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Foundation
 
-- [ ] **FOUND-01**: Next.js project scaffolded with TypeScript, Tailwind CSS, App Router
+- [x] **FOUND-01**: Next.js project scaffolded with TypeScript, Tailwind CSS, App Router
 - [ ] **FOUND-02**: Prisma ORM configured with PostgreSQL database and initial schema
 - [ ] **FOUND-03**: SEO redirect mapping from old URL structure (projects/*.html) to new routes
 - [ ] **FOUND-04**: Framer Motion configured with LazyMotion at root layout level
-- [ ] **FOUND-05**: Dark editorial design system (color tokens, typography scale, spacing)
+- [x] **FOUND-05**: Dark editorial design system (color tokens, typography scale, spacing)
 
 ### Authentication
 
@@ -122,11 +122,11 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Pending |
 | FOUND-03 | Phase 1 | Pending |
 | FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Complete |
 | AUTH-01 | Phase 2 | Pending |
 | AUTH-02 | Phase 2 | Pending |
 | AUTH-03 | Phase 2 | Pending |
