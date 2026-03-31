@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 3 context gathered
-last_updated: "2026-03-31T05:15:11.693Z"
+stopped_at: Completed 03-01-PLAN.md
+last_updated: "2026-03-31T05:53:05.691Z"
 last_activity: 2026-03-30 — Roadmap created, 49/49 requirements mapped to 6 phases
 progress:
   total_phases: 6
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 8
+  completed_plans: 5
   percent: 0
 ---
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-foundation-and-infrastructure P02 | 22 | 2 tasks | 11 files |
 | Phase 02-auth-system-and-data-layer P01 | 2 | 2 tasks | 8 files |
 | Phase 02-auth-system-and-data-layer P02 | 30 | 3 tasks | 6 files |
+| Phase 03-public-portfolio P01 | 8 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,9 @@ Recent decisions affecting current work:
 - [Phase 02-auth-system-and-data-layer]: proxy.ts runs in Edge Runtime — bcryptjs excluded; constant-time dummy hash used in login Server Action for timing attack prevention
 - [Phase 02-auth-system-and-data-layer]: Generic 'Invalid credentials.' error for both unknown email and wrong password — prevents user enumeration
 - [Phase 02-auth-system-and-data-layer]: verifySession() in page component not layout — Next.js layouts do not re-run on client-side navigation
+- [Phase 03-public-portfolio]: (public) route group used for layout shell — allows admin routes to use a separate layout without URL impact
+- [Phase 03-public-portfolio]: vumbnail.com CDN used as zero-fetch fallback for Vimeo thumbnails — pure URL pattern, no additional HTTP request
+- [Phase 03-public-portfolio]: Footer as async Server Component — fetches SiteConfig.contactEmail directly from DB without API layer
 
 ### Pending Todos
 
@@ -89,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-31T05:15:11.691Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-public-portfolio/03-CONTEXT.md
+Last session: 2026-03-31T05:53:05.689Z
+Stopped at: Completed 03-01-PLAN.md
+Resume file: None

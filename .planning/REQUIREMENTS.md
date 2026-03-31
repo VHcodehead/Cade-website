@@ -39,7 +39,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **LEAD-01**: Contact form on public site (name, email, company, message)
 - [ ] **LEAD-02**: Form submissions stored in database
-- [ ] **LEAD-03**: Multiple CTA buttons throughout site driving to contact form
+- [x] **LEAD-03**: Multiple CTA buttons throughout site driving to contact form
 - [ ] **LEAD-04**: Contact form has client-side validation and success/error feedback
 
 ### Animations
@@ -74,13 +74,13 @@ Requirements for initial release. Each maps to roadmap phases.
 ### SEO & Performance
 
 - [ ] **SEO-01**: Unique meta title, description, and OG tags per page
-- [ ] **SEO-02**: Proper heading hierarchy and semantic HTML
+- [x] **SEO-02**: Proper heading hierarchy and semantic HTML
 - [ ] **SEO-03**: Fast initial load (< 3s LCP) via SSR and lazy loading
-- [ ] **SEO-04**: Image optimization via Next.js Image component
+- [x] **SEO-04**: Image optimization via Next.js Image component
 
 ### Responsive Design
 
-- [ ] **RESP-01**: Fully responsive layout across mobile, tablet, and desktop
+- [x] **RESP-01**: Fully responsive layout across mobile, tablet, and desktop
 - [ ] **RESP-02**: Video previews degrade gracefully on mobile (poster + tap to play)
 - [ ] **RESP-03**: Admin panel usable on tablet (desktop-optimized, tablet-functional)
 
@@ -143,13 +143,13 @@ Deferred to future release. Tracked but not in current roadmap.
 | PORT-10 | Phase 3 | Pending |
 | LEAD-01 | Phase 3 | Pending |
 | LEAD-02 | Phase 3 | Pending |
-| LEAD-03 | Phase 3 | Pending |
+| LEAD-03 | Phase 3 | Complete |
 | LEAD-04 | Phase 3 | Pending |
 | SEO-01 | Phase 3 | Pending |
-| SEO-02 | Phase 3 | Pending |
+| SEO-02 | Phase 3 | Complete |
 | SEO-03 | Phase 3 | Pending |
-| SEO-04 | Phase 3 | Pending |
-| RESP-01 | Phase 3 | Pending |
+| SEO-04 | Phase 3 | Complete |
+| RESP-01 | Phase 3 | Complete |
 | RESP-02 | Phase 3 | Pending |
 | ANIM-01 | Phase 4 | Pending |
 | ANIM-02 | Phase 4 | Pending |
