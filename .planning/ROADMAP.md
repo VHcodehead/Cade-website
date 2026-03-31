@@ -88,7 +88,7 @@ Plans:
   3. The owner can update the hero video, edit the about section text, change contact details, and upload/remove brand logos from the admin panel
   4. Contact form submissions from the public site appear in the admin inbox with read/unread status
   5. The admin panel is fully functional on a tablet (all forms reachable and submittable without horizontal scroll)
-**Plans:** 5 plans
+**Plans:** 1/5 plans executed
 Plans:
 - [ ] 05-01-PLAN.md — Schema migration, admin sidebar layout, dashboard with overview cards
 - [ ] 05-02-PLAN.md — Project Server Actions, project list with optimistic publish toggle and delete
@@ -116,7 +116,7 @@ Plans:
 | 2. Auth System and Data Layer | 2/2 | Complete   | 2026-03-30 |
 | 3. Public Portfolio | 2/4 | In Progress|  |
 | 4. Cinematic Animations | 2/2 | Complete   | 2026-03-31 |
-| 5. Admin CMS | 0/5 | Not started | - |
+| 5. Admin CMS | 1/5 | In Progress|  |
 | 6. Analytics and Advanced Admin | 0/? | Not started | - |
 
 ---

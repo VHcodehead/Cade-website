@@ -52,7 +52,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Admin CMS
 
-- [ ] **ADMIN-01**: Admin dashboard home page with overview
+- [x] **ADMIN-01**: Admin dashboard home page with overview
 - [ ] **ADMIN-02**: Project list view with all projects and their status (published/draft)
 - [ ] **ADMIN-03**: Create new project form (title, client, services, year, description, Vimeo URL, preview clip upload, thumbnail)
 - [ ] **ADMIN-04**: Edit existing project
@@ -82,7 +82,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **RESP-01**: Fully responsive layout across mobile, tablet, and desktop
 - [ ] **RESP-02**: Video previews degrade gracefully on mobile (poster + tap to play)
-- [ ] **RESP-03**: Admin panel usable on tablet (desktop-optimized, tablet-functional)
+- [x] **RESP-03**: Admin panel usable on tablet (desktop-optimized, tablet-functional)
 
 ## v2 Requirements
 
@@ -156,7 +156,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | ANIM-03 | Phase 4 | Complete |
 | ANIM-04 | Phase 4 | Complete |
 | ANIM-05 | Phase 4 | Complete |
-| ADMIN-01 | Phase 5 | Pending |
+| ADMIN-01 | Phase 5 | Complete |
 | ADMIN-02 | Phase 5 | Pending |
 | ADMIN-03 | Phase 5 | Pending |
 | ADMIN-04 | Phase 5 | Pending |
@@ -167,7 +167,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | ADMIN-10 | Phase 5 | Pending |
 | ADMIN-11 | Phase 5 | Pending |
 | ADMIN-12 | Phase 5 | Pending |
-| RESP-03 | Phase 5 | Pending |
+| RESP-03 | Phase 5 | Complete |
 | ADMIN-07 | Phase 6 | Pending |
 | ANLYT-01 | Phase 6 | Pending |
 | ANLYT-02 | Phase 6 | Pending |
