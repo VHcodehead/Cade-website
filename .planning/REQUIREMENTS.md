@@ -37,10 +37,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Contact & Lead Gen
 
-- [ ] **LEAD-01**: Contact form on public site (name, email, company, message)
-- [ ] **LEAD-02**: Form submissions stored in database
+- [x] **LEAD-01**: Contact form on public site (name, email, company, message)
+- [x] **LEAD-02**: Form submissions stored in database
 - [x] **LEAD-03**: Multiple CTA buttons throughout site driving to contact form
-- [ ] **LEAD-04**: Contact form has client-side validation and success/error feedback
+- [x] **LEAD-04**: Contact form has client-side validation and success/error feedback
 
 ### Animations
 
@@ -141,10 +141,10 @@ Deferred to future release. Tracked but not in current roadmap.
 | PORT-08 | Phase 3 | Pending |
 | PORT-09 | Phase 3 | Pending |
 | PORT-10 | Phase 3 | Pending |
-| LEAD-01 | Phase 3 | Pending |
-| LEAD-02 | Phase 3 | Pending |
+| LEAD-01 | Phase 3 | Complete |
+| LEAD-02 | Phase 3 | Complete |
 | LEAD-03 | Phase 3 | Complete |
-| LEAD-04 | Phase 3 | Pending |
+| LEAD-04 | Phase 3 | Complete |
 | SEO-01 | Phase 3 | Pending |
 | SEO-02 | Phase 3 | Complete |
 | SEO-03 | Phase 3 | Pending |
