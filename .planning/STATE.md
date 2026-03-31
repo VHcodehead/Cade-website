@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-03-31T05:56:19.378Z"
+stopped_at: Completed 03-04-PLAN.md
+last_updated: "2026-03-31T06:28:17.990Z"
 last_activity: 2026-03-30 — Roadmap created, 49/49 requirements mapped to 6 phases
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 8
-  completed_plans: 6
+  completed_plans: 8
   percent: 0
 ---
 
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-auth-system-and-data-layer P02 | 30 | 3 tasks | 6 files |
 | Phase 03-public-portfolio P01 | 8 | 2 tasks | 7 files |
 | Phase 03-public-portfolio P03 | 1 | 2 tasks | 2 files |
+| Phase 03-public-portfolio P04 | 17 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,8 @@ Recent decisions affecting current work:
 - [Phase 03-public-portfolio]: Zod v4 flatten().fieldErrors pattern confirmed working — no API changes needed
 - [Phase 03-public-portfolio]: company field stored as empty string (not null) matching Prisma schema default
 - [Phase 03-public-portfolio]: Success state replaces entire form section — no redirect per locked decision
+- [Phase 03-public-portfolio]: VideoFacade swaps poster image to Vimeo iframe on click — defers iframe load for LCP performance
+- [Phase 03-public-portfolio]: ContactForm replaces contact placeholder section — component owns id='contact' wrapper so all #contact anchors resolve
 
 ### Pending Todos
 
@@ -97,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-31T05:56:19.376Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-03-31T06:28:17.988Z
+Stopped at: Completed 03-04-PLAN.md
 Resume file: None
