@@ -48,7 +48,7 @@ export function ProjectCard({
 
   return (
     <div
-      className={`group relative${isFeatured ? ' sm:col-span-2' : ''}`}
+      className={`group relative transition-transform duration-200 hover:scale-[1.02]${isFeatured ? ' sm:col-span-2' : ''}`}
       ref={cardRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
