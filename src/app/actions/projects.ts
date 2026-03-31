@@ -185,3 +185,18 @@ export async function deleteProject(id: string): Promise<void> {
   revalidatePath('/admin/projects')
   revalidatePath('/', 'layout')
 }
+
+export async function reorderProjects(
+  items: Array<{ id: string; sortOrder: number }>
+): Promise<void> {
+  await verifySession()
+
+  await db.$transaction(
+    items.map(({ id, sortOrder }) =>
+      db.project.update({ where: { id }, data: { sortOrder } })
+    )
+  )
+
+  revalidatePath('/admin/projects')
+  revalidatePath('/', 'layout')
+}
