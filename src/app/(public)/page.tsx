@@ -7,6 +7,7 @@ import { PortfolioGrid } from '@/components/sections/portfolio-grid';
 import { About } from '@/components/sections/about';
 import { CTAButton } from '@/components/ui/cta-button';
 import { ContactForm } from '@/components/sections/contact-form';
+import { RevealSection } from '@/components/animations/reveal-section';
 
 export const metadata: Metadata = {
   title: 'VLACOVISION — Premium Video Production',
@@ -43,21 +44,25 @@ export default async function HomePage() {
       <Hero heroVimeoId={heroVimeoId} />
 
       {/* 2. Primary CTA after hero */}
-      <section className="flex justify-center py-spacing-8">
-        <CTAButton variant="primary" href="#contact">
-          Start a Project
-        </CTAButton>
-      </section>
+      <RevealSection>
+        <section className="flex justify-center py-spacing-8">
+          <CTAButton variant="primary" href="#contact">
+            Start a Project
+          </CTAButton>
+        </section>
+      </RevealSection>
 
       {/* 3. Brand logos marquee */}
       <BrandLogos />
 
       {/* 4. Secondary CTA after brand logos (per locked CTA placement decision) */}
-      <section className="flex justify-center py-spacing-8">
-        <CTAButton variant="secondary" href="#contact">
-          Get in Touch
-        </CTAButton>
-      </section>
+      <RevealSection>
+        <section className="flex justify-center py-spacing-8">
+          <CTAButton variant="secondary" href="#contact">
+            Get in Touch
+          </CTAButton>
+        </section>
+      </RevealSection>
 
       {/* 5. Portfolio grid — all published projects */}
       <PortfolioGrid projects={projects} thumbnailUrls={thumbnailUrls} />

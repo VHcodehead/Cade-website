@@ -1,6 +1,8 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { m } from 'framer-motion';
+import { DURATION } from '@/lib/animation-config';
 
 interface HeroClientProps {
   heroVimeoId: string;
@@ -41,14 +43,19 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
       </div>
 
       {/* Top-left brand name */}
-      <div className="absolute top-6 left-6 z-10">
+      <m.div
+        className="absolute top-6 left-6 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: DURATION.cinematic, delay: 0.5 }}
+      >
         <span
           className="text-2xl uppercase tracking-widest text-text-primary"
           style={{ fontFamily: 'var(--font-heading)' }}
         >
           VLACOVISION
         </span>
-      </div>
+      </m.div>
 
       {/* Bottom-right sound toggle */}
       <button

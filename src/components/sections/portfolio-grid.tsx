@@ -1,4 +1,7 @@
+'use client';
+
 import { ProjectCard } from '@/components/portfolio/project-card';
+import { AnimatedGrid, AnimatedGridItem } from '@/components/animations/reveal-grid-item';
 
 interface Project {
   slug: string;
@@ -17,20 +20,21 @@ interface PortfolioGridProps {
 export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
   return (
     <section id="work" className="px-0">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[2px]">
+      <AnimatedGrid className="grid grid-cols-1 sm:grid-cols-2 gap-[2px]">
         {projects.map((project, index) => (
-          <ProjectCard
-            key={project.slug}
-            slug={project.slug}
-            title={project.title}
-            client={project.client}
-            vimeoId={project.vimeoId}
-            thumbnailUrl={thumbnailUrls[project.slug] ?? null}
-            isFeatured={index % 5 === 0}
-            description={project.description}
-          />
+          <AnimatedGridItem key={project.slug}>
+            <ProjectCard
+              slug={project.slug}
+              title={project.title}
+              client={project.client}
+              vimeoId={project.vimeoId}
+              thumbnailUrl={thumbnailUrls[project.slug] ?? null}
+              isFeatured={index % 5 === 0}
+              description={project.description}
+            />
+          </AnimatedGridItem>
         ))}
-      </div>
+      </AnimatedGrid>
     </section>
   );
 }

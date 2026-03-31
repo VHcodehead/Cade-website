@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { RevealSection } from '@/components/animations/reveal-section';
 
 const BRAND_LOGOS = [
   { name: 'AETHER', src: '/assets/AETHER_PNG.png' },
@@ -27,9 +28,11 @@ const BRAND_LOGOS = [
 export function BrandLogos() {
   return (
     <section className="py-spacing-8 bg-bg-base overflow-hidden">
-      <p className="text-xs uppercase tracking-widest text-text-muted text-center mb-6">
-        TRUSTED BY
-      </p>
+      <RevealSection>
+        <p className="text-xs uppercase tracking-widest text-text-muted text-center mb-6">
+          TRUSTED BY
+        </p>
+      </RevealSection>
 
       {/* Marquee container */}
       <div
