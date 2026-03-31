@@ -23,6 +23,12 @@ export type ProjectActionState = {
   errors?: Partial<Record<string, string[]>>
 }
 
+function extractVimeoId(input: string): string {
+  const match = input.match(/vimeo\.com\/(\d+)/)
+  if (match) return match[1]
+  return input.trim()
+}
+
 function generateSlug(title: string): string {
   return title
     .toLowerCase()
@@ -36,13 +42,16 @@ export async function createProject(
 ): Promise<ProjectActionState> {
   await verifySession()
 
+  const rawVimeoId = formData.get('vimeoId') as string
+  const vimeoIdInput = extractVimeoId(rawVimeoId ?? '')
+
   const parsed = ProjectSchema.safeParse({
     title: formData.get('title'),
     client: formData.get('client'),
     services: formData.get('services') || '',
     year: formData.get('year'),
     description: formData.get('description') || '',
-    vimeoId: formData.get('vimeoId'),
+    vimeoId: vimeoIdInput,
     thumbnailUrl: formData.get('thumbnailUrl') || undefined,
     published: formData.get('published'),
   })
@@ -98,13 +107,16 @@ export async function updateProject(
 ): Promise<ProjectActionState> {
   await verifySession()
 
+  const rawVimeoId = formData.get('vimeoId') as string
+  const vimeoIdInput = extractVimeoId(rawVimeoId ?? '')
+
   const parsed = ProjectSchema.safeParse({
     title: formData.get('title'),
     client: formData.get('client'),
     services: formData.get('services') || '',
     year: formData.get('year'),
     description: formData.get('description') || '',
-    vimeoId: formData.get('vimeoId'),
+    vimeoId: vimeoIdInput,
     thumbnailUrl: formData.get('thumbnailUrl') || undefined,
     published: formData.get('published'),
   })
