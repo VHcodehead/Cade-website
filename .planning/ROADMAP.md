@@ -73,7 +73,10 @@ Plans:
   2. Scrolling down the home page triggers staggered reveal animations on portfolio grid items and section headings entering the viewport
   3. Hovering over CTAs, nav links, and brand logos produces a smooth micro-animation response (not an instant state jump)
   4. On a device with `prefers-reduced-motion: reduce` set, all animations are disabled and content is immediately visible without motion
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 04-01-PLAN.md — Animation config, MotionProvider reduced-motion, clip-path page transition, scroll-reveal wrapper components
+- [ ] 04-02-PLAN.md — Integrate animations into all sections: grid stagger, hero fade-in, about/brand reveals, CTA/card hover effects
 
 ### Phase 5: Admin CMS
 **Goal**: The owner can manage all site content independently — adding projects, updating the hero, editing the about section, uploading logos, and reading contact messages — without touching code
@@ -106,7 +109,7 @@ Plans:
 | 1. Foundation and Infrastructure | 2/2 | Complete   | 2026-03-30 |
 | 2. Auth System and Data Layer | 2/2 | Complete   | 2026-03-30 |
 | 3. Public Portfolio | 2/4 | In Progress|  |
-| 4. Cinematic Animations | 0/? | Not started | - |
+| 4. Cinematic Animations | 0/2 | Not started | - |
 | 5. Admin CMS | 0/? | Not started | - |
 | 6. Analytics and Advanced Admin | 0/? | Not started | - |
 
@@ -171,4 +174,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-03-30*
-*Last updated: 2026-03-30 — Phase 3 plans created (4 plans, 3 waves)*
+*Last updated: 2026-03-30 — Phase 4 plans created (2 plans, 2 waves)*
