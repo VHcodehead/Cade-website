@@ -2,6 +2,7 @@
 
 import { useOptimistic, useState, useTransition } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { togglePublished, deleteProject } from '@/app/actions/projects'
 
 type Project = {
@@ -70,7 +71,7 @@ export function ProjectList({ projects }: { projects: Project[] }) {
   return (
     <div className="flex flex-col gap-2">
       {/* Header row — hidden on mobile */}
-      <div className="hidden md:grid grid-cols-[64px_1fr_160px_80px_120px_120px] gap-4 px-4 py-2 text-xs uppercase tracking-wider text-text-muted border-b border-white/10">
+      <div className="hidden md:grid grid-cols-[64px_1fr_160px_80px_120px_160px] gap-4 px-4 py-2 text-xs uppercase tracking-wider text-text-muted border-b border-white/10">
         <span>Thumb</span>
         <span>Title / Client</span>
         <span>Year</span>
@@ -87,7 +88,7 @@ export function ProjectList({ projects }: { projects: Project[] }) {
         return (
           <div
             key={project.id}
-            className="bg-bg-card border border-white/10 rounded-lg px-4 py-3 flex flex-col md:grid md:grid-cols-[64px_1fr_160px_80px_120px_120px] md:items-center gap-3 md:gap-4"
+            className="bg-bg-card border border-white/10 rounded-lg px-4 py-3 flex flex-col md:grid md:grid-cols-[64px_1fr_160px_80px_120px_160px] md:items-center gap-3 md:gap-4"
           >
             {/* Thumbnail */}
             <div className="w-16 h-10 rounded overflow-hidden flex-shrink-0 bg-bg-section">
@@ -138,8 +139,14 @@ export function ProjectList({ projects }: { projects: Project[] }) {
               </button>
             </div>
 
-            {/* Delete / confirm */}
+            {/* Edit / Delete */}
             <div className="flex items-center gap-2">
+              <Link
+                href={`/admin/projects/${project.id}`}
+                className="px-3 py-1 rounded text-xs font-medium bg-accent/20 text-accent hover:bg-accent/30 transition-colors"
+              >
+                Edit
+              </Link>
               {isConfirmingDelete ? (
                 <div className="flex flex-col gap-1">
                   <p className="text-xs text-text-muted">

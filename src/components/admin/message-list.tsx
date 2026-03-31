@@ -53,7 +53,7 @@ function MessageRow({ message }: { message: Message }) {
   return (
     <div
       className={[
-        'flex items-center gap-4 px-5 py-4 hover:bg-bg-elevated transition-colors group',
+        'flex items-center gap-4 px-5 py-4 hover:bg-bg-section transition-colors group',
         !message.read ? 'border-l-2 border-accent' : 'border-l-2 border-transparent',
       ].join(' ')}
     >
