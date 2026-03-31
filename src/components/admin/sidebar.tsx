@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: 'Settings', href: '/admin/settings' },
   { label: 'Brand Logos', href: '/admin/logos' },
   { label: 'Messages', href: '/admin/messages' },
+  { label: 'Analytics', href: '/admin/analytics' },
 ]
 
 export default function AdminSidebar() {
