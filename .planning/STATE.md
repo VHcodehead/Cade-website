@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-31T07:18:10.168Z"
+stopped_at: Completed 04-cinematic-animations 04-01-PLAN.md
+last_updated: "2026-03-31T17:19:32.656Z"
 last_activity: 2026-03-30 — Roadmap created, 49/49 requirements mapped to 6 phases
 progress:
   total_phases: 6
   completed_phases: 3
-  total_plans: 8
-  completed_plans: 8
+  total_plans: 10
+  completed_plans: 9
   percent: 0
 ---
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-public-portfolio P01 | 8 | 2 tasks | 7 files |
 | Phase 03-public-portfolio P03 | 1 | 2 tasks | 2 files |
 | Phase 03-public-portfolio P04 | 17 | 2 tasks | 3 files |
+| Phase 04-cinematic-animations P01 | 2 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,9 @@ Recent decisions affecting current work:
 - [Phase 03-public-portfolio]: Success state replaces entire form section — no redirect per locked decision
 - [Phase 03-public-portfolio]: VideoFacade swaps poster image to Vimeo iframe on click — defers iframe load for LCP performance
 - [Phase 03-public-portfolio]: ContactForm replaces contact placeholder section — component owns id='contact' wrapper so all #contact anchors resolve
+- [Phase 04-cinematic-animations]: template.tsx used for enter-only clip-path wipe — Next.js remounts template on every route change, no AnimatePresence needed
+- [Phase 04-cinematic-animations]: MotionConfig reducedMotion='user' placed inside LazyMotion wrapping all page content — single source of reduced-motion truth site-wide
+- [Phase 04-cinematic-animations]: AnimatedGridItem wraps outside ProjectCard to avoid conflicting with ProjectCard's IntersectionObserver for lazy thumbnail loading
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-31T07:18:10.166Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-cinematic-animations/04-CONTEXT.md
+Last session: 2026-03-31T17:19:32.653Z
+Stopped at: Completed 04-cinematic-animations 04-01-PLAN.md
+Resume file: None

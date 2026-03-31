@@ -44,11 +44,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Animations
 
-- [ ] **ANIM-01**: Cinematic page transitions between routes (Framer Motion AnimatePresence)
+- [x] **ANIM-01**: Cinematic page transitions between routes (Framer Motion AnimatePresence)
 - [ ] **ANIM-02**: Scroll-triggered reveal animations on grid items and sections (whileInView)
 - [ ] **ANIM-03**: Staggered animation on portfolio grid items entering viewport
 - [ ] **ANIM-04**: Smooth hover effects on interactive elements (CTAs, nav links, logos)
-- [ ] **ANIM-05**: Respects prefers-reduced-motion for accessibility
+- [x] **ANIM-05**: Respects prefers-reduced-motion for accessibility
 
 ### Admin CMS
 
@@ -151,11 +151,11 @@ Deferred to future release. Tracked but not in current roadmap.
 | SEO-04 | Phase 3 | Complete |
 | RESP-01 | Phase 3 | Complete |
 | RESP-02 | Phase 3 | Pending |
-| ANIM-01 | Phase 4 | Pending |
+| ANIM-01 | Phase 4 | Complete |
 | ANIM-02 | Phase 4 | Pending |
 | ANIM-03 | Phase 4 | Pending |
 | ANIM-04 | Phase 4 | Pending |
-| ANIM-05 | Phase 4 | Pending |
+| ANIM-05 | Phase 4 | Complete |
 | ADMIN-01 | Phase 5 | Pending |
 | ADMIN-02 | Phase 5 | Pending |
 | ADMIN-03 | Phase 5 | Pending |
