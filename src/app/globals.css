@@ -33,3 +33,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Mobile touch device: hide desktop hover overlay, show play icon */
+@media (hover: none) {
+  .mobile-play-icon {
+    display: flex !important;
+  }
+  .hidden-on-touch {
+    display: none !important;
+  }
+}
+
+@media (hover: hover) {
+  .mobile-play-icon {
+    display: none !important;
+  }
+}
