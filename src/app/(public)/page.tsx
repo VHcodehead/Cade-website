@@ -8,6 +8,7 @@ import { About } from '@/components/sections/about';
 import { CTAButton } from '@/components/ui/cta-button';
 import { ContactForm } from '@/components/sections/contact-form';
 import { RevealSection } from '@/components/animations/reveal-section';
+import { AnalyticsTracker } from '@/components/analytics/page-tracker';
 
 export const metadata: Metadata = {
   title: 'VLACOVISION — Premium Video Production',
@@ -40,6 +41,9 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* Silent page view tracker — fires sendBeacon on mount, no visible UI */}
+      <AnalyticsTracker page="/" />
+
       {/* 1. Hero — full-viewport Vimeo background */}
       <Hero heroVimeoId={heroVimeoId} />
 

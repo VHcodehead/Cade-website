@@ -4,6 +4,7 @@ import { ProjectCard } from '@/components/portfolio/project-card';
 import { AnimatedGrid, AnimatedGridItem } from '@/components/animations/reveal-grid-item';
 
 interface Project {
+  id: string;
   slug: string;
   title: string;
   client: string;
@@ -24,6 +25,7 @@ export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
         {projects.map((project, index) => (
           <AnimatedGridItem key={project.slug}>
             <ProjectCard
+              id={project.id}
               slug={project.slug}
               title={project.title}
               client={project.client}

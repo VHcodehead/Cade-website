@@ -5,6 +5,7 @@ import { db } from '@/lib/db'
 import { getVimeoThumbnail } from '@/lib/vimeo'
 import { VideoFacade } from '@/components/portfolio/video-facade'
 import { CTAButton } from '@/components/ui/cta-button'
+import { AnalyticsTracker } from '@/components/analytics/page-tracker'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -61,6 +62,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <>
+      {/* Silent page view tracker — fires sendBeacon on mount, no visible UI */}
+      <AnalyticsTracker page={`/projects/${slug}`} projectId={project.id} />
+
       {/* Full-width video facade at top */}
       <VideoFacade
         vimeoId={project.vimeoId}

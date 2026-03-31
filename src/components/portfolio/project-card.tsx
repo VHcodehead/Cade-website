@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface ProjectCardProps {
+  id: string;
   slug: string;
   title: string;
   client: string;
@@ -15,6 +16,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({
+  id,
   slug,
   title,
   client,
@@ -26,6 +28,7 @@ export function ProjectCard({
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const hasTrackedPlay = useRef<boolean>(false);
 
   // IntersectionObserver for lazy loading
   useEffect(() => {
@@ -45,6 +48,31 @@ export function ProjectCard({
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  // Track VIDEO_PLAY once per card per page load when hover-to-play activates
+  useEffect(() => {
+    if (isHovered && !hasTrackedPlay.current) {
+      hasTrackedPlay.current = true;
+      const payload = JSON.stringify({
+        eventType: 'VIDEO_PLAY',
+        page: '/projects/' + slug,
+        projectId: id,
+      });
+      if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+        navigator.sendBeacon(
+          '/api/analytics/event',
+          new Blob([payload], { type: 'application/json' })
+        );
+      } else {
+        fetch('/api/analytics/event', {
+          method: 'POST',
+          body: payload,
+          keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+        }).catch(() => {});
+      }
+    }
+  }, [isHovered, slug, id]);
 
   return (
     <div
