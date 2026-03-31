@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 04-cinematic-animations 04-01-PLAN.md
-last_updated: "2026-03-31T17:19:32.656Z"
+stopped_at: "Checkpoint: 04-02 Task 3 visual verification"
+last_updated: "2026-03-31T17:24:12.502Z"
 last_activity: 2026-03-30 — Roadmap created, 49/49 requirements mapped to 6 phases
 progress:
   total_phases: 6
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
   percent: 0
 ---
 
@@ -58,6 +58,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-public-portfolio P03 | 1 | 2 tasks | 2 files |
 | Phase 03-public-portfolio P04 | 17 | 2 tasks | 3 files |
 | Phase 04-cinematic-animations P01 | 2 | 2 tasks | 5 files |
+| Phase 04-cinematic-animations P02 | 5 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -90,6 +91,8 @@ Recent decisions affecting current work:
 - [Phase 04-cinematic-animations]: template.tsx used for enter-only clip-path wipe — Next.js remounts template on every route change, no AnimatePresence needed
 - [Phase 04-cinematic-animations]: MotionConfig reducedMotion='user' placed inside LazyMotion wrapping all page content — single source of reduced-motion truth site-wide
 - [Phase 04-cinematic-animations]: AnimatedGridItem wraps outside ProjectCard to avoid conflicting with ProjectCard's IntersectionObserver for lazy thumbnail loading
+- [Phase 04-cinematic-animations]: portfolio-grid.tsx converted to 'use client' — needed for AnimatedGrid/AnimatedGridItem client wrappers; animation requires client boundary
+- [Phase 04-cinematic-animations]: project-card.tsx uses CSS hover:scale-[1.02] not Framer Motion whileHover — avoids conflicting with existing complex hover state managing Vimeo iframe injection
 
 ### Pending Todos
 
@@ -104,6 +107,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-31T17:19:32.653Z
-Stopped at: Completed 04-cinematic-animations 04-01-PLAN.md
+Last session: 2026-03-31T17:24:12.499Z
+Stopped at: Checkpoint: 04-02 Task 3 visual verification
 Resume file: None
