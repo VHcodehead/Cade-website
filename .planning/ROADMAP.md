@@ -104,7 +104,10 @@ Plans:
   1. The owner can drag a project card in the admin list to a new position, drop it, and immediately see the public portfolio grid reflect the new order (persists after page refresh)
   2. Page views and video play events are silently tracked as users browse the public site — no visible UI change, no performance impact
   3. The admin analytics dashboard shows total page visits, video play counts per project, and a ranked list of most-viewed projects — data is accurate relative to actual traffic
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 06-01-PLAN.md — Drag-and-drop project reordering with @hello-pangea/dnd and reorderProjects Server Action
+- [ ] 06-02-PLAN.md — AnalyticsEvent schema, sendBeacon tracking on public pages, admin analytics dashboard
 
 ---
 
@@ -117,7 +120,7 @@ Plans:
 | 3. Public Portfolio | 2/4 | In Progress|  |
 | 4. Cinematic Animations | 2/2 | Complete   | 2026-03-31 |
 | 5. Admin CMS | 1/5 | In Progress|  |
-| 6. Analytics and Advanced Admin | 0/? | Not started | - |
+| 6. Analytics and Advanced Admin | 0/2 | Not started | - |
 
 ---
 
@@ -180,4 +183,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-03-30*
-*Last updated: 2026-03-31 — Phase 5 plans created (5 plans, 2 waves)*
+*Last updated: 2026-03-30 — Phase 6 plans created (2 plans, 1 wave)*
