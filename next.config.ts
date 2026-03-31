@@ -4,6 +4,18 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.vimeocdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'vumbnail.com',
+      },
+    ],
+  },
   async redirects() {
     return [
       { source: '/projects/aether-nz.html', destination: '/projects/aether-nz', permanent: true },
