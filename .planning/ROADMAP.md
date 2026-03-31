@@ -88,7 +88,13 @@ Plans:
   3. The owner can update the hero video, edit the about section text, change contact details, and upload/remove brand logos from the admin panel
   4. Contact form submissions from the public site appear in the admin inbox with read/unread status
   5. The admin panel is fully functional on a tablet (all forms reachable and submittable without horizontal scroll)
-**Plans**: TBD
+**Plans:** 5 plans
+Plans:
+- [ ] 05-01-PLAN.md — Schema migration, admin sidebar layout, dashboard with overview cards
+- [ ] 05-02-PLAN.md — Project Server Actions, project list with optimistic publish toggle and delete
+- [ ] 05-03-PLAN.md — Shared project form component, create and edit project pages
+- [ ] 05-04-PLAN.md — Settings page (hero, about, contact) and brand logo management
+- [ ] 05-05-PLAN.md — Contact message inbox with read/unread tracking and detail view
 
 ### Phase 6: Analytics and Advanced Admin
 **Goal**: The owner has visibility into which projects get the most attention and can reorder the portfolio to reflect strategic priorities — without any data loss or page refresh inconsistencies
@@ -110,7 +116,7 @@ Plans:
 | 2. Auth System and Data Layer | 2/2 | Complete   | 2026-03-30 |
 | 3. Public Portfolio | 2/4 | In Progress|  |
 | 4. Cinematic Animations | 2/2 | Complete   | 2026-03-31 |
-| 5. Admin CMS | 0/? | Not started | - |
+| 5. Admin CMS | 0/5 | Not started | - |
 | 6. Analytics and Advanced Admin | 0/? | Not started | - |
 
 ---
@@ -174,4 +180,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-03-30*
-*Last updated: 2026-03-30 — Phase 4 plans created (2 plans, 2 waves)*
+*Last updated: 2026-03-31 — Phase 5 plans created (5 plans, 2 waves)*
