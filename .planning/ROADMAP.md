@@ -57,7 +57,12 @@ Plans:
   4. All 22 existing projects are visible in the grid with real Vimeo IDs and the Nike/Disney/Lululemon brand logo strip appears on the home page
   5. Submitting the contact form with valid inputs shows a success state, and the submission is stored in the database (verifiable via direct DB query)
   6. Every public page has a unique title, meta description, and OG tag — Lighthouse SEO score is 90+
-**Plans**: TBD
+**Plans:** 4 plans
+Plans:
+- [ ] 03-01-PLAN.md — Vimeo config, thumbnail utility, public layout shell (nav + footer + CTA button)
+- [ ] 03-02-PLAN.md — Homepage sections: hero video, brand logos, portfolio grid, about section
+- [ ] 03-03-PLAN.md — Contact form Server Action with Zod validation and useActionState UI
+- [ ] 03-04-PLAN.md — Project detail page with video facade, prev/next nav, SEO metadata
 
 ### Phase 4: Cinematic Animations
 **Goal**: The site feels like a premium motion studio built it — transitions are smooth, reveals are deliberate, and motion never blocks content
@@ -100,7 +105,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation and Infrastructure | 2/2 | Complete   | 2026-03-30 |
 | 2. Auth System and Data Layer | 2/2 | Complete   | 2026-03-30 |
-| 3. Public Portfolio | 0/? | Not started | - |
+| 3. Public Portfolio | 0/4 | Planning complete | - |
 | 4. Cinematic Animations | 0/? | Not started | - |
 | 5. Admin CMS | 0/? | Not started | - |
 | 6. Analytics and Advanced Admin | 0/? | Not started | - |
@@ -166,4 +171,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-03-30*
-*Last updated: 2026-03-30 — Phase 2 plans created (2 plans, 2 waves)*
+*Last updated: 2026-03-30 — Phase 3 plans created (4 plans, 3 waves)*
