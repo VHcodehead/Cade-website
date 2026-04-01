@@ -20,13 +20,16 @@ function LogoSet() {
   return (
     <>
       {BRAND_LOGOS.map((logo, i) => (
-        <div key={i} className="shrink-0 flex items-center justify-center mx-10 sm:mx-14 lg:mx-16">
+        <div
+          key={i}
+          className="shrink-0 w-[160px] sm:w-[200px] h-[60px] sm:h-[70px] flex items-center justify-center mx-8 sm:mx-12 lg:mx-16"
+        >
           <Image
             src={logo.src}
             alt={logo.name}
-            width={160}
+            width={180}
             height={60}
-            className="h-8 sm:h-10 lg:h-11 w-auto max-w-[140px] object-contain brightness-0 invert opacity-50"
+            className="max-h-[40px] sm:max-h-[50px] w-auto max-w-[160px] sm:max-w-[180px] object-contain"
             unoptimized
           />
         </div>
@@ -45,12 +48,12 @@ export function BrandLogos() {
       </RevealSection>
 
       {/* Frosted glass strip */}
-      <div className="relative py-8 sm:py-10 bg-white/[0.02] border-y border-white/[0.04]">
+      <div className="relative py-10 sm:py-14 bg-white/[0.03] border-y border-white/[0.04]">
         {/* Edge fades */}
         <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
-        {/* Seamless marquee — two identical sets side by side */}
+        {/* Seamless marquee */}
         <div className="flex w-max logo-marquee">
           <div className="flex shrink-0">
             <LogoSet />

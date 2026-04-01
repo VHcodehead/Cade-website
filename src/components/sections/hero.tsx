@@ -48,27 +48,16 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
       {/* Bottom gradient — tall, smooth dissolve into bg */}
       <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-bg-base via-bg-base/60 to-transparent pointer-events-none z-10" />
 
-      {/* Center tagline — large, confident, editorial */}
+      {/* Bottom-left subtle tagline — not center, doesn't compete with video */}
       <m.div
-        className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.6, ease: EASING_SMOOTH }}
+        className="absolute bottom-24 left-10 sm:left-14 lg:left-20 z-10 pointer-events-none"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1, ease: EASING_SMOOTH }}
       >
-        <h1
-          className="text-[clamp(2rem,5vw,4.5rem)] uppercase tracking-[0.3em] text-text-primary text-center leading-none"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          VLACOVISION
-        </h1>
-        <m.p
-          className="mt-6 text-[11px] uppercase tracking-[0.35em] text-text-muted/50"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4, ease: EASING_SMOOTH }}
-        >
+        <p className="text-[10px] uppercase tracking-[0.35em] text-text-primary/40">
           Film &middot; Direction &middot; Production
-        </m.p>
+        </p>
       </m.div>
 
       {/* Bottom-right sound toggle */}

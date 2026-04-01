@@ -32,9 +32,9 @@ export function Nav() {
             : 'bg-transparent'
         }`}
       >
-        <div className="flex items-center justify-between h-20 px-10 sm:px-14 lg:px-20">
-          {/* Logo */}
-          <a href="/" className="flex items-center ml-4 sm:ml-6 lg:ml-8">
+        <div className="flex items-center justify-between h-20 px-6 sm:px-10 lg:px-16">
+          {/* Logo — shifted right to clear hero video black borders */}
+          <a href="/" className="flex items-center ml-8 sm:ml-10 lg:ml-12">
             <Image
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
