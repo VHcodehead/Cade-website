@@ -4,40 +4,32 @@ import Image from 'next/image';
 import { RevealSection } from '@/components/animations/reveal-section';
 
 const BRAND_LOGOS = [
-  { name: 'AETHER', src: '/assets/AETHER_PNG.png' },
-  { name: 'Asset 11', src: '/assets/Asset 11 (1).png' },
-  { name: 'Asset 12', src: '/assets/Asset_12.png' },
-  { name: 'BF Goodrich', src: '/assets/BFGoodrich-logo-3840x2160.png' },
-  { name: 'Brex', src: '/assets/Brex_Inc._Corporate_Logo.png' },
+  { name: 'Nike', src: '/assets/Nike-Logo.png' },
+  { name: 'Disney', src: '/assets/Disney_logo.png' },
+  { name: 'Lululemon', src: '/assets/lululemon.png' },
   { name: 'Chase', src: '/assets/Chase-Logo.png' },
   { name: 'Columbia', src: '/assets/Columbia-logo.png' },
-  { name: 'Digital Realty', src: '/assets/Digital_Realty_TM_Brandmark_RGB_Black.png' },
-  { name: 'Disney', src: '/assets/Disney_logo.png' },
-  { name: 'MEWO', src: '/assets/LOGO_noBG.jpg' },
-  { name: 'Nike', src: '/assets/Nike-Logo.png' },
-  { name: 'Bronner', src: '/assets/bronner.png' },
-  { name: 'Culinary Institute', src: '/assets/culinary-institute.png' },
-  { name: "Dick's Sporting Goods", src: '/assets/dicks_sporting_goods-logo-brand.png' },
-  { name: 'Girl Swirl', src: '/assets/grlswirl.png' },
-  { name: 'JuneShine', src: '/assets/juneshine.png' },
-  { name: 'KITH', src: '/assets/kith_logo.png' },
-  { name: 'lululemon', src: '/assets/lululemon.png' },
+  { name: 'BF Goodrich', src: '/assets/BFGoodrich-logo-3840x2160.png' },
+  { name: 'Kith', src: '/assets/kith_logo.png' },
+  { name: 'Brex', src: '/assets/Brex_Inc._Corporate_Logo.png' },
+  { name: 'Dr. Bronners', src: '/assets/bronner.png' },
+  { name: 'Dicks Sporting Goods', src: '/assets/dicks_sporting_goods-logo-brand.png' },
   { name: 'Old Navy', src: '/assets/old-navy-logo-png-transparent.png' },
+  { name: 'Digital Realty', src: '/assets/Digital_Realty_TM_Brandmark_RGB_Black.png' },
+  { name: 'Culinary Institute', src: '/assets/culinary-institute.png' },
 ];
 
 export function BrandLogos() {
   return (
-    <section className="py-spacing-8 bg-bg-base overflow-hidden">
+    <section className="py-16 bg-bg-base overflow-hidden">
       <RevealSection>
-        <p className="text-xs uppercase tracking-widest text-text-muted text-center mb-6">
-          TRUSTED BY
+        <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/50 text-center mb-10">
+          Trusted By
         </p>
       </RevealSection>
 
-      {/* Marquee container */}
       <div
         className="relative flex"
-        style={{ willChange: 'transform' }}
         onMouseEnter={(e) => {
           const inner = e.currentTarget.querySelector('.marquee-inner') as HTMLElement | null;
           if (inner) inner.style.animationPlayState = 'paused';
@@ -47,64 +39,19 @@ export function BrandLogos() {
           if (inner) inner.style.animationPlayState = 'running';
         }}
       >
-        {/* Two identical sets for seamless loop */}
-        <div
-          className="marquee-inner flex gap-12 items-center"
-          style={{
-            animation: 'marquee 30s linear infinite',
-            display: 'flex',
-            gap: '3rem',
-          }}
-        >
-          {/* First copy */}
-          {BRAND_LOGOS.map((logo) => (
+        <div className="marquee-inner flex items-center gap-16 animate-marquee">
+          {[...BRAND_LOGOS, ...BRAND_LOGOS].map((logo, i) => (
             <div
-              key={`a-${logo.name}`}
-              className="flex-shrink-0 h-10 w-auto relative"
-              style={{ minWidth: '80px' }}
+              key={`${logo.name}-${i}`}
+              className="flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
               <Image
                 src={logo.src}
                 alt={logo.name}
-                height={40}
                 width={120}
-                className="object-contain h-10 w-auto"
-                style={{
-                  filter: 'grayscale(100%)',
-                  transition: 'filter 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = 'grayscale(0%)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = 'grayscale(100%)';
-                }}
-              />
-            </div>
-          ))}
-          {/* Second copy for seamless infinite loop */}
-          {BRAND_LOGOS.map((logo) => (
-            <div
-              key={`b-${logo.name}`}
-              className="flex-shrink-0 h-10 w-auto relative"
-              style={{ minWidth: '80px' }}
-            >
-              <Image
-                src={logo.src}
-                alt={logo.name}
                 height={40}
-                width={120}
-                className="object-contain h-10 w-auto"
-                style={{
-                  filter: 'grayscale(100%)',
-                  transition: 'filter 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = 'grayscale(0%)';
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.filter = 'grayscale(100%)';
-                }}
+                className="h-8 w-auto object-contain invert"
+                unoptimized
               />
             </div>
           ))}

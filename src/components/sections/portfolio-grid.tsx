@@ -9,7 +9,6 @@ interface Project {
   title: string;
   client: string;
   vimeoId: string;
-  description: string;
   sortOrder: number;
 }
 
@@ -20,8 +19,8 @@ interface PortfolioGridProps {
 
 export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
   return (
-    <section id="work" className="px-0">
-      <AnimatedGrid className="grid grid-cols-1 sm:grid-cols-2 gap-[2px]">
+    <section id="work">
+      <AnimatedGrid className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-bg-base">
         {projects.map((project, index) => (
           <AnimatedGridItem key={project.slug}>
             <ProjectCard
@@ -31,8 +30,7 @@ export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
               client={project.client}
               vimeoId={project.vimeoId}
               thumbnailUrl={thumbnailUrls[project.slug] ?? null}
-              isFeatured={index % 5 === 0}
-              description={project.description}
+              isFeatured={index === 0}
             />
           </AnimatedGridItem>
         ))}
