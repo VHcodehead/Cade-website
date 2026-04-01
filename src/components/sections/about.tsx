@@ -5,38 +5,42 @@ export async function About() {
   const config = await db.siteConfig.findFirst();
   const aboutText = config?.aboutText ?? '';
 
-  // Split aboutText into paragraphs by double newline or single newline
   const paragraphs = aboutText
     .split(/\n\n|\n/)
     .map((p) => p.trim())
     .filter(Boolean);
 
   return (
-    <section id="about" className="py-spacing-16 px-spacing-4 text-center">
-      <RevealSection>
-        <h2
-          className="text-4xl sm:text-6xl uppercase tracking-widest mb-8"
-          style={{ fontFamily: 'var(--font-heading)' }}
-        >
-          CREATIVE VISION
-        </h2>
-      </RevealSection>
+    <section id="about" className="py-32 px-6 border-t border-white/5">
+      <div className="max-w-3xl mx-auto text-center">
+        <RevealSection>
+          <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/50 mb-4">
+            About
+          </p>
+          <h2
+            className="text-3xl sm:text-5xl uppercase tracking-[0.15em] mb-12 text-text-primary"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            Creative Vision
+          </h2>
+        </RevealSection>
 
-      <RevealSection>
-        <div className="max-w-3xl mx-auto space-y-6">
-          {paragraphs.length > 0 ? (
-            paragraphs.map((paragraph, i) => (
-              <p key={i} className="text-lg text-text-muted leading-relaxed">
-                {paragraph}
+        <RevealSection>
+          <div className="space-y-6">
+            {paragraphs.length > 0 ? (
+              paragraphs.map((paragraph, i) => (
+                <p key={i} className="text-base text-text-muted/70 leading-relaxed">
+                  {paragraph}
+                </p>
+              ))
+            ) : (
+              <p className="text-base text-text-muted/70 leading-relaxed">
+                A San Francisco Bay Area production house specializing in bold, authentic storytelling through film. We bring creative vision to life through production, post-production, and creative direction for brands that want to make an impact.
               </p>
-            ))
-          ) : (
-            <p className="text-lg text-text-muted leading-relaxed">
-              Crafting cinematic visual experiences for the world&apos;s most iconic brands.
-            </p>
-          )}
-        </div>
-      </RevealSection>
+            )}
+          </div>
+        </RevealSection>
+      </div>
     </section>
   );
 }

@@ -10,124 +10,114 @@ export function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <section id="contact" className="bg-bg-section py-spacing-16 px-spacing-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-2xl font-heading text-accent">Thanks! We&apos;ll be in touch.</p>
+      <section id="contact" className="py-32 px-6">
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-accent mb-4">Message Sent</p>
+          <p className="text-2xl font-heading text-text-primary">
+            Thanks. We&apos;ll be in touch soon.
+          </p>
         </div>
       </section>
     )
   }
 
   return (
-    <section id="contact" className="bg-bg-section py-spacing-16 px-spacing-4">
-      <h2 className="font-heading text-3xl sm:text-5xl uppercase tracking-widest text-center mb-spacing-8 text-text-primary">
-        Let&apos;s Work Together
-      </h2>
+    <section id="contact" className="py-32 px-6 border-t border-white/5">
+      <div className="max-w-xl mx-auto">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/50 text-center mb-4">
+          Contact
+        </p>
+        <h2 className="font-heading text-3xl sm:text-4xl uppercase tracking-[0.15em] text-center mb-16 text-text-primary">
+          Let&apos;s Work Together
+        </h2>
 
-      <form action={formAction} className="max-w-2xl mx-auto flex flex-col gap-6">
-        {/* Name */}
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm uppercase tracking-widest text-text-muted mb-2"
-          >
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className="bg-bg-card border border-bg-section text-text-primary px-4 py-3 w-full focus:border-accent focus:outline-none transition-colors"
-          />
-          {state.errors?.name?.map((error) => (
-            <p key={error} className="mt-1 text-red-500 text-sm">
-              {error}
-            </p>
+        <form action={formAction} className="flex flex-col gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className="block text-[10px] uppercase tracking-[0.25em] text-text-muted/60 mb-3">
+                Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                className="bg-transparent border-b border-white/15 text-text-primary pb-3 w-full focus:border-accent focus:outline-none transition-colors text-sm placeholder:text-text-muted/30"
+                placeholder="Your name"
+              />
+              {state.errors?.name?.map((error) => (
+                <p key={error} className="mt-2 text-red-400 text-xs">{error}</p>
+              ))}
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.25em] text-text-muted/60 mb-3">
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                className="bg-transparent border-b border-white/15 text-text-primary pb-3 w-full focus:border-accent focus:outline-none transition-colors text-sm placeholder:text-text-muted/30"
+                placeholder="you@company.com"
+              />
+              {state.errors?.email?.map((error) => (
+                <p key={error} className="mt-2 text-red-400 text-xs">{error}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* Company */}
+          <div>
+            <label htmlFor="company" className="block text-[10px] uppercase tracking-[0.25em] text-text-muted/60 mb-3">
+              Company <span className="text-text-muted/30">(optional)</span>
+            </label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              className="bg-transparent border-b border-white/15 text-text-primary pb-3 w-full focus:border-accent focus:outline-none transition-colors text-sm placeholder:text-text-muted/30"
+              placeholder="Your company"
+            />
+          </div>
+
+          {/* Message */}
+          <div>
+            <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.25em] text-text-muted/60 mb-3">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              required
+              className="bg-transparent border-b border-white/15 text-text-primary pb-3 w-full focus:border-accent focus:outline-none transition-colors text-sm resize-none placeholder:text-text-muted/30"
+              placeholder="Tell us about your project"
+            />
+            {state.errors?.message?.map((error) => (
+              <p key={error} className="mt-2 text-red-400 text-xs">{error}</p>
+            ))}
+          </div>
+
+          {state.errors?._form?.map((error) => (
+            <p key={error} className="text-red-400 text-xs">{error}</p>
           ))}
-        </div>
 
-        {/* Email */}
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm uppercase tracking-widest text-text-muted mb-2"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="bg-bg-card border border-bg-section text-text-primary px-4 py-3 w-full focus:border-accent focus:outline-none transition-colors"
-          />
-          {state.errors?.email?.map((error) => (
-            <p key={error} className="mt-1 text-red-500 text-sm">
-              {error}
-            </p>
-          ))}
-        </div>
-
-        {/* Company (optional) */}
-        <div>
-          <label
-            htmlFor="company"
-            className="block text-sm uppercase tracking-widest text-text-muted mb-2"
-          >
-            Company (optional)
-          </label>
-          <input
-            id="company"
-            name="company"
-            type="text"
-            className="bg-bg-card border border-bg-section text-text-primary px-4 py-3 w-full focus:border-accent focus:outline-none transition-colors"
-          />
-          {state.errors?.company?.map((error) => (
-            <p key={error} className="mt-1 text-red-500 text-sm">
-              {error}
-            </p>
-          ))}
-        </div>
-
-        {/* Message */}
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm uppercase tracking-widest text-text-muted mb-2"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            required
-            className="bg-bg-card border border-bg-section text-text-primary px-4 py-3 w-full focus:border-accent focus:outline-none transition-colors resize-none"
-          />
-          {state.errors?.message?.map((error) => (
-            <p key={error} className="mt-1 text-red-500 text-sm">
-              {error}
-            </p>
-          ))}
-        </div>
-
-        {/* Form-level error */}
-        {state.errors?._form?.map((error) => (
-          <p key={error} className="text-red-500 text-sm">
-            {error}
-          </p>
-        ))}
-
-        {/* Submit */}
-        <button
-          type="submit"
-          disabled={isPending}
-          className="w-full bg-accent text-white py-4 font-bold uppercase tracking-widest hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isPending ? 'Sending...' : 'Send Message'}
-        </button>
-      </form>
+          {/* Submit */}
+          <div className="pt-4">
+            <button
+              type="submit"
+              disabled={isPending}
+              className="px-12 py-4 text-xs font-medium uppercase tracking-[0.25em] text-white border border-white/20 hover:border-accent hover:text-accent transition-colors duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              {isPending ? 'Sending...' : 'Send Message'}
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
   )
 }
