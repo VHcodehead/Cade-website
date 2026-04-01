@@ -2,6 +2,9 @@
 
 import { z } from 'zod'
 import { db } from '@/lib/db'
+import { Resend } from 'resend'
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const ContactSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100),
@@ -50,6 +53,19 @@ export async function submitContact(
         message,
       },
     })
+
+    // Send email notification (fire-and-forget — don't block form submission)
+    if (resend) {
+      const notifyEmail = process.env.ADMIN_EMAIL || 'admin@vlacovision.com';
+      resend.emails.send({
+        from: 'VLACOVISION <onboarding@resend.dev>',
+        to: notifyEmail,
+        subject: `New inquiry from ${name}${company ? ` (${company})` : ''}`,
+        text: `New contact form submission:\n\nName: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\n\nMessage:\n${message}\n\n---\nView in admin: ${process.env.RAILWAY_PUBLIC_DOMAIN ? 'https://' + process.env.RAILWAY_PUBLIC_DOMAIN + '/admin/messages' : '/admin/messages'}`,
+      }).catch(() => {
+        // Silent fail — form submission already saved to DB
+      });
+    }
 
     return { status: 'success' }
   } catch {

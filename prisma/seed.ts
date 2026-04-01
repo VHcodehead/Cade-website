@@ -293,7 +293,7 @@ async function main() {
 
   await db.adminUser.upsert({
     where: { email: adminEmail },
-    update: {},
+    update: { hashedPassword },
     create: { email: adminEmail, hashedPassword },
   });
   console.log(`  Admin user seeded: ${adminEmail}`);
