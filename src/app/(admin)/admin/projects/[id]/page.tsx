@@ -24,6 +24,8 @@ export default async function EditProjectPage({ params }: Props) {
       description: true,
       vimeoId: true,
       thumbnailUrl: true,
+      previewClipUrl: true,
+      additionalVimeoIds: true,
       published: true,
     },
   })

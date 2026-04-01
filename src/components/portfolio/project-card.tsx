@@ -105,17 +105,21 @@ export function ProjectCard({
             <div className="absolute inset-0 bg-bg-card" />
           )}
 
-          {/* Hover: native MP4 or Vimeo iframe */}
+          {/* Hover: native MP4 (instant) or Vimeo iframe (fallback) */}
           {previewClipUrl ? (
-            <div className="absolute inset-0 z-10 pointer-events-none">
+            <div
+              className={`absolute inset-0 z-10 pointer-events-none transition-opacity duration-300 ${
+                isHovered ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
               <video
                 ref={videoRef}
                 src={previewClipUrl}
                 muted
                 loop
                 playsInline
-                preload="none"
-                className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
           ) : (
