@@ -19,50 +19,54 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'VLACOVISION — Premium Video Production',
     description:
-      'Premium video production for brands that move people. Bay Area and worldwide. Nike, Disney, Lululemon, and more.',
+      'Premium video production for brands that move people. Bay Area and worldwide.',
     type: 'website',
-    siteName: 'VLACOVISION',
   },
 };
 
 export default async function HomePage() {
-  // Fetch all published projects ordered by sortOrder
+  const siteConfig = await db.siteConfig.findFirst();
+  const heroVimeoId = siteConfig?.heroVimeoId || '1129060654';
+
   const projects = await db.project.findMany({
     where: { published: true },
     orderBy: { sortOrder: 'asc' },
+    select: {
+      id: true,
+      slug: true,
+      title: true,
+      client: true,
+      vimeoId: true,
+      sortOrder: true,
+    },
   });
 
-  // Fetch SiteConfig for heroVimeoId
-  const config = await db.siteConfig.findFirst();
-  const heroVimeoId = config?.heroVimeoId ?? '';
-
-  // Fetch thumbnails for all projects in parallel
-  const thumbnailUrls = await getProjectThumbnails(
-    projects.map((p) => ({ slug: p.slug, vimeoId: p.vimeoId }))
-  );
+  const thumbnailUrls = await getProjectThumbnails(projects);
 
   return (
     <>
-      {/* Silent page view tracker — fires sendBeacon on mount, no visible UI */}
       <AnalyticsTracker page="/" />
 
-      {/* 1. Hero — full-viewport Vimeo background */}
+      {/* 1. Hero — full viewport */}
       <Hero heroVimeoId={heroVimeoId} />
 
-      {/* 2. Brand logos marquee — no CTA between hero and logos */}
+      {/* 2. Brand names marquee */}
       <BrandLogos />
 
-      {/* 3. Portfolio grid — all published projects */}
+      {/* 3. Portfolio grid */}
       <PortfolioGrid projects={projects} thumbnailUrls={thumbnailUrls} />
 
-      {/* 4. Inline CTA between work and about — editorial style */}
+      {/* 4. About */}
+      <About />
+
+      {/* 5. Editorial CTA — after about, before contact */}
       <RevealSection>
-        <section className="py-32 sm:py-40 flex flex-col items-center justify-center text-center px-6">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/25 mb-8">
-            Ready to start?
+        <section className="py-48 sm:py-56 flex flex-col items-center justify-center text-center px-6">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 mb-10">
+            Ready?
           </p>
           <h2
-            className="text-[clamp(1.25rem,2.5vw,2rem)] uppercase tracking-[0.15em] text-text-primary mb-10 leading-tight"
+            className="text-[clamp(1.5rem,3.5vw,2.5rem)] uppercase tracking-[0.12em] text-text-primary mb-14 leading-tight"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Let&apos;s create something
@@ -74,9 +78,6 @@ export default async function HomePage() {
           </CTAButton>
         </section>
       </RevealSection>
-
-      {/* 5. About section */}
-      <About />
 
       {/* 6. Contact form */}
       <ContactForm />

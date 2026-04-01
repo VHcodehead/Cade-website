@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,11 +34,16 @@ export function Nav() {
       >
         <div className="flex items-center justify-between h-20 px-6 sm:px-10 lg:px-16">
           {/* Logo */}
-          <a
-            href="/"
-            className="font-heading text-text-primary uppercase tracking-[0.25em] text-sm"
-          >
-            VLACOVISION
+          <a href="/" className="flex items-center gap-3">
+            <Image
+              src="/assets/Asset 11 (1).png"
+              alt="VLACOVISION"
+              width={140}
+              height={28}
+              className="h-6 w-auto object-contain invert brightness-200"
+              priority
+              unoptimized
+            />
           </a>
 
           {/* Desktop links */}

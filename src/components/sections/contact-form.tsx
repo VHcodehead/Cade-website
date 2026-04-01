@@ -10,9 +10,9 @@ export function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <section id="contact" className="py-40 sm:py-52 px-6 sm:px-10 lg:px-16">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-accent/80 mb-6">Message Sent</p>
+      <section id="contact" className="py-48 sm:py-56 px-6 sm:px-10 lg:px-16">
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-accent/80 mb-8">Message Sent</p>
           <h2
             className="text-[clamp(1.5rem,3vw,2.5rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1]"
             style={{ fontFamily: 'var(--font-heading)' }}
@@ -25,34 +25,33 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-40 sm:py-52 px-6 sm:px-10 lg:px-16">
+    <section id="contact" className="py-48 sm:py-56 px-6 sm:px-10 lg:px-16 border-t border-border-subtle">
       <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-          {/* Left column — heading and context */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 lg:gap-32">
+          {/* Left column — heading */}
           <div className="lg:col-span-4">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/30 mb-6">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 mb-8">
               Contact
             </p>
             <h2
-              className="text-[clamp(1.5rem,3vw,2.5rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1] mb-8"
+              className="text-[clamp(1.5rem,3vw,2.5rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1] mb-10"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               Let&apos;s Work
               <br />
               Together
             </h2>
-            <p className="text-[13px] text-text-muted/40 leading-relaxed max-w-xs">
+            <p className="text-[13px] text-text-muted/30 leading-[1.8] max-w-xs">
               Have a project in mind? We&apos;d love to hear about it. Fill out the form and we&apos;ll get back to you within 24 hours.
             </p>
           </div>
 
-          {/* Right column — the form */}
+          {/* Right column — form */}
           <div className="lg:col-span-8">
-            <form action={formAction} className="flex flex-col gap-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                {/* Name */}
+            <form action={formAction} className="flex flex-col gap-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                 <div className="group">
-                  <label htmlFor="name" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/30 mb-4 group-focus-within:text-text-muted/60 transition-colors duration-300">
+                  <label htmlFor="name" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-text-muted/50 transition-colors duration-300">
                     Name
                   </label>
                   <input
@@ -60,17 +59,16 @@ export function ContactForm() {
                     name="name"
                     type="text"
                     required
-                    className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/40 transition-colors duration-500 text-[15px] placeholder:text-text-muted/15"
+                    className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
                     placeholder="Your name"
                   />
                   {state.errors?.name?.map((error) => (
-                    <p key={error} className="mt-3 text-red-400/80 text-xs tracking-wide">{error}</p>
+                    <p key={error} className="mt-3 text-red-400/70 text-xs tracking-wide">{error}</p>
                   ))}
                 </div>
 
-                {/* Email */}
                 <div className="group">
-                  <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/30 mb-4 group-focus-within:text-text-muted/60 transition-colors duration-300">
+                  <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-text-muted/50 transition-colors duration-300">
                     Email
                   </label>
                   <input
@@ -78,32 +76,30 @@ export function ContactForm() {
                     name="email"
                     type="email"
                     required
-                    className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/40 transition-colors duration-500 text-[15px] placeholder:text-text-muted/15"
+                    className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
                     placeholder="you@company.com"
                   />
                   {state.errors?.email?.map((error) => (
-                    <p key={error} className="mt-3 text-red-400/80 text-xs tracking-wide">{error}</p>
+                    <p key={error} className="mt-3 text-red-400/70 text-xs tracking-wide">{error}</p>
                   ))}
                 </div>
               </div>
 
-              {/* Company */}
               <div className="group">
-                <label htmlFor="company" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/30 mb-4 group-focus-within:text-text-muted/60 transition-colors duration-300">
-                  Company <span className="text-text-muted/15">(optional)</span>
+                <label htmlFor="company" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-text-muted/50 transition-colors duration-300">
+                  Company <span className="text-text-muted/10">(optional)</span>
                 </label>
                 <input
                   id="company"
                   name="company"
                   type="text"
-                  className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/40 transition-colors duration-500 text-[15px] placeholder:text-text-muted/15"
+                  className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
                   placeholder="Your company"
                 />
               </div>
 
-              {/* Message */}
               <div className="group">
-                <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/30 mb-4 group-focus-within:text-text-muted/60 transition-colors duration-300">
+                <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-text-muted/50 transition-colors duration-300">
                   Project Details
                 </label>
                 <textarea
@@ -111,20 +107,19 @@ export function ContactForm() {
                   name="message"
                   rows={5}
                   required
-                  className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/40 transition-colors duration-500 text-[15px] resize-none placeholder:text-text-muted/15 leading-relaxed"
+                  className="bg-transparent border-b border-border-subtle text-text-primary pb-4 w-full focus:border-text-muted/30 transition-colors duration-500 text-[15px] resize-none placeholder:text-text-muted/10 leading-relaxed outline-none"
                   placeholder="Tell us about your project, timeline, and budget range"
                 />
                 {state.errors?.message?.map((error) => (
-                  <p key={error} className="mt-3 text-red-400/80 text-xs tracking-wide">{error}</p>
+                  <p key={error} className="mt-3 text-red-400/70 text-xs tracking-wide">{error}</p>
                 ))}
               </div>
 
               {state.errors?._form?.map((error) => (
-                <p key={error} className="text-red-400/80 text-xs tracking-wide">{error}</p>
+                <p key={error} className="text-red-400/70 text-xs tracking-wide">{error}</p>
               ))}
 
-              {/* Submit — editorial style, not a fat button */}
-              <div className="pt-6">
+              <div className="pt-8">
                 <button
                   type="submit"
                   disabled={isPending}

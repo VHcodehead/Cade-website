@@ -96,7 +96,7 @@ export function ProjectCard({
           {isHovered && (
             <div className="absolute inset-0 z-10 pointer-events-none">
               <iframe
-                src={`https://player.vimeo.com/video/${vimeoId}?background=1&quality=360p&autoplay=1&loop=1&muted=1`}
+                src={`https://player.vimeo.com/video/${vimeoId}?background=1&quality=auto&autoplay=1&loop=1&muted=1`}
                 className="absolute inset-0 w-full h-full scale-[1.15]"
                 frameBorder="0"
                 allow="autoplay"
