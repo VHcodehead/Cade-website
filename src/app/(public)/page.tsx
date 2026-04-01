@@ -37,10 +37,16 @@ export default async function HomePage() {
       vimeoId: true,
       sortOrder: true,
       previewClipUrl: true,
+      thumbnailUrl: true,
     },
   });
 
-  const thumbnailUrls = await getProjectThumbnails(projects);
+  // Use DB thumbnail if exists, otherwise fetch from Vimeo
+  const vimeoThumbnails = await getProjectThumbnails(projects);
+  const thumbnailUrls: Record<string, string | null> = {};
+  for (const p of projects) {
+    thumbnailUrls[p.slug] = (p.thumbnailUrl && p.thumbnailUrl.length > 0) ? p.thumbnailUrl : (vimeoThumbnails[p.slug] ?? null);
+  }
 
   return (
     <>

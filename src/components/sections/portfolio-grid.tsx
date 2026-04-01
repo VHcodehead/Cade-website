@@ -11,6 +11,7 @@ interface Project {
   vimeoId: string;
   sortOrder: number;
   previewClipUrl?: string | null;
+  thumbnailUrl?: string | null;
 }
 
 interface PortfolioGridProps {

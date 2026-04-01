@@ -49,18 +49,31 @@ function generateSlug(title: string): string {
 
 async function saveUploadedFile(file: File, dir: string, slug: string): Promise<string | null> {
   if (!file || file.size === 0) return null
-  if (file.size > 20 * 1024 * 1024) return null // 20MB max
+  if (file.size > 25 * 1024 * 1024) return null // 25MB max
 
   const ext = file.name.split('.').pop()?.toLowerCase() || 'mp4'
   const fileName = `${slug}.${ext}`
-  const dirPath = path.join(process.cwd(), 'public', dir)
-  const filePath = path.join(dirPath, fileName)
 
-  await mkdir(dirPath, { recursive: true })
+  // Try /public/ first (works in dev), fall back to /tmp/uploads/ (Railway)
+  const publicDir = path.join(process.cwd(), 'public', dir)
+  const tmpDir = path.join('/tmp/uploads', dir)
+
   const buffer = Buffer.from(await file.arrayBuffer())
-  await writeFile(filePath, buffer)
 
-  return `/${dir}/${fileName}`
+  // Always write to /tmp/uploads/ (works on Railway)
+  await mkdir(tmpDir, { recursive: true })
+  await writeFile(path.join(tmpDir, fileName), buffer)
+
+  // Also try /public/ for dev environment
+  try {
+    await mkdir(publicDir, { recursive: true })
+    await writeFile(path.join(publicDir, fileName), buffer)
+    // If /public/ write succeeds, use direct path (faster)
+    return `/${dir}/${fileName}`
+  } catch {
+    // /public/ is read-only (Railway) — use API route
+    return `/api/uploads/${dir}/${fileName}`
+  }
 }
 
 export async function createProject(
