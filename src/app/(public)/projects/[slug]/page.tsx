@@ -64,40 +64,39 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <>
-      {/* Silent page view tracker — fires sendBeacon on mount, no visible UI */}
       <AnalyticsTracker page={`/projects/${slug}`} projectId={project.id} />
 
-      {/* Full-width video facade at top */}
+      {/* Full-width video */}
       <VideoFacade
         vimeoId={project.vimeoId}
         thumbnailUrl={thumbnailUrl}
         title={project.title}
       />
 
-      {/* Project content */}
-      <div className="max-w-4xl mx-auto px-spacing-4 py-spacing-8">
+      {/* Project content — centered, generous spacing */}
+      <article className="max-w-3xl mx-auto px-6 py-20">
         {/* Title */}
-        <h1 className="font-heading text-3xl sm:text-5xl uppercase tracking-widest mb-4">
+        <h1 className="font-heading text-2xl sm:text-4xl uppercase tracking-[0.15em] text-text-primary mb-10">
           {project.title}
         </h1>
 
-        {/* Metadata row */}
-        <div className="flex gap-8 flex-wrap mb-spacing-4">
+        {/* Metadata — clean horizontal line with dividers */}
+        <div className="flex gap-12 flex-wrap pb-10 mb-10 border-b border-white/10">
           {project.client && (
             <div>
-              <p className="text-xs uppercase tracking-widest text-text-muted">Client</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-text-muted/50 mb-1">Client</p>
               <p className="text-sm text-text-primary">{project.client}</p>
             </div>
           )}
           {project.services && (
             <div>
-              <p className="text-xs uppercase tracking-widest text-text-muted">Services</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-text-muted/50 mb-1">Services</p>
               <p className="text-sm text-text-primary">{project.services}</p>
             </div>
           )}
           {project.year && (
             <div>
-              <p className="text-xs uppercase tracking-widest text-text-muted">Year</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-text-muted/50 mb-1">Year</p>
               <p className="text-sm text-text-primary">{project.year}</p>
             </div>
           )}
@@ -105,9 +104,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
         {/* Description */}
         {descriptionParagraphs.length > 0 && (
-          <div className="mt-spacing-4">
+          <div className="mb-16">
             {descriptionParagraphs.map((para, i) => (
-              <p key={i} className="text-lg text-text-muted leading-relaxed mb-4">
+              <p key={i} className="text-base text-text-muted/70 leading-relaxed mb-5">
                 {para}
               </p>
             ))}
@@ -115,47 +114,56 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         )}
 
         {/* Prev / Next navigation */}
-        <div className="flex justify-between items-center border-t border-bg-section pt-spacing-4 mt-spacing-8">
-          <div>
+        <nav className="flex justify-between items-center border-t border-white/10 pt-10 mb-20">
+          <div className="flex-1">
             {prevProject && (
               <Link
                 href={`/projects/${prevProject.slug}`}
-                className="text-sm text-text-muted hover:text-accent transition-colors"
+                className="group inline-flex flex-col"
               >
-                &larr; {prevProject.title}
+                <span className="text-[10px] uppercase tracking-[0.25em] text-text-muted/40 mb-1">Previous</span>
+                <span className="text-sm text-text-muted group-hover:text-accent transition-colors duration-300">
+                  {prevProject.title}
+                </span>
               </Link>
             )}
           </div>
 
           <Link
             href="/#work"
-            className="text-sm text-text-muted hover:text-accent transition-colors"
+            className="text-[10px] uppercase tracking-[0.25em] text-text-muted/40 hover:text-text-primary transition-colors duration-300"
           >
-            Back to Portfolio
+            All Work
           </Link>
 
-          <div>
+          <div className="flex-1 text-right">
             {nextProject && (
               <Link
                 href={`/projects/${nextProject.slug}`}
-                className="text-sm text-text-muted hover:text-accent transition-colors"
+                className="group inline-flex flex-col items-end"
               >
-                {nextProject.title} &rarr;
+                <span className="text-[10px] uppercase tracking-[0.25em] text-text-muted/40 mb-1">Next</span>
+                <span className="text-sm text-text-muted group-hover:text-accent transition-colors duration-300">
+                  {nextProject.title}
+                </span>
               </Link>
             )}
           </div>
-        </div>
+        </nav>
 
-        {/* CTA at bottom */}
-        <div className="text-center py-spacing-8">
-          <p className="font-heading text-xl uppercase tracking-widest mb-6">
-            Like what you see? Let&apos;s talk.
+        {/* CTA */}
+        <div className="text-center py-10 border-t border-white/5">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/50 mb-4">
+            Interested?
+          </p>
+          <p className="font-heading text-xl sm:text-2xl uppercase tracking-[0.15em] text-text-primary mb-8">
+            Let&apos;s make something together.
           </p>
           <CTAButton variant="primary" href="/#contact">
             Start a Project
           </CTAButton>
         </div>
-      </div>
+      </article>
     </>
   )
 }
