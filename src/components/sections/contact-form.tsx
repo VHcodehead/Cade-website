@@ -27,7 +27,7 @@ export function ContactForm() {
 
   return (
     <section id="contact" className="min-h-screen flex flex-col justify-center py-32 sm:py-40 px-6 sm:px-10 lg:px-16">
-      <div className="max-w-3xl mx-auto w-full">
+      <div className="w-full" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
         {/* Heading */}
         <div className="text-center mb-20 sm:mb-28">
           <div className="w-10 h-[1px] bg-accent/30 mx-auto mb-12" />

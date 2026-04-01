@@ -13,7 +13,7 @@ export async function About() {
 
   return (
     <section id="about" className="py-32 sm:py-40 px-6 sm:px-10 lg:px-16">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="w-full text-center" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
         <RevealSection>
           <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 mb-8">
             About
