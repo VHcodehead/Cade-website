@@ -44,6 +44,7 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* Selection color */
@@ -68,18 +69,13 @@ body {
   }
 }
 
-@keyframes marquee-scroll {
+@keyframes logo-scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  100% { transform: translateX(-50%); }
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-}
-
-.marquee-scroll {
-  animation: marquee-scroll 35s linear infinite;
+.logo-marquee {
+  animation: logo-scroll 30s linear infinite;
 }
 
 /* Premium form input focus ring */

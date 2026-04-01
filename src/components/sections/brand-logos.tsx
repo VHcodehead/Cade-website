@@ -13,15 +13,31 @@ const BRAND_LOGOS = [
   { name: 'Kith', src: '/assets/kith_logo.png' },
   { name: 'Brex', src: '/assets/Brex_Inc._Corporate_Logo.png' },
   { name: 'Dr. Bronners', src: '/assets/bronner.png' },
-  { name: 'Dicks Sporting Goods', src: '/assets/dicks_sporting_goods-logo-brand.png' },
   { name: 'Old Navy', src: '/assets/old-navy-logo-png-transparent.png' },
-  { name: 'Digital Realty', src: '/assets/Digital_Realty_TM_Brandmark_RGB_Black.png' },
-  { name: 'Culinary Institute', src: '/assets/culinary-institute.png' },
 ];
+
+function LogoSet() {
+  return (
+    <>
+      {BRAND_LOGOS.map((logo, i) => (
+        <div key={i} className="shrink-0 flex items-center justify-center mx-10 sm:mx-14 lg:mx-16">
+          <Image
+            src={logo.src}
+            alt={logo.name}
+            width={160}
+            height={60}
+            className="h-8 sm:h-10 lg:h-11 w-auto max-w-[140px] object-contain brightness-0 invert opacity-50"
+            unoptimized
+          />
+        </div>
+      ))}
+    </>
+  );
+}
 
 export function BrandLogos() {
   return (
-    <section className="py-32 sm:py-40 bg-transparent">
+    <section className="py-28 sm:py-36 bg-transparent overflow-hidden">
       <RevealSection>
         <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 text-center mb-16 sm:mb-24">
           Selected Clients
@@ -29,39 +45,18 @@ export function BrandLogos() {
       </RevealSection>
 
       {/* Frosted glass strip */}
-      <div className="relative py-10 sm:py-14 bg-white/[0.03] backdrop-blur-sm border-y border-white/[0.04]">
+      <div className="relative py-8 sm:py-10 bg-white/[0.02] border-y border-white/[0.04]">
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
-        <div className="marquee-track flex overflow-hidden">
-          <div className="marquee-scroll flex items-center shrink-0">
-            {BRAND_LOGOS.map((logo, i) => (
-              <div key={`a-${i}`} className="shrink-0 mx-8 sm:mx-14">
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={140}
-                  height={50}
-                  className="h-7 sm:h-9 w-auto object-contain brightness-0 invert opacity-40"
-                  unoptimized
-                />
-              </div>
-            ))}
+        {/* Seamless marquee — two identical sets side by side */}
+        <div className="flex w-max logo-marquee">
+          <div className="flex shrink-0">
+            <LogoSet />
           </div>
-          <div className="marquee-scroll flex items-center shrink-0" aria-hidden="true">
-            {BRAND_LOGOS.map((logo, i) => (
-              <div key={`b-${i}`} className="shrink-0 mx-8 sm:mx-14">
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  width={140}
-                  height={50}
-                  className="h-7 sm:h-9 w-auto object-contain brightness-0 invert opacity-40"
-                  unoptimized
-                />
-              </div>
-            ))}
+          <div className="flex shrink-0" aria-hidden="true">
+            <LogoSet />
           </div>
         </div>
       </div>
