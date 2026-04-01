@@ -32,7 +32,7 @@ export function Nav() {
             : 'bg-transparent'
         }`}
       >
-        <div className="flex items-center justify-between h-20 pr-6 sm:pr-10 lg:pr-16" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)' }}>
+        <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
           {/* Logo */}
           <a href="/" className="flex items-center">
             <Image

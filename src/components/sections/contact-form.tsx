@@ -10,10 +10,10 @@ export function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <section id="contact" className="py-48 sm:py-56 px-6">
-        <div className="max-w-xl mx-auto text-center">
+      <section id="contact" className="min-h-screen flex items-center justify-center px-6">
+        <div className="text-center">
           <div className="w-10 h-[1px] bg-accent/40 mx-auto mb-12" />
-          <p className="text-[10px] uppercase tracking-[0.4em] text-accent/70 mb-8">Message Sent</p>
+          <p className="text-[10px] uppercase tracking-[0.4em] text-accent/70 mb-6">Message Sent</p>
           <h2
             className="text-[clamp(1.5rem,3vw,2.5rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1]"
             style={{ fontFamily: 'var(--font-heading)' }}
@@ -26,111 +26,98 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-48 sm:py-56 px-6 sm:px-10 lg:px-16">
-      <div>
-        {/* Header — centered */}
+    <section id="contact" className="min-h-screen flex flex-col justify-center py-32 sm:py-40 px-6 sm:px-10 lg:px-16">
+      <div className="max-w-3xl mx-auto w-full">
+        {/* Heading */}
         <div className="text-center mb-20 sm:mb-28">
           <div className="w-10 h-[1px] bg-accent/30 mx-auto mb-12" />
-          <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 mb-8">
-            Contact
-          </p>
           <h2
-            className="text-[clamp(1.75rem,3.5vw,3rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1] mb-8"
+            className="text-[clamp(1.75rem,3.5vw,3rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1]"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Let&apos;s Work Together
+            Start a Project
           </h2>
-          <p className="text-[14px] text-text-muted/25 max-w-md mx-auto leading-relaxed">
-            Have a project in mind? Tell us about it and we&apos;ll get back to you within 24 hours.
-          </p>
         </div>
 
-        {/* Form — centered */}
-        <div className="max-w-xl mx-auto">
-          <form action={formAction} className="flex flex-col gap-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
-              <div className="group">
-                <label htmlFor="name" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
-                  placeholder="Your name"
-                />
-                {state.errors?.name?.map((error) => (
-                  <p key={error} className="mt-3 text-red-400/60 text-xs tracking-wide">{error}</p>
-                ))}
-              </div>
-
-              <div className="group">
-                <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
-                  placeholder="you@company.com"
-                />
-                {state.errors?.email?.map((error) => (
-                  <p key={error} className="mt-3 text-red-400/60 text-xs tracking-wide">{error}</p>
-                ))}
-              </div>
-            </div>
-
-            <div className="group">
-              <label htmlFor="company" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
-                Company <span className="text-text-muted/10">(optional)</span>
-              </label>
+        {/* Conversational form */}
+        <form action={formAction} className="space-y-16 sm:space-y-20">
+          {/* Sentence 1: Introduction */}
+          <div className="text-[clamp(1.1rem,2vw,1.5rem)] leading-[2.2] text-text-muted/40">
+            <span>My name is </span>
+            <span className="inline-block relative">
               <input
-                id="company"
+                name="name"
+                type="text"
+                required
+                className="bg-transparent border-b border-white/[0.1] text-text-primary pb-1 w-[200px] sm:w-[280px] focus:border-accent/40 transition-colors duration-500 outline-none placeholder:text-text-muted/15 text-[inherit]"
+                placeholder="your name"
+              />
+              {state.errors?.name?.map((error) => (
+                <span key={error} className="absolute -bottom-6 left-0 text-red-400/60 text-[11px]">{error}</span>
+              ))}
+            </span>
+            <span> from </span>
+            <span className="inline-block relative">
+              <input
                 name="company"
                 type="text"
-                className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
-                placeholder="Your company"
+                className="bg-transparent border-b border-white/[0.1] text-text-primary pb-1 w-[200px] sm:w-[280px] focus:border-accent/40 transition-colors duration-500 outline-none placeholder:text-text-muted/15 text-[inherit]"
+                placeholder="your company"
               />
-            </div>
+            </span>
+            <span>.</span>
+          </div>
 
-            <div className="group">
-              <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
-                Project Details
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
+          {/* Sentence 2: Email */}
+          <div className="text-[clamp(1.1rem,2vw,1.5rem)] leading-[2.2] text-text-muted/40">
+            <span>You can reach me at </span>
+            <span className="inline-block relative">
+              <input
+                name="email"
+                type="email"
                 required
-                className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] resize-none placeholder:text-text-muted/10 leading-relaxed outline-none"
-                placeholder="Tell us about your project, timeline, and budget range"
+                className="bg-transparent border-b border-white/[0.1] text-text-primary pb-1 w-[280px] sm:w-[360px] focus:border-accent/40 transition-colors duration-500 outline-none placeholder:text-text-muted/15 text-[inherit]"
+                placeholder="you@company.com"
+              />
+              {state.errors?.email?.map((error) => (
+                <span key={error} className="absolute -bottom-6 left-0 text-red-400/60 text-[11px]">{error}</span>
+              ))}
+            </span>
+          </div>
+
+          {/* Sentence 3: Project details */}
+          <div className="text-[clamp(1.1rem,2vw,1.5rem)] leading-[2.2] text-text-muted/40">
+            <span>I&apos;m looking for help with</span>
+            <div className="mt-4">
+              <textarea
+                name="message"
+                rows={3}
+                required
+                className="bg-transparent border-b border-white/[0.1] text-text-primary pb-2 w-full focus:border-accent/40 transition-colors duration-500 outline-none placeholder:text-text-muted/15 text-[inherit] resize-none leading-[1.8]"
+                placeholder="a brand film, commercial, documentary..."
               />
               {state.errors?.message?.map((error) => (
-                <p key={error} className="mt-3 text-red-400/60 text-xs tracking-wide">{error}</p>
+                <p key={error} className="mt-2 text-red-400/60 text-[11px]">{error}</p>
               ))}
             </div>
+          </div>
 
-            {state.errors?._form?.map((error) => (
-              <p key={error} className="text-red-400/60 text-xs tracking-wide">{error}</p>
-            ))}
+          {state.errors?._form?.map((error) => (
+            <p key={error} className="text-red-400/60 text-xs tracking-wide">{error}</p>
+          ))}
 
-            {/* Submit — clean text link style, no box */}
-            <div className="pt-8 text-center">
-              <button
-                type="submit"
-                disabled={isPending}
-                className="group inline-flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.3em] text-text-muted/50 hover:text-accent transition-colors duration-500 disabled:opacity-20 disabled:cursor-not-allowed"
-              >
-                <span>{isPending ? 'Sending...' : 'Send Message'}</span>
-                <span className="inline-block w-8 h-[1px] bg-current transition-all duration-500 group-hover:w-14" />
-              </button>
-            </div>
-          </form>
-        </div>
+          {/* Submit */}
+          <div className="pt-4">
+            <button
+              type="submit"
+              disabled={isPending}
+              className="group inline-flex items-center gap-4 text-[12px] uppercase tracking-[0.3em] text-text-primary/60 hover:text-accent transition-colors duration-500 disabled:opacity-20 disabled:cursor-not-allowed"
+            >
+              <span>{isPending ? 'Sending...' : 'Send Message'}</span>
+              <span className="inline-block w-8 h-[1px] bg-current transition-all duration-500 group-hover:w-16" />
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   )
