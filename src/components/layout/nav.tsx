@@ -32,15 +32,15 @@ export function Nav() {
             : 'bg-transparent'
         }`}
       >
-        <div className="flex items-center justify-between h-20 px-8 sm:px-12 lg:px-20">
+        <div className="flex items-center justify-between h-20 px-10 sm:px-14 lg:px-20">
           {/* Logo */}
           <a href="/" className="flex items-center">
             <Image
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
-              width={120}
-              height={24}
-              className="h-5 w-auto object-contain invert brightness-200"
+              width={140}
+              height={28}
+              className="h-6 w-auto object-contain invert brightness-200"
               priority
               unoptimized
             />
