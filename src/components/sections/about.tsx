@@ -22,7 +22,7 @@ export async function About() {
             className="text-[clamp(1.75rem,3.5vw,3rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1] mb-12"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Creative Vision
+            About Vlacovision
           </h2>
         </RevealSection>
 
