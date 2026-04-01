@@ -11,7 +11,7 @@ interface ProjectCardProps {
   client: string;
   vimeoId: string;
   thumbnailUrl: string | null;
-  isFeatured: boolean;
+  layout: 'full' | 'half';
 }
 
 export function ProjectCard({
@@ -21,7 +21,7 @@ export function ProjectCard({
   client,
   vimeoId,
   thumbnailUrl,
-  isFeatured,
+  layout,
 }: ProjectCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -68,23 +68,25 @@ export function ProjectCard({
     }
   }, [isHovered, slug, id]);
 
+  const aspectClass = layout === 'full' ? 'aspect-[21/9]' : 'aspect-[16/9]';
+
   return (
     <div
-      className={`group relative overflow-hidden bg-bg-base${isFeatured ? ' sm:col-span-2' : ''}`}
+      className="group relative overflow-hidden"
       ref={cardRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link href={`/projects/${slug}`} className="block">
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className={`relative ${aspectClass} overflow-hidden bg-bg-card`}>
           {/* Thumbnail */}
           {isVisible && thumbnailUrl ? (
             <Image
               src={thumbnailUrl}
               alt={title}
               fill
-              className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
-              sizes={isFeatured ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
+              className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]"
+              sizes={layout === 'full' ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
             />
           ) : (
             <div className="absolute inset-0 bg-bg-card" />
@@ -103,18 +105,16 @@ export function ProjectCard({
             </div>
           )}
 
-          {/* Gradient overlay — cinematic bottom wash, not full cover */}
-          <div
-            className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-          />
+          {/* Gradient — only on hover */}
+          <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-          {/* Title + Client — revealed on hover, clean and minimal */}
-          <div className="absolute bottom-0 left-0 right-0 z-30 p-6 sm:p-8 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+          {/* Title + Client — slide up on hover */}
+          <div className="absolute bottom-0 left-0 right-0 z-30 p-8 sm:p-10 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-2">
               {client}
             </p>
             <h3
-              className="text-white text-sm sm:text-base uppercase tracking-[0.15em] leading-tight"
+              className="text-white text-base sm:text-lg uppercase tracking-[0.12em] leading-tight"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               {title}

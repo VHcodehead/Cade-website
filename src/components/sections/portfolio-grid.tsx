@@ -2,7 +2,6 @@
 
 import { ProjectCard } from '@/components/portfolio/project-card';
 import { AnimatedGrid, AnimatedGridItem } from '@/components/animations/reveal-grid-item';
-import { RevealSection } from '@/components/animations/reveal-section';
 
 interface Project {
   id: string;
@@ -20,35 +19,84 @@ interface PortfolioGridProps {
 
 export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
   return (
-    <section id="work" className="pt-32 sm:pt-40 pb-8">
-      <RevealSection>
-        <div className="px-6 sm:px-10 lg:px-16 mb-16 sm:mb-24">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/30 mb-5">
-            Selected Work
-          </p>
-          <h2
-            className="text-[clamp(1.75rem,4vw,3.5rem)] uppercase tracking-[0.12em] text-text-primary leading-none"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Portfolio
-          </h2>
-        </div>
-      </RevealSection>
+    <section id="work" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+      <AnimatedGrid className="max-w-[1800px] mx-auto flex flex-col gap-4 sm:gap-5">
+        {projects.map((project, index) => {
+          // Layout pattern: first = full, then pairs of 2, every 5th is full again
+          const isFullWidth = index === 0 || (index > 0 && index % 5 === 0);
 
-      <AnimatedGrid className="grid grid-cols-1 sm:grid-cols-2 gap-[2px] px-0 sm:px-0">
-        {projects.map((project, index) => (
-          <AnimatedGridItem key={project.slug}>
-            <ProjectCard
-              id={project.id}
-              slug={project.slug}
-              title={project.title}
-              client={project.client}
-              vimeoId={project.vimeoId}
-              thumbnailUrl={thumbnailUrls[project.slug] ?? null}
-              isFeatured={index === 0}
-            />
-          </AnimatedGridItem>
-        ))}
+          if (isFullWidth) {
+            return (
+              <AnimatedGridItem key={project.slug}>
+                <ProjectCard
+                  id={project.id}
+                  slug={project.slug}
+                  title={project.title}
+                  client={project.client}
+                  vimeoId={project.vimeoId}
+                  thumbnailUrl={thumbnailUrls[project.slug] ?? null}
+                  layout="full"
+                />
+              </AnimatedGridItem>
+            );
+          }
+
+          // Pair items side by side
+          const isLeftOfPair = !isFullWidth && ((index % 5 === 1) || (index % 5 === 3));
+
+          if (isLeftOfPair && index + 1 < projects.length) {
+            const nextProject = projects[index + 1];
+            const nextIsFullWidth = (index + 1) % 5 === 0;
+
+            if (!nextIsFullWidth) {
+              return (
+                <div key={project.slug} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                  <AnimatedGridItem>
+                    <ProjectCard
+                      id={project.id}
+                      slug={project.slug}
+                      title={project.title}
+                      client={project.client}
+                      vimeoId={project.vimeoId}
+                      thumbnailUrl={thumbnailUrls[project.slug] ?? null}
+                      layout="half"
+                    />
+                  </AnimatedGridItem>
+                  <AnimatedGridItem>
+                    <ProjectCard
+                      id={nextProject.id}
+                      slug={nextProject.slug}
+                      title={nextProject.title}
+                      client={nextProject.client}
+                      vimeoId={nextProject.vimeoId}
+                      thumbnailUrl={thumbnailUrls[nextProject.slug] ?? null}
+                      layout="half"
+                    />
+                  </AnimatedGridItem>
+                </div>
+              );
+            }
+          }
+
+          // Skip right-side items (already rendered in pair above)
+          const isRightOfPair = !isFullWidth && ((index % 5 === 2) || (index % 5 === 4));
+          if (isRightOfPair) return null;
+
+          // Fallback for odd items at end
+          return (
+            <AnimatedGridItem key={project.slug}>
+              <ProjectCard
+                id={project.id}
+                slug={project.slug}
+                title={project.title}
+                client={project.client}
+                vimeoId={project.vimeoId}
+                thumbnailUrl={thumbnailUrls[project.slug] ?? null}
+                layout="full"
+              />
+            </AnimatedGridItem>
+          );
+        })}
       </AnimatedGrid>
     </section>
   );
