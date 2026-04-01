@@ -34,7 +34,7 @@ export function Nav() {
       >
         <div className="flex items-center justify-between h-20 px-10 sm:px-14 lg:px-20">
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <a href="/" className="flex items-center ml-2 sm:ml-4">
             <Image
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"

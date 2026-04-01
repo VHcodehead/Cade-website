@@ -21,49 +21,43 @@ const BRAND_LOGOS = [
 
 export function BrandLogos() {
   return (
-    <section className="py-32 sm:py-44 bg-bg-base overflow-hidden">
+    <section className="py-32 sm:py-40">
       <RevealSection>
-        <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 text-center mb-20 sm:mb-28">
+        <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 text-center mb-16 sm:mb-24">
           Selected Clients
         </p>
       </RevealSection>
 
-      <div className="relative">
+      {/* Frosted glass strip */}
+      <div className="relative py-10 sm:py-14 bg-white/[0.03] backdrop-blur-sm border-y border-white/[0.04]">
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 sm:w-48 bg-gradient-to-r from-bg-base to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 sm:w-48 bg-gradient-to-l from-bg-base to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
 
-        <div className="marquee-track flex">
-          <div className="marquee-inner flex items-center shrink-0 animate-marquee">
+        <div className="marquee-track flex overflow-hidden">
+          <div className="marquee-scroll flex items-center shrink-0">
             {BRAND_LOGOS.map((logo, i) => (
-              <div
-                key={`a-${logo.name}-${i}`}
-                className="shrink-0 mx-10 sm:mx-16"
-              >
+              <div key={`a-${i}`} className="shrink-0 mx-8 sm:mx-14">
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   width={140}
                   height={50}
-                  className="h-8 sm:h-10 w-auto object-contain invert opacity-30 hover:opacity-60 transition-opacity duration-500"
+                  className="h-7 sm:h-9 w-auto object-contain brightness-0 invert opacity-40"
                   unoptimized
                 />
               </div>
             ))}
           </div>
-          {/* Duplicate for seamless loop */}
-          <div className="marquee-inner flex items-center shrink-0 animate-marquee" aria-hidden="true">
+          <div className="marquee-scroll flex items-center shrink-0" aria-hidden="true">
             {BRAND_LOGOS.map((logo, i) => (
-              <div
-                key={`b-${logo.name}-${i}`}
-                className="shrink-0 mx-10 sm:mx-16"
-              >
+              <div key={`b-${i}`} className="shrink-0 mx-8 sm:mx-14">
                 <Image
                   src={logo.src}
                   alt={logo.name}
                   width={140}
                   height={50}
-                  className="h-8 sm:h-10 w-auto object-contain invert opacity-30 hover:opacity-60 transition-opacity duration-500"
+                  className="h-7 sm:h-9 w-auto object-contain brightness-0 invert opacity-40"
                   unoptimized
                 />
               </div>

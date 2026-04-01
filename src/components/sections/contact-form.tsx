@@ -10,11 +10,11 @@ export function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <section id="contact" className="relative py-48 sm:py-56 px-6 sm:px-10 lg:px-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-bg-base via-[#0d0d0d] to-bg-base" />
-        <div className="relative z-10 max-w-xl mx-auto text-center">
-          <div className="w-12 h-[1px] bg-accent mx-auto mb-10" />
-          <p className="text-[10px] uppercase tracking-[0.4em] text-accent/80 mb-8">Message Sent</p>
+      <section id="contact" className="relative py-48 sm:py-56 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f] via-[#141414] to-[#0f0f0f]" />
+        <div className="relative z-10 max-w-xl mx-auto text-center px-6">
+          <div className="w-10 h-[1px] bg-accent/40 mx-auto mb-12" />
+          <p className="text-[10px] uppercase tracking-[0.4em] text-accent/70 mb-8">Message Sent</p>
           <h2
             className="text-[clamp(1.5rem,3vw,2.5rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1]"
             style={{ fontFamily: 'var(--font-heading)' }}
@@ -27,17 +27,14 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="relative py-48 sm:py-56 px-6 sm:px-10 lg:px-16 overflow-hidden">
-      {/* Subtle background gradient for visual depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg-base via-[#0d0d0d] to-bg-base" />
+    <section id="contact" className="relative py-48 sm:py-56 overflow-hidden">
+      {/* Matte gradient grey background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f] via-[#151515] to-[#0f0f0f]" />
 
-      {/* Accent line at top */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-20 bg-gradient-to-b from-transparent via-accent/20 to-transparent" />
-
-      <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Section header — centered */}
-        <div className="text-center mb-24 sm:mb-32">
-          <div className="w-12 h-[1px] bg-accent/30 mx-auto mb-10" />
+      <div className="relative z-10 px-6 sm:px-10 lg:px-16">
+        {/* Header — centered */}
+        <div className="text-center mb-20 sm:mb-28">
+          <div className="w-10 h-[1px] bg-accent/30 mx-auto mb-12" />
           <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 mb-8">
             Contact
           </p>
@@ -52,12 +49,12 @@ export function ContactForm() {
           </p>
         </div>
 
-        {/* Form — centered, constrained width */}
-        <div className="max-w-2xl mx-auto">
-          <form action={formAction} className="flex flex-col gap-14">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-14">
+        {/* Form — centered */}
+        <div className="max-w-xl mx-auto">
+          <form action={formAction} className="flex flex-col gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
               <div className="group">
-                <label htmlFor="name" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/50 transition-colors duration-500">
+                <label htmlFor="name" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
                   Name
                 </label>
                 <input
@@ -65,7 +62,7 @@ export function ContactForm() {
                   name="name"
                   type="text"
                   required
-                  className="bg-transparent border-b border-white/[0.06] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
+                  className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
                   placeholder="Your name"
                 />
                 {state.errors?.name?.map((error) => (
@@ -74,7 +71,7 @@ export function ContactForm() {
               </div>
 
               <div className="group">
-                <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/50 transition-colors duration-500">
+                <label htmlFor="email" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
                   Email
                 </label>
                 <input
@@ -82,7 +79,7 @@ export function ContactForm() {
                   name="email"
                   type="email"
                   required
-                  className="bg-transparent border-b border-white/[0.06] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
+                  className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
                   placeholder="you@company.com"
                 />
                 {state.errors?.email?.map((error) => (
@@ -92,20 +89,20 @@ export function ContactForm() {
             </div>
 
             <div className="group">
-              <label htmlFor="company" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/50 transition-colors duration-500">
+              <label htmlFor="company" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
                 Company <span className="text-text-muted/10">(optional)</span>
               </label>
               <input
                 id="company"
                 name="company"
                 type="text"
-                className="bg-transparent border-b border-white/[0.06] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
+                className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] placeholder:text-text-muted/10 outline-none"
                 placeholder="Your company"
               />
             </div>
 
             <div className="group">
-              <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/50 transition-colors duration-500">
+              <label htmlFor="message" className="block text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-5 group-focus-within:text-accent/40 transition-colors duration-500">
                 Project Details
               </label>
               <textarea
@@ -113,7 +110,7 @@ export function ContactForm() {
                 name="message"
                 rows={5}
                 required
-                className="bg-transparent border-b border-white/[0.06] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] resize-none placeholder:text-text-muted/10 leading-relaxed outline-none"
+                className="bg-transparent border-b border-white/[0.08] text-text-primary pb-4 w-full focus:border-accent/30 transition-colors duration-500 text-[15px] resize-none placeholder:text-text-muted/10 leading-relaxed outline-none"
                 placeholder="Tell us about your project, timeline, and budget range"
               />
               {state.errors?.message?.map((error) => (
@@ -125,16 +122,15 @@ export function ContactForm() {
               <p key={error} className="text-red-400/60 text-xs tracking-wide">{error}</p>
             ))}
 
-            <div className="pt-6 text-center">
+            {/* Submit — clean text link style, no box */}
+            <div className="pt-8 text-center">
               <button
                 type="submit"
                 disabled={isPending}
-                className="inline-flex items-center gap-4 px-12 py-5 text-[11px] font-medium uppercase tracking-[0.3em] text-text-primary border border-white/[0.08] hover:border-accent/40 hover:text-accent transition-all duration-500 disabled:opacity-20 disabled:cursor-not-allowed"
+                className="group inline-flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.3em] text-text-muted/50 hover:text-accent transition-colors duration-500 disabled:opacity-20 disabled:cursor-not-allowed"
               >
                 <span>{isPending ? 'Sending...' : 'Send Message'}</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform duration-500 group-hover:translate-x-1">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <span className="inline-block w-8 h-[1px] bg-current transition-all duration-500 group-hover:w-14" />
               </button>
             </div>
           </form>
