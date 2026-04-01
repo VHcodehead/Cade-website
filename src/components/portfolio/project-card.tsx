@@ -98,6 +98,7 @@ export function ProjectCard({
               src={thumbnailUrl}
               alt={title}
               fill
+              unoptimized
               className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]"
               sizes={layout === 'full' ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
             />

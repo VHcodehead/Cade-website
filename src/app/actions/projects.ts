@@ -60,20 +60,12 @@ async function saveUploadedFile(file: File, dir: string, slug: string): Promise<
 
   const buffer = Buffer.from(await file.arrayBuffer())
 
-  // Always write to /tmp/uploads/ (works on Railway)
+  // Write to /tmp/uploads/ (persists on Railway between requests)
   await mkdir(tmpDir, { recursive: true })
   await writeFile(path.join(tmpDir, fileName), buffer)
 
-  // Also try /public/ for dev environment
-  try {
-    await mkdir(publicDir, { recursive: true })
-    await writeFile(path.join(publicDir, fileName), buffer)
-    // If /public/ write succeeds, use direct path (faster)
-    return `/${dir}/${fileName}`
-  } catch {
-    // /public/ is read-only (Railway) — use API route
-    return `/api/uploads/${dir}/${fileName}`
-  }
+  // Always return the API route path — works on both dev and Railway
+  return `/api/uploads/${dir}/${fileName}`
 }
 
 export async function createProject(
