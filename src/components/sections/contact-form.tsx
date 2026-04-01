@@ -10,9 +10,8 @@ export function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <section id="contact" className="relative py-48 sm:py-56 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f] via-[#141414] to-[#0f0f0f]" />
-        <div className="relative z-10 max-w-xl mx-auto text-center px-6">
+      <section id="contact" className="py-48 sm:py-56 px-6">
+        <div className="max-w-xl mx-auto text-center">
           <div className="w-10 h-[1px] bg-accent/40 mx-auto mb-12" />
           <p className="text-[10px] uppercase tracking-[0.4em] text-accent/70 mb-8">Message Sent</p>
           <h2
@@ -27,11 +26,8 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="relative py-48 sm:py-56 overflow-hidden">
-      {/* Matte gradient grey background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f0f] via-[#151515] to-[#0f0f0f]" />
-
-      <div className="relative z-10 px-6 sm:px-10 lg:px-16">
+    <section id="contact" className="py-48 sm:py-56 px-6 sm:px-10 lg:px-16">
+      <div>
         {/* Header — centered */}
         <div className="text-center mb-20 sm:mb-28">
           <div className="w-10 h-[1px] bg-accent/30 mx-auto mb-12" />

@@ -21,7 +21,7 @@ const BRAND_LOGOS = [
 
 export function BrandLogos() {
   return (
-    <section className="py-32 sm:py-40">
+    <section className="py-32 sm:py-40 bg-transparent">
       <RevealSection>
         <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 text-center mb-16 sm:mb-24">
           Selected Clients
@@ -31,8 +31,8 @@ export function BrandLogos() {
       {/* Frosted glass strip */}
       <div className="relative py-10 sm:py-14 bg-white/[0.03] backdrop-blur-sm border-y border-white/[0.04]">
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#0c0c0c] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
 
         <div className="marquee-track flex overflow-hidden">
           <div className="marquee-scroll flex items-center shrink-0">

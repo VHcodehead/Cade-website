@@ -6,8 +6,7 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-bg-base pt-40 sm:pt-48 pb-12">
-      <div className="mx-6 sm:mx-10 lg:mx-16 border-t border-border-subtle" />
+    <footer className="bg-[#0A0A0A] pt-20 sm:pt-24 pb-12">
 
       <div className="px-6 sm:px-10 lg:px-16 pt-20 sm:pt-28">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 sm:gap-20 mb-32 sm:mb-40">
