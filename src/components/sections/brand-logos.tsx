@@ -47,11 +47,11 @@ export function BrandLogos() {
         </p>
       </RevealSection>
 
-      {/* Frosted glass strip */}
-      <div className="relative py-10 sm:py-14 bg-white/[0.03] border-y border-white/[0.04]">
+      {/* Dark matte grey strip so all logos pop */}
+      <div className="relative py-12 sm:py-16 bg-[#1a1a1a] border-y border-white/[0.06]">
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-[#0A0A0A] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-40 bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none" />
 
         {/* Seamless marquee */}
         <div className="flex w-max logo-marquee">
