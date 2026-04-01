@@ -63,7 +63,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     : []
 
   return (
-    <>
+    <div className="min-h-screen">
       <AnalyticsTracker page={`/projects/${slug}`} projectId={project.id} />
 
       {/* Full-width video */}
@@ -75,109 +75,112 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         />
       </div>
 
-      {/* Project content — single column, centered, generous spacing */}
-      <article className="max-w-3xl mx-auto px-6 sm:px-10">
+      {/* Centered content wrapper */}
+      <div className="w-full flex justify-center">
+        <article className="w-full max-w-[900px] px-8 sm:px-16 lg:px-20">
 
-        {/* Title block */}
-        <div className="pt-24 sm:pt-32 pb-16 sm:pb-20">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/20 mb-6">
-            {project.client || 'Project'}
-          </p>
-          <h1
-            className="text-[clamp(1.75rem,4vw,3.5rem)] uppercase tracking-[0.1em] text-text-primary leading-[1.05]"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            {project.title}
-          </h1>
-        </div>
-
-        {/* Metadata — clean horizontal row */}
-        <div className="flex gap-16 sm:gap-20 flex-wrap py-10 border-t border-border-subtle border-b border-b-border-subtle">
-          {project.client && (
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-2">Client</p>
-              <p className="text-[14px] text-text-primary/70">{project.client}</p>
-            </div>
-          )}
-          {project.services && (
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-2">Services</p>
-              <p className="text-[14px] text-text-primary/70">{project.services}</p>
-            </div>
-          )}
-          {project.year && (
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/20 mb-2">Year</p>
-              <p className="text-[14px] text-text-primary/70">{project.year}</p>
-            </div>
-          )}
-        </div>
-
-        {/* Description — if exists */}
-        {descriptionParagraphs.length > 0 && (
-          <div className="py-16 sm:py-20">
-            {descriptionParagraphs.map((para, i) => (
-              <p key={i} className="text-[15px] text-text-muted/40 leading-[1.9] tracking-wide mb-6 last:mb-0">
-                {para}
-              </p>
-            ))}
+          {/* Title */}
+          <div className="text-center pt-32 sm:pt-44 pb-20 sm:pb-28">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/25 mb-8">
+              {project.client || 'Project'}
+            </p>
+            <h1
+              className="text-[clamp(2rem,5vw,4rem)] uppercase tracking-[0.15em] text-text-primary leading-[1.05]"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              {project.title}
+            </h1>
           </div>
-        )}
 
-        {/* Prev / Next */}
-        <nav className="border-t border-border-subtle py-20 sm:py-24">
-          <div className="grid grid-cols-3 items-start">
-            <div>
-              {prevProject && (
-                <Link href={`/projects/${prevProject.slug}`} className="group inline-flex flex-col">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-text-muted/15 mb-3">Previous</span>
-                  <span className="text-[13px] text-text-muted/40 group-hover:text-text-primary transition-colors duration-300">
-                    {prevProject.title}
-                  </span>
-                </Link>
-              )}
-            </div>
-
-            <div className="text-center">
-              <Link
-                href="/#work"
-                className="text-[10px] uppercase tracking-[0.3em] text-text-muted/15 hover:text-text-muted/50 transition-colors duration-300"
-              >
-                All Work
-              </Link>
-            </div>
-
-            <div className="text-right">
-              {nextProject && (
-                <Link href={`/projects/${nextProject.slug}`} className="group inline-flex flex-col items-end">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-text-muted/15 mb-3">Next</span>
-                  <span className="text-[13px] text-text-muted/40 group-hover:text-text-primary transition-colors duration-300">
-                    {nextProject.title}
-                  </span>
-                </Link>
-              )}
-            </div>
+          {/* Metadata — centered row */}
+          <div className="flex justify-center gap-20 sm:gap-28 flex-wrap py-12 sm:py-14 border-t border-white/[0.06] border-b border-b-white/[0.06]">
+            {project.client && (
+              <div className="text-center">
+                <p className="text-[9px] uppercase tracking-[0.35em] text-text-muted/20 mb-3">Client</p>
+                <p className="text-[14px] text-text-primary/60">{project.client}</p>
+              </div>
+            )}
+            {project.services && (
+              <div className="text-center">
+                <p className="text-[9px] uppercase tracking-[0.35em] text-text-muted/20 mb-3">Services</p>
+                <p className="text-[14px] text-text-primary/60">{project.services}</p>
+              </div>
+            )}
+            {project.year && (
+              <div className="text-center">
+                <p className="text-[9px] uppercase tracking-[0.35em] text-text-muted/20 mb-3">Year</p>
+                <p className="text-[14px] text-text-primary/60">{project.year}</p>
+              </div>
+            )}
           </div>
-        </nav>
 
-        {/* CTA */}
-        <div className="text-center py-24 sm:py-32 border-t border-border-subtle">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/15 mb-10">
-            Interested?
-          </p>
-          <h2
-            className="text-[clamp(1.25rem,2.5vw,2rem)] uppercase tracking-[0.12em] text-text-primary mb-14 leading-tight"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Let&apos;s make something
-            <br />
-            worth watching.
-          </h2>
-          <CTAButton variant="primary" href="/#contact">
-            Start a Project
-          </CTAButton>
-        </div>
-      </article>
-    </>
+          {/* Description */}
+          {descriptionParagraphs.length > 0 && (
+            <div className="text-center py-20 sm:py-28 max-w-[640px] mx-auto">
+              {descriptionParagraphs.map((para, i) => (
+                <p key={i} className="text-[15px] text-text-muted/35 leading-[2] tracking-wide mb-8 last:mb-0">
+                  {para}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {/* Prev / Next */}
+          <nav className="border-t border-white/[0.06] py-24 sm:py-32">
+            <div className="grid grid-cols-3 items-start">
+              <div>
+                {prevProject && (
+                  <Link href={`/projects/${prevProject.slug}`} className="group inline-flex flex-col">
+                    <span className="text-[9px] uppercase tracking-[0.35em] text-text-muted/15 mb-4">Previous</span>
+                    <span className="text-[13px] text-text-muted/35 group-hover:text-text-primary transition-colors duration-500">
+                      {prevProject.title}
+                    </span>
+                  </Link>
+                )}
+              </div>
+
+              <div className="text-center">
+                <Link
+                  href="/#work"
+                  className="text-[9px] uppercase tracking-[0.35em] text-text-muted/15 hover:text-text-muted/50 transition-colors duration-500"
+                >
+                  All Work
+                </Link>
+              </div>
+
+              <div className="text-right">
+                {nextProject && (
+                  <Link href={`/projects/${nextProject.slug}`} className="group inline-flex flex-col items-end">
+                    <span className="text-[9px] uppercase tracking-[0.35em] text-text-muted/15 mb-4">Next</span>
+                    <span className="text-[13px] text-text-muted/35 group-hover:text-text-primary transition-colors duration-500">
+                      {nextProject.title}
+                    </span>
+                  </Link>
+                )}
+              </div>
+            </div>
+          </nav>
+
+          {/* CTA */}
+          <div className="text-center py-32 sm:py-40 border-t border-white/[0.06]">
+            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/15 mb-12">
+              Interested?
+            </p>
+            <h2
+              className="text-[clamp(1.25rem,2.5vw,2rem)] uppercase tracking-[0.15em] text-text-primary mb-16 leading-tight"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Let&apos;s make something
+              <br />
+              worth watching.
+            </h2>
+            <CTAButton variant="primary" href="/#contact">
+              Start a Project
+            </CTAButton>
+          </div>
+
+        </article>
+      </div>
+    </div>
   )
 }
