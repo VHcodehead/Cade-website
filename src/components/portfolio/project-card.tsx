@@ -12,6 +12,7 @@ interface ProjectCardProps {
   vimeoId: string;
   thumbnailUrl: string | null;
   layout: 'full' | 'half';
+  previewClipUrl?: string;
 }
 
 export function ProjectCard({
@@ -22,11 +23,23 @@ export function ProjectCard({
   vimeoId,
   thumbnailUrl,
   layout,
+  previewClipUrl,
 }: ProjectCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const hasTrackedPlay = useRef<boolean>(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isHovered) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  }, [isHovered]);
 
   useEffect(() => {
     const el = cardRef.current;
@@ -92,17 +105,31 @@ export function ProjectCard({
             <div className="absolute inset-0 bg-bg-card" />
           )}
 
-          {/* Hover: Vimeo iframe */}
-          {isHovered && (
+          {/* Hover: native MP4 or Vimeo iframe */}
+          {previewClipUrl ? (
             <div className="absolute inset-0 z-10 pointer-events-none">
-              <iframe
-                src={`https://player.vimeo.com/video/${vimeoId}?background=1&quality=auto&autoplay=1&loop=1&muted=1`}
-                className="absolute inset-0 w-full h-full scale-[1.15]"
-                frameBorder="0"
-                allow="autoplay"
-                title={`${title} preview`}
+              <video
+                ref={videoRef}
+                src={previewClipUrl}
+                muted
+                loop
+                playsInline
+                preload="none"
+                className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
               />
             </div>
+          ) : (
+            isHovered && (
+              <div className="absolute inset-0 z-10 pointer-events-none">
+                <iframe
+                  src={`https://player.vimeo.com/video/${vimeoId}?background=1&quality=auto&autoplay=1&loop=1&muted=1`}
+                  className="absolute inset-0 w-full h-full scale-[1.15]"
+                  frameBorder="0"
+                  allow="autoplay"
+                  title={`${title} preview`}
+                />
+              </div>
+            )
           )}
 
           {/* Gradient — only on hover */}

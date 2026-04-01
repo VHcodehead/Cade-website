@@ -16,6 +16,8 @@ const projects = [
     services: 'Production, Direction, Post-Production',
     year: 2024,
     vimeoId: '1010368544',
+    previewClipUrl: '/videos/aether-nz.mp4',
+    thumbnailUrl: '/thumbnails/aether-nz.jpg',
     sortOrder: 1,
     description:
       'VLACOVISION partnered with Aether Apparel to capture the essence of adventure and exploration across the stunning landscapes of New Zealand. This project showcases the perfect intersection of high-performance outdoor apparel and breathtaking natural environments.',
@@ -38,6 +40,7 @@ const projects = [
     services: 'Production, Direction, Cinematography',
     year: 2023,
     vimeoId: '860534227',
+    previewClipUrl: '/videos/bf-goodrich.mp4',
     sortOrder: 3,
     description:
       'VLACOVISION partnered with BF Goodrich to showcase the legendary performance of their off-road tire technology. This project takes viewers into extreme terrain where traction, durability, and innovation are put to the ultimate test.',
@@ -49,6 +52,7 @@ const projects = [
     services: 'Creative Direction, Production, Post-Production',
     year: 2023,
     vimeoId: '857659249',
+    previewClipUrl: '/videos/chase-sapphire.mp4',
     sortOrder: 4,
     description:
       'VLACOVISION collaborated with Chase to create a premium visual campaign for the Chase Sapphire card, capturing the aspirational lifestyle and travel rewards that define this prestigious financial product.',
@@ -93,6 +97,7 @@ const projects = [
     services: 'Creative Direction, Production, Post-Production',
     year: 2023,
     vimeoId: '844374776',
+    previewClipUrl: '/videos/dr-bronners.mp4',
     sortOrder: 8,
     description:
       'VLACOVISION collaborated with Dr. Bronner\'s to create a visual narrative celebrating their commitment to organic, fair-trade products and ethical business practices.',
@@ -104,6 +109,8 @@ const projects = [
     services: 'Creative Direction, Production, Post-Production',
     year: 2024,
     vimeoId: '1115912854',
+    previewClipUrl: '/videos/entelligence.mp4',
+    thumbnailUrl: '/thumbnails/entelligence.jpg',
     sortOrder: 9,
     description:
       'VLACOVISION collaborated with Entelligence to translate complex technology solutions into compelling visual narratives, demonstrating how innovative technology can transform business operations.',
@@ -170,6 +177,7 @@ const projects = [
     services: 'Creative Direction, Production, Cinematography',
     year: 2024,
     vimeoId: '1018385941',
+    previewClipUrl: '/videos/lululemon.mp4',
     sortOrder: 15,
     description:
       'VLACOVISION collaborated with Lululemon to create a dynamic campaign celebrating movement, mindfulness, and athletic lifestyle, focusing on authentic storytelling and the technical innovation behind their product line.',
@@ -181,6 +189,7 @@ const projects = [
     services: 'Production, Direction, Cinematography',
     year: 2023,
     vimeoId: '761621877',
+    previewClipUrl: '/videos/mikes-bikes-2.mp4',
     sortOrder: 16,
     description:
       "VLACOVISION returned to Mike's Bikes to capture a deeper look into the cycling community and culture, shifting focus from products to people and the vibrant network of riders throughout the Bay Area.",
@@ -192,6 +201,7 @@ const projects = [
     services: 'Creative Direction, Production, Post-Production',
     year: 2024,
     vimeoId: '1018383973',
+    previewClipUrl: '/videos/mikes-bikes.mp4',
     sortOrder: 17,
     description:
       "VLACOVISION collaborated with Mike's Bikes to create a visual celebration of premium cycling culture, capturing the intersection of high-performance bicycles, expert craftsmanship, and the passionate Bay Area cycling community.",
@@ -203,6 +213,8 @@ const projects = [
     services: 'Production, Direction, Cinematography',
     year: 2024,
     vimeoId: '1044746189',
+    previewClipUrl: '/videos/offield.mp4',
+    thumbnailUrl: '/thumbnails/offield.jpg',
     sortOrder: 18,
     description:
       'VLACOVISION partnered with Offield to capture the spirit of adventure and the outdoor lifestyle that defines their brand, exploring the relationship between people and wild places.',
@@ -214,6 +226,7 @@ const projects = [
     services: 'Creative Direction, Production, Cinematography',
     year: 2024,
     vimeoId: '1010444232',
+    previewClipUrl: '/videos/prickly-motorsports.mp4',
     sortOrder: 19,
     description:
       'VLACOVISION partnered with Prickly Motorsports to capture the raw intensity and adrenaline-fueled world of competitive racing, diving deep into the culture of high-performance motorsports.',
@@ -236,6 +249,7 @@ const projects = [
     services: 'Creative Direction, Production, Cinematography',
     year: 2023,
     vimeoId: '718438350',
+    previewClipUrl: '/videos/texino.mp4',
     sortOrder: 21,
     description:
       'VLACOVISION collaborated with Texino to showcase the art of handcrafted leather goods, documenting the meticulous process and skilled craftsmanship behind each piece.',
@@ -251,10 +265,36 @@ const projects = [
     description:
       'VLACOVISION created "Town / Trail" to explore the dual nature of modern cycling culture — the seamless transition between urban commuting and trail riding that defines the contemporary cycling experience.',
   },
+  {
+    slug: 'aventon-current',
+    title: 'Aventon Current',
+    client: 'Aventon',
+    services: 'Creative Direction, Production, Cinematography',
+    year: 2024,
+    vimeoId: '1178599224',
+    previewClipUrl: '/videos/aventon-current.mp4',
+    thumbnailUrl: '/thumbnails/aventon-current.jpg',
+    sortOrder: 23,
+    description:
+      'VLACOVISION partnered with Aventon to launch the Current — their latest electric bike model. This project captures the freedom and innovation of modern e-mobility through cinematic storytelling.',
+  },
+  {
+    slug: 'headspace',
+    title: 'Headspace',
+    client: 'Headspace',
+    services: 'Creative Direction, Production, Post-Production',
+    year: 2024,
+    vimeoId: '1128320354',
+    previewClipUrl: '/videos/headspace.mp4',
+    thumbnailUrl: '/thumbnails/headspace.jpg',
+    sortOrder: 24,
+    description:
+      'VLACOVISION collaborated with Headspace to create a series of visual pieces exploring mindfulness and mental wellness through cinematic imagery and thoughtful direction.',
+  },
 ];
 
 async function main() {
-  console.log('Seeding database with 22 projects...');
+  console.log('Seeding database with 24 projects...');
 
   for (const project of projects) {
     await db.project.upsert({
@@ -265,6 +305,8 @@ async function main() {
         services: project.services,
         year: project.year,
         vimeoId: project.vimeoId,
+        previewClipUrl: project.previewClipUrl,
+        thumbnailUrl: project.thumbnailUrl,
         sortOrder: project.sortOrder,
         description: project.description,
       },
@@ -298,7 +340,7 @@ async function main() {
   });
   console.log(`  Admin user seeded: ${adminEmail}`);
 
-  console.log('Seed complete: 22 projects + SiteConfig + AdminUser.');
+  console.log('Seed complete: 24 projects + SiteConfig + AdminUser.');
 }
 
 main()

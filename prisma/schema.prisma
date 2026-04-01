@@ -18,8 +18,9 @@ model Project {
   services       String   @default("")
   year           Int
   description    String   @default("")
-  vimeoId        String
-  thumbnailUrl   String   @default("")
+  vimeoId            String
+  additionalVimeoIds String   @default("")
+  thumbnailUrl       String   @default("")
   previewClipUrl String   @default("")
   published      Boolean  @default(true)
   sortOrder      Int      @default(0)

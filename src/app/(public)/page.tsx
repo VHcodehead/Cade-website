@@ -36,6 +36,7 @@ export default async function HomePage() {
       client: true,
       vimeoId: true,
       sortOrder: true,
+      previewClipUrl: true,
     },
   });
 

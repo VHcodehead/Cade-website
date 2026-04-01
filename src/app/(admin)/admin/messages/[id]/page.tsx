@@ -1,8 +1,10 @@
+export const dynamic = 'force-dynamic'
+
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { verifySession } from '@/lib/dal'
 import { db } from '@/lib/db'
-import { markRead, deleteMessage } from '@/app/actions/messages'
+import { deleteMessage } from '@/app/actions/messages'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -19,8 +21,13 @@ export default async function MessageDetailPage({ params }: Props) {
     notFound()
   }
 
+  // Mark as read directly instead of calling the server action (which triggers
+  // revalidatePath during render and causes a reload loop)
   if (!message.read) {
-    await markRead(id)
+    await db.contactSubmission.update({
+      where: { id },
+      data: { read: true },
+    })
   }
 
   const formattedDate = new Date(message.createdAt).toLocaleDateString('en-US', {

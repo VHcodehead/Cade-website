@@ -62,6 +62,16 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     ? project.description.split('\n\n').filter(Boolean)
     : []
 
+  // Parse additional Vimeo IDs if present
+  const additionalVimeoIds = project.additionalVimeoIds
+    ? project.additionalVimeoIds.split(',').map((id: string) => id.trim()).filter(Boolean)
+    : []
+
+  // Fetch thumbnails for additional videos in parallel
+  const additionalThumbnails = additionalVimeoIds.length > 0
+    ? await Promise.all(additionalVimeoIds.map((vid: string) => getVimeoThumbnail(vid)))
+    : []
+
   return (
     <div className="min-h-screen">
       <AnalyticsTracker page={`/projects/${slug}`} projectId={project.id} />
@@ -74,6 +84,20 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           title={project.title}
         />
       </div>
+
+      {/* Additional videos */}
+      {additionalVimeoIds.length > 0 && (
+        <div className="mt-8 space-y-8">
+          {additionalVimeoIds.map((vid: string, i: number) => (
+            <VideoFacade
+              key={vid}
+              vimeoId={vid}
+              thumbnailUrl={additionalThumbnails[i]}
+              title={`${project.title} — Part ${i + 2}`}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Centered content wrapper */}
       <div className="w-full flex justify-center">

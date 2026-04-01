@@ -10,6 +10,7 @@ interface Project {
   client: string;
   vimeoId: string;
   sortOrder: number;
+  previewClipUrl?: string | null;
 }
 
 interface PortfolioGridProps {
@@ -35,6 +36,7 @@ export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
                   client={project.client}
                   vimeoId={project.vimeoId}
                   thumbnailUrl={thumbnailUrls[project.slug] ?? null}
+                  previewClipUrl={project.previewClipUrl ?? undefined}
                   layout="full"
                 />
               </AnimatedGridItem>
@@ -59,6 +61,7 @@ export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
                       client={project.client}
                       vimeoId={project.vimeoId}
                       thumbnailUrl={thumbnailUrls[project.slug] ?? null}
+                      previewClipUrl={project.previewClipUrl ?? undefined}
                       layout="half"
                     />
                   </AnimatedGridItem>
@@ -70,6 +73,7 @@ export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
                       client={nextProject.client}
                       vimeoId={nextProject.vimeoId}
                       thumbnailUrl={thumbnailUrls[nextProject.slug] ?? null}
+                      previewClipUrl={nextProject.previewClipUrl ?? undefined}
                       layout="half"
                     />
                   </AnimatedGridItem>
@@ -92,6 +96,7 @@ export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
                 client={project.client}
                 vimeoId={project.vimeoId}
                 thumbnailUrl={thumbnailUrls[project.slug] ?? null}
+                previewClipUrl={project.previewClipUrl ?? undefined}
                 layout="full"
               />
             </AnimatedGridItem>
