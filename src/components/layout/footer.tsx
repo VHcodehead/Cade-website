@@ -1,5 +1,4 @@
 import { db } from '@/lib/db';
-import { CTAButton } from '@/components/ui/cta-button';
 
 export async function Footer() {
   const siteConfig = await db.siteConfig.findFirst();
@@ -7,49 +6,86 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      className="bg-bg-base border-t border-bg-section"
-      style={{ paddingTop: 'var(--spacing-16)', paddingBottom: 'var(--spacing-8)' }}
-    >
-      <div
-        style={{ paddingLeft: 'var(--spacing-4)', paddingRight: 'var(--spacing-4)' }}
-        className="max-w-7xl mx-auto"
-      >
-        {/* Three-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12">
-          {/* Column 1: Brand + Location */}
-          <div>
-            <p className="font-heading text-text-primary uppercase tracking-widest font-bold text-lg mb-3">
+    <footer className="bg-bg-base pt-32 sm:pt-40 pb-10">
+      {/* Top divider — subtle */}
+      <div className="mx-6 sm:mx-10 lg:mx-16 border-t border-border-subtle" />
+
+      <div className="px-6 sm:px-10 lg:px-16 pt-16 sm:pt-20">
+        {/* Main footer grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-16 mb-24 sm:mb-32">
+          {/* Column 1: Brand */}
+          <div className="lg:col-span-1">
+            <p
+              className="text-text-primary uppercase tracking-[0.25em] text-sm mb-4"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
               VLACOVISION
             </p>
-            <p className="text-text-muted text-sm">Bay Area, CA</p>
+            <p className="text-[13px] text-text-muted/30 leading-relaxed">
+              Premium video production
+              <br />
+              Bay Area &amp; worldwide
+            </p>
           </div>
 
-          {/* Column 2: Contact */}
+          {/* Column 2: Navigation */}
           <div>
-            <p className="text-text-primary uppercase tracking-widest text-sm font-bold mb-3">
-              Contact
+            <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/25 mb-6">
+              Navigation
+            </p>
+            <ul className="flex flex-col gap-3 list-none">
+              <li>
+                <a
+                  href="#work"
+                  className="text-[13px] text-text-muted/50 transition-colors duration-300 hover:text-text-primary"
+                >
+                  Work
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  className="text-[13px] text-text-muted/50 transition-colors duration-300 hover:text-text-primary"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-[13px] text-text-muted/50 transition-colors duration-300 hover:text-text-primary"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Contact */}
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/25 mb-6">
+              Get in Touch
             </p>
             <a
               href={`mailto:${contactEmail}`}
-              className="text-text-muted text-sm transition-colors hover:text-accent"
+              className="text-[13px] text-text-muted/50 transition-colors duration-300 hover:text-text-primary"
             >
               {contactEmail}
             </a>
           </div>
 
-          {/* Column 3: Social */}
+          {/* Column 4: Social */}
           <div>
-            <p className="text-text-primary uppercase tracking-widest text-sm font-bold mb-3">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-text-muted/25 mb-6">
               Follow
             </p>
-            <ul className="flex flex-col gap-2 list-none">
+            <ul className="flex flex-col gap-3 list-none">
               <li>
                 <a
                   href="https://www.instagram.com/vlacovision"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-muted text-sm transition-colors hover:text-accent"
+                  className="text-[13px] text-text-muted/50 transition-colors duration-300 hover:text-text-primary"
                 >
                   Instagram
                 </a>
@@ -59,7 +95,7 @@ export async function Footer() {
                   href="https://vimeo.com/vlacovision"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-text-muted text-sm transition-colors hover:text-accent"
+                  className="text-[13px] text-text-muted/50 transition-colors duration-300 hover:text-text-primary"
                 >
                   Vimeo
                 </a>
@@ -68,17 +104,15 @@ export async function Footer() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="flex justify-center mb-12">
-          <CTAButton variant="primary" href="/#contact">
-            Start a Project
-          </CTAButton>
+        {/* Bottom bar — copyright, very quiet */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-border-subtle">
+          <p className="text-[10px] text-text-muted/20 uppercase tracking-[0.2em]">
+            &copy; {year} VLACOVISION
+          </p>
+          <p className="text-[10px] text-text-muted/15 uppercase tracking-[0.2em]">
+            All rights reserved
+          </p>
         </div>
-
-        {/* Copyright */}
-        <p className="text-center text-text-muted text-xs uppercase tracking-widest">
-          &copy; {year} VLACOVISION. All rights reserved.
-        </p>
       </div>
     </footer>
   );

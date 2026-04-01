@@ -25,30 +25,28 @@ export function Nav() {
     <>
       <nav
         aria-label="Main navigation"
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-bg-base border-b border-bg-section' : 'bg-transparent'
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? 'bg-bg-base/90 backdrop-blur-md border-b border-border-subtle'
+            : 'bg-transparent'
         }`}
-        style={{ height: '80px' }}
       >
-        <div
-          className="flex items-center justify-between h-full"
-          style={{ paddingLeft: 'var(--spacing-4)', paddingRight: 'var(--spacing-4)' }}
-        >
+        <div className="flex items-center justify-between h-20 px-6 sm:px-10 lg:px-16">
           {/* Logo */}
           <a
             href="/"
-            className="font-heading text-text-primary uppercase tracking-widest font-bold text-lg"
+            className="font-heading text-text-primary uppercase tracking-[0.25em] text-sm"
           >
             VLACOVISION
           </a>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-8 list-none">
+          <ul className="hidden md:flex items-center gap-12 list-none">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-text-primary uppercase text-sm tracking-widest transition-colors hover:text-accent"
+                  className="text-[11px] uppercase tracking-[0.2em] text-text-muted/70 transition-colors duration-300 hover:text-text-primary"
                 >
                   {link.label}
                 </a>
@@ -58,24 +56,24 @@ export function Nav() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 text-text-primary"
+            className="md:hidden flex flex-col gap-[5px] p-2 text-text-primary"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
             <span
-              className={`block w-6 h-0.5 bg-current transition-transform duration-200 ${
-                menuOpen ? 'translate-y-2 rotate-45' : ''
+              className={`block w-5 h-[1.5px] bg-current transition-all duration-300 origin-center ${
+                menuOpen ? 'translate-y-[6.5px] rotate-45' : ''
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-current transition-opacity duration-200 ${
-                menuOpen ? 'opacity-0' : ''
+              className={`block w-5 h-[1.5px] bg-current transition-all duration-300 ${
+                menuOpen ? 'opacity-0 scale-x-0' : ''
               }`}
             />
             <span
-              className={`block w-6 h-0.5 bg-current transition-transform duration-200 ${
-                menuOpen ? '-translate-y-2 -rotate-45' : ''
+              className={`block w-5 h-[1.5px] bg-current transition-all duration-300 origin-center ${
+                menuOpen ? '-translate-y-[6.5px] -rotate-45' : ''
               }`}
             />
           </button>
@@ -83,23 +81,35 @@ export function Nav() {
       </nav>
 
       {/* Mobile full-screen overlay menu */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-bg-base flex flex-col items-center justify-center md:hidden">
-          <ul className="flex flex-col items-center gap-10 list-none">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-text-primary uppercase text-2xl tracking-widest font-heading font-bold transition-colors hover:text-accent"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+      <div
+        className={`fixed inset-0 z-40 bg-bg-base flex flex-col items-center justify-center md:hidden transition-all duration-500 ${
+          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <ul className="flex flex-col items-center gap-12 list-none">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-text-primary uppercase text-lg tracking-[0.3em] font-heading transition-colors duration-300 hover:text-accent"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Email in mobile menu */}
+        <div className="absolute bottom-12 left-0 right-0 text-center">
+          <a
+            href="mailto:hello@vlacovision.com"
+            className="text-[11px] uppercase tracking-[0.2em] text-text-muted/40 transition-colors duration-300 hover:text-text-muted"
+          >
+            hello@vlacovision.com
+          </a>
         </div>
-      )}
+      </div>
     </>
   );
 }

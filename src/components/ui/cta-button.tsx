@@ -15,12 +15,13 @@ export function CTAButton({ variant, href, children }: CTAButtonProps) {
     return (
       <m.a
         href={href}
-        className="inline-block px-10 py-4 text-xs font-medium uppercase tracking-[0.25em] text-white border border-white/20 hover:border-accent hover:text-accent transition-colors duration-300"
-        whileHover={{ scale: 1.02 }}
+        className="group relative inline-flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.25em] text-text-primary transition-colors duration-500 hover:text-accent"
+        whileHover={{ x: 4 }}
         whileTap={{ scale: 0.98 }}
         transition={{ duration: DURATION.fast, ease: 'easeOut' }}
       >
-        {children}
+        <span>{children}</span>
+        <span className="inline-block w-8 h-[1px] bg-current transition-all duration-500 group-hover:w-12" />
       </m.a>
     );
   }
@@ -28,12 +29,13 @@ export function CTAButton({ variant, href, children }: CTAButtonProps) {
   return (
     <m.a
       href={href}
-      className="inline-block px-10 py-4 text-xs font-medium uppercase tracking-[0.25em] text-text-muted border border-white/10 hover:border-white/40 hover:text-text-primary transition-colors duration-300"
-      whileHover={{ scale: 1.02 }}
+      className="group relative inline-flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.25em] text-text-muted/50 transition-colors duration-500 hover:text-text-primary"
+      whileHover={{ x: 4 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: DURATION.fast, ease: 'easeOut' }}
     >
-      {children}
+      <span>{children}</span>
+      <span className="inline-block w-6 h-[1px] bg-current transition-all duration-500 group-hover:w-10" />
     </m.a>
   );
 }

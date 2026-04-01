@@ -7,10 +7,10 @@ import { Hero } from '@/components/sections/hero';
 import { BrandLogos } from '@/components/sections/brand-logos';
 import { PortfolioGrid } from '@/components/sections/portfolio-grid';
 import { About } from '@/components/sections/about';
-import { CTAButton } from '@/components/ui/cta-button';
 import { ContactForm } from '@/components/sections/contact-form';
 import { RevealSection } from '@/components/animations/reveal-section';
 import { AnalyticsTracker } from '@/components/analytics/page-tracker';
+import { CTAButton } from '@/components/ui/cta-button';
 
 export const metadata: Metadata = {
   title: 'VLACOVISION — Premium Video Production',
@@ -49,34 +49,36 @@ export default async function HomePage() {
       {/* 1. Hero — full-viewport Vimeo background */}
       <Hero heroVimeoId={heroVimeoId} />
 
-      {/* 2. Primary CTA after hero */}
+      {/* 2. Brand logos marquee — no CTA between hero and logos */}
+      <BrandLogos />
+
+      {/* 3. Portfolio grid — all published projects */}
+      <PortfolioGrid projects={projects} thumbnailUrls={thumbnailUrls} />
+
+      {/* 4. Inline CTA between work and about — editorial style */}
       <RevealSection>
-        <section className="flex justify-center py-spacing-8">
+        <section className="py-32 sm:py-40 flex flex-col items-center justify-center text-center px-6">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-text-muted/25 mb-8">
+            Ready to start?
+          </p>
+          <h2
+            className="text-[clamp(1.25rem,2.5vw,2rem)] uppercase tracking-[0.15em] text-text-primary mb-10 leading-tight"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
+            Let&apos;s create something
+            <br />
+            worth watching.
+          </h2>
           <CTAButton variant="primary" href="#contact">
             Start a Project
           </CTAButton>
         </section>
       </RevealSection>
 
-      {/* 3. Brand logos marquee */}
-      <BrandLogos />
-
-      {/* 4. Secondary CTA after brand logos (per locked CTA placement decision) */}
-      <RevealSection>
-        <section className="flex justify-center py-spacing-8">
-          <CTAButton variant="secondary" href="#contact">
-            Get in Touch
-          </CTAButton>
-        </section>
-      </RevealSection>
-
-      {/* 5. Portfolio grid — all published projects */}
-      <PortfolioGrid projects={projects} thumbnailUrls={thumbnailUrls} />
-
-      {/* 6. About section */}
+      {/* 5. About section */}
       <About />
 
-      {/* 7. Contact form */}
+      {/* 6. Contact form */}
       <ContactForm />
     </>
   );

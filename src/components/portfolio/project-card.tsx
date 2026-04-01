@@ -83,7 +83,7 @@ export function ProjectCard({
               src={thumbnailUrl}
               alt={title}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
               sizes={isFeatured ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
             />
           ) : (
@@ -95,7 +95,7 @@ export function ProjectCard({
             <div className="absolute inset-0 z-10 pointer-events-none">
               <iframe
                 src={`https://player.vimeo.com/video/${vimeoId}?background=1&quality=360p&autoplay=1&loop=1&muted=1`}
-                className="absolute inset-0 w-full h-full scale-110"
+                className="absolute inset-0 w-full h-full scale-[1.15]"
                 frameBorder="0"
                 allow="autoplay"
                 title={`${title} preview`}
@@ -103,19 +103,22 @@ export function ProjectCard({
             </div>
           )}
 
-          {/* Gradient overlay — always subtle, stronger on hover */}
+          {/* Gradient overlay — cinematic bottom wash, not full cover */}
           <div
-            className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+            className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
           />
 
-          {/* Title + Client — bottom left, always visible but more prominent on hover */}
-          <div className="absolute bottom-0 left-0 right-0 z-30 p-6">
-            <h3 className="text-white text-sm font-medium uppercase tracking-[0.2em] group-hover:text-accent transition-colors duration-300">
-              {title}
-            </h3>
-            <p className="text-white/50 text-xs mt-1 uppercase tracking-wider">
+          {/* Title + Client — revealed on hover, clean and minimal */}
+          <div className="absolute bottom-0 left-0 right-0 z-30 p-6 sm:p-8 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-2">
               {client}
             </p>
+            <h3
+              className="text-white text-sm sm:text-base uppercase tracking-[0.15em] leading-tight"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              {title}
+            </h3>
           </div>
         </div>
       </Link>

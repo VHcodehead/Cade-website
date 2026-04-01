@@ -4,9 +4,13 @@
   --color-bg-base: #0A0A0A;
   --color-bg-card: #111111;
   --color-bg-section: #1A1A1A;
+  --color-bg-elevated: #141414;
   --color-text-primary: #F5F5F5;
   --color-text-muted: rgba(245, 245, 245, 0.6);
   --color-accent: #FF4400;
+  --color-accent-subtle: rgba(255, 68, 0, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-medium: rgba(255, 255, 255, 0.12);
 
   --font-heading: var(--font-syne), var(--font-inter), sans-serif;
   --font-body: var(--font-inter), sans-serif;
@@ -16,8 +20,12 @@
   --spacing-2: 1rem;     /* 16px */
   --spacing-3: 1.5rem;   /* 24px */
   --spacing-4: 2rem;     /* 32px */
+  --spacing-6: 3rem;     /* 48px */
   --spacing-8: 4rem;     /* 64px */
+  --spacing-12: 6rem;    /* 96px */
   --spacing-16: 8rem;    /* 128px */
+  --spacing-20: 10rem;   /* 160px */
+  --spacing-24: 12rem;   /* 192px */
 }
 
 * {
@@ -26,12 +34,22 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-bg-base);
   color: var(--color-text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(255, 68, 0, 0.3);
+  color: #fff;
 }
 
 /* Mobile touch device: hide desktop hover overlay, show play icon */
@@ -53,4 +71,28 @@ body {
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* Premium form input focus ring */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Smooth scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react';
 import { m } from 'framer-motion';
-import { DURATION } from '@/lib/animation-config';
+import { DURATION, EASING_SMOOTH } from '@/lib/animation-config';
 
 interface HeroClientProps {
   heroVimeoId: string;
@@ -31,7 +31,7 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Vimeo background iframe */}
-      <div className="absolute inset-0 scale-110 pointer-events-none">
+      <div className="absolute inset-0 scale-[1.15] pointer-events-none">
         <iframe
           ref={iframeRef}
           src={`https://player.vimeo.com/video/${heroVimeoId}?autoplay=1&muted=1&loop=1&controls=0&title=0&byline=0&portrait=0&quality=auto`}
@@ -42,36 +42,49 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
         />
       </div>
 
-      {/* Top-left brand name */}
+      {/* Cinematic vignette overlay */}
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+
+      {/* Bottom gradient — tall, smooth dissolve into bg */}
+      <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-bg-base via-bg-base/60 to-transparent pointer-events-none z-10" />
+
+      {/* Center tagline — large, confident, editorial */}
       <m.div
-        className="absolute top-6 left-6 z-10"
+        className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: DURATION.cinematic, delay: 0.5 }}
+        transition={{ duration: 1.2, delay: 0.6, ease: EASING_SMOOTH }}
       >
-        <span
-          className="text-2xl uppercase tracking-widest text-text-primary"
+        <h1
+          className="text-[clamp(2rem,5vw,4.5rem)] uppercase tracking-[0.3em] text-text-primary text-center leading-none"
           style={{ fontFamily: 'var(--font-heading)' }}
         >
           VLACOVISION
-        </span>
+        </h1>
+        <m.p
+          className="mt-6 text-[11px] uppercase tracking-[0.35em] text-text-muted/50"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.4, ease: EASING_SMOOTH }}
+        >
+          Film &middot; Direction &middot; Production
+        </m.p>
       </m.div>
 
       {/* Bottom-right sound toggle */}
       <button
         onClick={toggleSound}
-        className="absolute bottom-8 right-6 z-10 p-2 text-text-primary opacity-80 hover:opacity-100 transition-opacity"
+        className="absolute bottom-10 right-8 z-20 p-2 text-text-primary/40 hover:text-text-primary transition-colors duration-300"
         aria-label={isMuted ? 'Unmute video' : 'Mute video'}
       >
         {isMuted ? (
-          /* Speaker with X (muted) */
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
@@ -80,14 +93,13 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
             <line x1="17" y1="9" x2="23" y2="15" />
           </svg>
         ) : (
-          /* Speaker with waves (unmuted) */
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
           >
@@ -98,31 +110,20 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
         )}
       </button>
 
-      {/* Bottom gradient fade to bg */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-base to-transparent pointer-events-none z-10" />
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 opacity-60 animate-bounce">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </div>
+      {/* Scroll indicator — minimal line, not bouncy */}
+      <m.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ duration: 1, delay: 2 }}
+      >
+        <span className="text-[9px] uppercase tracking-[0.3em] text-text-primary">Scroll</span>
+        <span className="w-[1px] h-8 bg-text-primary/30 animate-pulse" />
+      </m.div>
     </section>
   );
 }
 
-// Server Component wrapper — Hero fetches its own data via db
-// For now, heroVimeoId is passed as a prop from the page
-// (The page.tsx fetches SiteConfig and passes it down)
 export function Hero({ heroVimeoId }: { heroVimeoId: string }) {
   return <HeroClient heroVimeoId={heroVimeoId} />;
 }
