@@ -23,16 +23,17 @@ function LogoSet() {
         <div
           key={i}
           className="shrink-0 flex items-center justify-center"
-          style={{ width: '200px', height: '70px', marginLeft: '3rem', marginRight: '3rem' }}
+          style={{ width: '240px', height: '80px', marginLeft: '3.5rem', marginRight: '3.5rem' }}
         >
           <Image
             src={logo.src}
             alt={logo.name}
-            width={180}
-            height={60}
-            className={`max-h-[40px] sm:max-h-[50px] w-auto max-w-[160px] sm:max-w-[180px] object-contain ${
+            width={220}
+            height={70}
+            className={`object-contain ${
               logo.white ? 'brightness-0 invert opacity-70' : 'opacity-80'
             }`}
+            style={{ height: '60px', width: 'auto', maxWidth: '220px' }}
             unoptimized
           />
         </div>
