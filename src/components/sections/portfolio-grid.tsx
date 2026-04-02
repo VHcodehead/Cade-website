@@ -21,7 +21,7 @@ interface PortfolioGridProps {
 
 export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
   return (
-    <section id="work" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8" style={{ scrollMarginTop: '6rem' }}>
+    <section id="work" className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8" style={{ scrollMarginTop: '5rem' }}>
       <AnimatedGrid className="max-w-[1800px] mx-auto flex flex-col gap-4 sm:gap-5">
         {projects.map((project, index) => {
           // Layout pattern: first = full, then pairs of 2, every 5th is full again
