@@ -45,7 +45,7 @@ export function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <section id="contact" className="min-h-screen flex items-center justify-center px-6">
+      <section id="contact" className="flex items-center justify-center px-6 py-20 sm:py-24">
         <div className="text-center">
           <div className="w-10 h-[1px] bg-accent/40 mx-auto mb-12" />
           <p className="text-[10px] uppercase tracking-[0.4em] text-accent/70 mb-6">Message Sent</p>
@@ -61,10 +61,10 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="min-h-screen flex flex-col justify-center py-32 sm:py-40 px-6 sm:px-10 lg:px-16" style={{ scrollMarginTop: '6rem' }}>
+    <section id="contact" className="flex flex-col justify-center py-20 sm:py-24 px-6 sm:px-10 lg:px-16" style={{ scrollMarginTop: '6rem' }}>
       <div className="w-full" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
         {/* Heading */}
-        <div className="text-center mb-20 sm:mb-28">
+        <div className="text-center mb-12 sm:mb-16">
           <div className="w-10 h-[1px] bg-accent/30 mx-auto mb-12" />
           <h2
             className="text-[clamp(1.75rem,3.5vw,3rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1]"

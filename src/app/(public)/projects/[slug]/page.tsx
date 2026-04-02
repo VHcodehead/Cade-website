@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import { db } from '@/lib/db'
 import { getVimeoThumbnail } from '@/lib/vimeo'
 import { VideoFacade } from '@/components/portfolio/video-facade'
+import { VideoPlaylist } from '@/components/portfolio/video-playlist'
 import { CTAButton } from '@/components/ui/cta-button'
 import { AnalyticsTracker } from '@/components/analytics/page-tracker'
 
@@ -67,10 +68,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     ? project.additionalVimeoIds.split(',').map((id: string) => id.trim()).filter(Boolean)
     : []
 
-  // Fetch thumbnails for additional videos in parallel
-  const additionalThumbnails = additionalVimeoIds.length > 0
-    ? await Promise.all(additionalVimeoIds.map((vid: string) => getVimeoThumbnail(vid)))
-    : []
 
   return (
     <div className="min-h-screen">
@@ -78,26 +75,20 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
       {/* Full-width video */}
       <div className="pt-20">
-        <VideoFacade
-          vimeoId={project.vimeoId}
-          thumbnailUrl={thumbnailUrl}
-          title={project.title}
-        />
+        {additionalVimeoIds.length > 0 ? (
+          <VideoPlaylist
+            vimeoIds={[project.vimeoId, ...additionalVimeoIds]}
+            thumbnailUrl={thumbnailUrl}
+            title={project.title}
+          />
+        ) : (
+          <VideoFacade
+            vimeoId={project.vimeoId}
+            thumbnailUrl={thumbnailUrl}
+            title={project.title}
+          />
+        )}
       </div>
-
-      {/* Additional videos */}
-      {additionalVimeoIds.length > 0 && (
-        <div className="mt-8 space-y-8">
-          {additionalVimeoIds.map((vid: string, i: number) => (
-            <VideoFacade
-              key={vid}
-              vimeoId={vid}
-              thumbnailUrl={additionalThumbnails[i]}
-              title={`${project.title} — Part ${i + 2}`}
-            />
-          ))}
-        </div>
-      )}
 
       {/* Centered content wrapper */}
       <div className="w-full flex justify-center">

@@ -29,7 +29,7 @@ export function LogoGrid({ logos }: { logos: string[] }) {
           <p className="mb-4 text-red-400 text-sm">{uploadState.message}</p>
         )}
 
-        <form action={uploadAction} className="flex flex-col gap-4">
+        <form action={uploadAction} encType="multipart/form-data" className="flex flex-col gap-4">
           <div>
             <input
               id="logo"

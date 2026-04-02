@@ -40,7 +40,7 @@ export function TeamPageClient({ members }: { members: TeamMember[] }) {
           <p className="mb-4 text-red-400 text-sm">{state.errors._form.join(', ')}</p>
         )}
 
-        <form action={formAction} className="space-y-4 max-w-xl">
+        <form action={formAction} encType="multipart/form-data" className="space-y-4 max-w-xl">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-1">
               Name
