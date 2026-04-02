@@ -40,8 +40,8 @@ export function Nav() {
               alt="VLACOVISION"
               width={140}
               height={28}
-              className="h-6 w-auto object-contain invert transition-all duration-500"
-              style={scrolled ? { filter: 'invert(1) brightness(1.6) sepia(0.4) saturate(0.6) hue-rotate(10deg)' } : { filter: 'invert(1) brightness(2)' }}
+              className="h-6 w-auto object-contain transition-all duration-500"
+              style={{ filter: scrolled ? 'invert(1) sepia(0.5) saturate(2) hue-rotate(15deg) brightness(1.5)' : 'invert(1) brightness(2)' }}
               priority
               unoptimized
             />
