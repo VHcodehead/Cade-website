@@ -12,6 +12,9 @@ const SettingsSchema = z.object({
   location: z.string().max(200),
   instagramUrl: z.string().max(500),
   vimeoProfileUrl: z.string().max(500),
+  ctaHeading: z.string().max(500),
+  ctaButtonText: z.string().max(200),
+  aboutHeading: z.string().max(200),
 })
 
 export type SettingsState = {
@@ -32,6 +35,9 @@ export async function updateSettings(
     location: formData.get('location'),
     instagramUrl: formData.get('instagramUrl'),
     vimeoProfileUrl: formData.get('vimeoProfileUrl'),
+    ctaHeading: formData.get('ctaHeading'),
+    ctaButtonText: formData.get('ctaButtonText'),
+    aboutHeading: formData.get('aboutHeading'),
   })
 
   if (!parsed.success) {

@@ -11,6 +11,9 @@ type SiteConfig = {
   location: string
   instagramUrl: string
   vimeoProfileUrl: string
+  ctaHeading: string
+  ctaButtonText: string
+  aboutHeading: string
 } | null
 
 const initialState: SettingsState = { status: 'idle' }
@@ -128,6 +131,62 @@ export function SettingsForm({ config }: { config: SiteConfig }) {
           />
           {state.errors?.vimeoProfileUrl && (
             <p className="mt-1 text-red-400 text-xs">{state.errors.vimeoProfileUrl.join(', ')}</p>
+          )}
+        </div>
+
+        {/* Divider for About / CTA section */}
+        <div className="pt-4 border-t border-white/10">
+          <h2 className="text-lg font-semibold text-text-primary mb-4">About &amp; CTA</h2>
+        </div>
+
+        {/* About Heading */}
+        <div>
+          <label htmlFor="aboutHeading" className="block text-sm font-medium text-text-primary mb-1">
+            About Heading
+          </label>
+          <input
+            id="aboutHeading"
+            name="aboutHeading"
+            type="text"
+            defaultValue={config?.aboutHeading ?? 'Vlacovision'}
+            className="w-full bg-bg-section border border-white/10 rounded px-3 py-2 text-text-primary text-sm focus:outline-none focus:border-accent transition-colors"
+          />
+          {state.errors?.aboutHeading && (
+            <p className="mt-1 text-red-400 text-xs">{state.errors.aboutHeading.join(', ')}</p>
+          )}
+        </div>
+
+        {/* CTA Heading */}
+        <div>
+          <label htmlFor="ctaHeading" className="block text-sm font-medium text-text-primary mb-1">
+            CTA Heading
+          </label>
+          <input
+            id="ctaHeading"
+            name="ctaHeading"
+            type="text"
+            defaultValue={config?.ctaHeading ?? "Let's create something worth watching."}
+            className="w-full bg-bg-section border border-white/10 rounded px-3 py-2 text-text-primary text-sm focus:outline-none focus:border-accent transition-colors"
+          />
+          {state.errors?.ctaHeading && (
+            <p className="mt-1 text-red-400 text-xs">{state.errors.ctaHeading.join(', ')}</p>
+          )}
+        </div>
+
+        {/* CTA Button Text */}
+        <div>
+          <label htmlFor="ctaButtonText" className="block text-sm font-medium text-text-primary mb-1">
+            CTA Button Text
+          </label>
+          <input
+            id="ctaButtonText"
+            name="ctaButtonText"
+            type="text"
+            defaultValue={config?.ctaButtonText ?? 'Start a Project'}
+            className="w-full bg-bg-section border border-white/10 rounded px-3 py-2 text-text-primary text-sm focus:outline-none focus:border-accent transition-colors"
+          />
+          {state.errors?.ctaButtonText && (
+            <p className="mt-1 text-red-400 text-xs">{state.errors.ctaButtonText.join(', ')}</p>
           )}
         </div>
       </div>

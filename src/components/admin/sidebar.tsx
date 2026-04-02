@@ -9,6 +9,8 @@ const NAV_LINKS = [
   { label: 'Dashboard', href: '/admin' },
   { label: 'Projects', href: '/admin/projects' },
   { label: 'Settings', href: '/admin/settings' },
+  { label: 'Team', href: '/admin/team' },
+  { label: 'Testimonials', href: '/admin/testimonials' },
   { label: 'Brand Logos', href: '/admin/logos' },
   { label: 'Messages', href: '/admin/messages' },
   { label: 'Analytics', href: '/admin/analytics' },

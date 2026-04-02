@@ -324,10 +324,82 @@ async function main() {
       aboutText:
         'A San Francisco Bay Area production house specializing in bold, authentic storytelling through film.',
       contactEmail: '',
+      ctaHeading: "Let's create something worth watching.",
+      ctaButtonText: 'Start a Project',
+      aboutHeading: 'Vlacovision',
     },
   });
 
   console.log('SiteConfig seeded.');
+
+  // Seed team members
+  const teamMembers = [
+    {
+      name: 'Alex Vlaco',
+      role: 'Founder / Director',
+      bio: 'Alex founded Vlacovision with a passion for cinematic storytelling and a commitment to capturing authentic moments.',
+      sortOrder: 1,
+    },
+    {
+      name: 'Jordan Lee',
+      role: 'Director of Photography',
+      bio: 'Jordan brings over a decade of cinematography experience across commercial, documentary, and narrative projects.',
+      sortOrder: 2,
+    },
+    {
+      name: 'Sam Rivera',
+      role: 'Editor / Post-Production',
+      bio: 'Sam shapes raw footage into compelling stories with a keen eye for pacing and visual rhythm.',
+      sortOrder: 3,
+    },
+  ];
+
+  for (const member of teamMembers) {
+    const existing = await db.teamMember.findFirst({ where: { name: member.name } });
+    if (!existing) {
+      await db.teamMember.create({ data: member });
+      console.log(`  Created team member: ${member.name}`);
+    } else {
+      console.log(`  Team member already exists: ${member.name}`);
+    }
+  }
+
+  // Seed testimonials
+  const testimonials = [
+    {
+      quote: 'Vlacovision brought our brand story to life in ways we never imagined. Their attention to detail and creative vision is unmatched.',
+      personName: 'Sarah Chen',
+      personTitle: 'Marketing Director',
+      company: 'Aether Apparel',
+      sortOrder: 1,
+    },
+    {
+      quote: 'Working with the Vlacovision team was an incredible experience. They understood our vision from day one and delivered beyond expectations.',
+      personName: 'Marcus Johnson',
+      personTitle: 'Brand Manager',
+      company: 'Aventon Bikes',
+      sortOrder: 2,
+    },
+    {
+      quote: 'The quality of their work speaks for itself. Every frame is intentional, every cut purposeful. True craftspeople.',
+      personName: 'Emily Torres',
+      personTitle: 'Creative Director',
+      company: 'Lululemon',
+      sortOrder: 3,
+    },
+  ];
+
+  for (const testimonial of testimonials) {
+    const existing = await db.testimonial.findFirst({ where: { personName: testimonial.personName } });
+    if (!existing) {
+      await db.testimonial.create({ data: testimonial });
+      console.log(`  Created testimonial from: ${testimonial.personName}`);
+    } else {
+      console.log(`  Testimonial already exists from: ${testimonial.personName}`);
+    }
+  }
+
+  console.log('Team members and testimonials seeded.');
 
   const adminEmail = process.env.ADMIN_EMAIL ?? 'admin@vlacovision.com';
   const adminPassword = process.env.ADMIN_PASSWORD ?? 'changeme';

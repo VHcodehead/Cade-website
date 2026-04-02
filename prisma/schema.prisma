@@ -36,6 +36,9 @@ model SiteConfig {
   location         String @default("")
   instagramUrl     String @default("")
   vimeoProfileUrl  String @default("")
+  ctaHeading       String @default("Let's create something worth watching.")
+  ctaButtonText    String @default("Start a Project")
+  aboutHeading     String @default("Vlacovision")
 }
 
 model ContactSubmission {
@@ -65,4 +68,35 @@ model AnalyticsEvent {
 
   @@index([eventType, createdAt])
   @@index([projectId, eventType])
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  bio       String   @default("")
+  photoUrl  String   @default("")
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  quote       String
+  personName  String
+  personTitle String   @default("")
+  company     String   @default("")
+  photoUrl    String   @default("")
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  imageUrl  String
+  caption   String   @default("")
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
 }
