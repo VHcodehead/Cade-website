@@ -2,19 +2,17 @@
 
 import { RevealSection } from '@/components/animations/reveal-section';
 
-// Each logo has a manually tuned height for visual uniformity
-// The source images have wildly different aspect ratios and internal whitespace
 const BRAND_LOGOS = [
-  { name: 'Nike', src: '/assets/Nike-Logo.png', white: true, h: 55 },
-  { name: 'Disney', src: '/assets/Disney_logo.png', white: true, h: 50 },
-  { name: 'Lululemon', src: '/assets/lululemon.png', white: true, h: 55 },
-  { name: 'Chase', src: '/assets/Chase-Logo.png', white: false, h: 50 },
-  { name: 'Columbia', src: '/assets/Columbia-logo.png', white: true, h: 55 },
-  { name: 'BF Goodrich', src: '/assets/BFGoodrich-logo-3840x2160.png', white: false, h: 50 },
-  { name: 'Kith', src: '/assets/kith_logo.png', white: true, h: 50 },
-  { name: 'Brex', src: '/assets/Brex_Inc._Corporate_Logo.png', white: true, h: 40 },
-  { name: 'Dr. Bronners', src: '/assets/bronner.png', white: false, h: 22 },
-  { name: 'Old Navy', src: '/assets/old-navy-logo-png-transparent.png', white: false, h: 55 },
+  { name: 'Nike', src: '/assets/brands/nike.png', white: true },
+  { name: 'Disney', src: '/assets/brands/disney.png', white: true },
+  { name: 'Lululemon', src: '/assets/brands/lululemon.png', white: true },
+  { name: 'Chase', src: '/assets/brands/chase.png', white: false },
+  { name: 'Columbia', src: '/assets/brands/columbia.png', white: true },
+  { name: 'BF Goodrich', src: '/assets/brands/bfgoodrich.png', white: false },
+  { name: 'Kith', src: '/assets/brands/kith.png', white: true },
+  { name: 'Brex', src: '/assets/brands/brex.png', white: true },
+  { name: 'Dr. Bronners', src: '/assets/brands/bronner.png', white: false },
+  { name: 'Old Navy', src: '/assets/brands/oldnavy.png', white: false },
 ];
 
 function LogoSet() {
@@ -23,14 +21,14 @@ function LogoSet() {
       {BRAND_LOGOS.map((logo, i) => (
         <div
           key={i}
-          style={{ width: '200px', height: '80px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '3rem', marginRight: '3rem', flexShrink: 0 }}
+          style={{ width: '200px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '3rem', marginRight: '3rem', flexShrink: 0 }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={logo.src}
             alt={logo.name}
             className={logo.white ? 'brightness-0 invert opacity-70' : 'opacity-80'}
-            style={{ height: `${logo.h}px`, width: 'auto', maxWidth: '180px', objectFit: 'contain' }}
+            style={{ height: '50px', width: 'auto', objectFit: 'contain' }}
           />
         </div>
       ))}
