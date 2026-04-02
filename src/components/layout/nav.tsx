@@ -39,13 +39,9 @@ export function Nav() {
             <img
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
-              className="h-6 w-auto object-contain"
-              style={{
-                transition: 'filter 0.5s ease',
-                filter: scrolled
-                  ? 'invert(1) brightness(1.5) sepia(1) saturate(1.5) hue-rotate(340deg)'
-                  : 'invert(1) brightness(2)',
-              }}
+              className={`h-6 w-auto object-contain transition-all duration-500 ${
+                scrolled ? 'nav-logo-cream' : 'nav-logo-white'
+              }`}
             />
           </a>
 

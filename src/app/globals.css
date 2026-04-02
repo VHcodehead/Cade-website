@@ -47,6 +47,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Nav logo states — defined in CSS so Tailwind can't purge */
+.nav-logo-white {
+  filter: invert(1) brightness(2);
+}
+
+.nav-logo-cream {
+  filter: invert(1) brightness(1.4) sepia(1) saturate(2) hue-rotate(340deg);
+}
+
 /* Selection color */
 ::selection {
   background-color: rgba(255, 68, 0, 0.3);
