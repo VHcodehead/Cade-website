@@ -37,7 +37,7 @@ export function Nav() {
           <a href="/" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={scrolled ? '/assets/logo-cream.png' : '/assets/Asset 11 (1).png'}
+              src={scrolled ? '/assets/logo-cream.png' : '/assets/logo-black.png'}
               alt="VLACOVISION"
               className="h-8 w-auto object-contain"
             />
