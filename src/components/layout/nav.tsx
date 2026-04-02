@@ -35,15 +35,19 @@ export function Nav() {
         <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
           {/* Logo */}
           <a href="/" className="flex items-center">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
-              width={140}
-              height={28}
-              className="h-6 w-auto object-contain transition-all duration-500"
-              style={{ filter: scrolled ? 'invert(1) sepia(0.5) saturate(2) hue-rotate(15deg) brightness(1.5)' : 'invert(1) brightness(2)' }}
-              priority
-              unoptimized
+              style={{
+                height: '1.5rem',
+                width: 'auto',
+                objectFit: 'contain',
+                transition: 'filter 0.5s ease',
+                filter: scrolled
+                  ? 'invert(1) sepia(0.5) saturate(3) hue-rotate(15deg) brightness(1.4)'
+                  : 'invert(1) brightness(2)',
+              }}
             />
           </a>
 
