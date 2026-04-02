@@ -20,7 +20,7 @@ export async function About() {
     .filter(Boolean);
 
   return (
-    <section id="about" className="px-6 sm:px-10 lg:px-16">
+    <section id="about" className="px-6 sm:px-10 lg:px-16" style={{ scrollMarginTop: '6rem' }}>
 
       {/* ── About Story ── */}
       <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '6rem', paddingBottom: '6rem' }}>
