@@ -141,7 +141,7 @@ export function ProjectCard({
           <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
           {/* Title + Client — slide up on hover */}
-          <div className="absolute bottom-0 left-0 right-0 z-30 p-8 sm:p-10 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+          <div className="absolute bottom-0 left-0 right-0 z-30 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out" style={{ padding: '2rem 2.5rem' }}>
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-2">
               {client}
             </p>

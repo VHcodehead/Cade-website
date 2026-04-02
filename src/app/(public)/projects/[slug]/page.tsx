@@ -140,22 +140,33 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
           {/* Description */}
           {descriptionParagraphs.length > 0 && (
-            <div className="text-center py-20 sm:py-28 max-w-[640px] mx-auto">
+            <div className="text-center" style={{ paddingTop: '5rem', paddingBottom: '5rem', maxWidth: '640px', marginLeft: 'auto', marginRight: 'auto' }}>
               {descriptionParagraphs.map((para, i) => (
-                <p key={i} className="text-[15px] text-text-muted/35 leading-[2] tracking-wide mb-8 last:mb-0">
+                <p key={i} className="text-[15px] text-text-muted/35 leading-[2] tracking-wide" style={{ marginBottom: i < descriptionParagraphs.length - 1 ? '2rem' : 0 }}>
                   {para}
                 </p>
               ))}
             </div>
           )}
 
+          {/* CTA — right after description, prominent */}
+          <div className="text-center" style={{ paddingTop: '4rem', paddingBottom: '6rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            <a
+              href="/#contact"
+              className="text-[clamp(1rem,2vw,1.5rem)] uppercase tracking-[0.2em] text-text-primary/70 hover:text-accent transition-colors duration-500"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Start a Project →
+            </a>
+          </div>
+
           {/* Prev / Next */}
-          <nav className="border-t border-white/[0.06] py-24 sm:py-32">
+          <nav style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '5rem', paddingBottom: '5rem' }}>
             <div className="grid grid-cols-3 items-start">
               <div>
                 {prevProject && (
                   <Link href={`/projects/${prevProject.slug}`} className="group inline-flex flex-col">
-                    <span className="text-[9px] uppercase tracking-[0.35em] text-text-muted/15 mb-4">Previous</span>
+                    <span className="text-[9px] uppercase tracking-[0.35em] text-text-muted/15" style={{ marginBottom: '1rem' }}>Previous</span>
                     <span className="text-[13px] text-text-muted/35 group-hover:text-text-primary transition-colors duration-500">
                       {prevProject.title}
                     </span>
@@ -175,7 +186,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               <div className="text-right">
                 {nextProject && (
                   <Link href={`/projects/${nextProject.slug}`} className="group inline-flex flex-col items-end">
-                    <span className="text-[9px] uppercase tracking-[0.35em] text-text-muted/15 mb-4">Next</span>
+                    <span className="text-[9px] uppercase tracking-[0.35em] text-text-muted/15" style={{ marginBottom: '1rem' }}>Next</span>
                     <span className="text-[13px] text-text-muted/35 group-hover:text-text-primary transition-colors duration-500">
                       {nextProject.title}
                     </span>
@@ -184,24 +195,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
               </div>
             </div>
           </nav>
-
-          {/* CTA */}
-          <div className="text-center py-32 sm:py-40 border-t border-white/[0.06]">
-            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/15 mb-12">
-              Interested?
-            </p>
-            <h2
-              className="text-[clamp(1.25rem,2.5vw,2rem)] uppercase tracking-[0.15em] text-text-primary mb-16 leading-tight"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Let&apos;s make something
-              <br />
-              worth watching.
-            </h2>
-            <CTAButton variant="primary" href="/#contact">
-              Start a Project
-            </CTAButton>
-          </div>
 
         </article>
       </div>
