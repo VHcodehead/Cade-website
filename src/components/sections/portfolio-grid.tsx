@@ -21,12 +21,21 @@ interface PortfolioGridProps {
 
 function MidGridCTA() {
   return (
-    <div className="text-center" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
+    <div className="text-center" style={{ paddingTop: '5rem', paddingBottom: '5rem', borderTop: '1px solid rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+      <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/15" style={{ marginBottom: '1.5rem' }}>
+        Like what you see?
+      </p>
       <a
         href="/#contact"
-        className="text-[11px] uppercase tracking-[0.3em] text-text-muted/30 hover:text-accent transition-colors duration-500"
+        className="group inline-flex items-center gap-3"
       >
-        Start a Project →
+        <span
+          className="text-[clamp(1rem,2vw,1.5rem)] uppercase tracking-[0.2em] text-text-primary/50 group-hover:text-accent transition-colors duration-500"
+          style={{ fontFamily: 'var(--font-heading)' }}
+        >
+          Start a Project
+        </span>
+        <span className="inline-block w-6 h-[1px] bg-current transition-all duration-500 group-hover:w-12 text-text-primary/30 group-hover:text-accent" />
       </a>
     </div>
   );
