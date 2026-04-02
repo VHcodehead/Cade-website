@@ -20,17 +20,17 @@ export async function About() {
     .filter(Boolean);
 
   return (
-    <section id="about" className="py-32 sm:py-40 px-6 sm:px-10 lg:px-16">
+    <section id="about" className="px-6 sm:px-10 lg:px-16">
 
       {/* ── About Story ── */}
-      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div className="py-40 sm:py-52" style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
         <RevealSection>
-          <div className="text-center mb-24 sm:mb-28">
-            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 mb-6">
+          <div className="text-center">
+            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 mb-8">
               About
             </p>
             <h2
-              className="text-[clamp(1.25rem,2.5vw,2rem)] uppercase tracking-[0.15em] text-text-primary leading-[1.15] mb-10"
+              className="text-[clamp(1.25rem,2.5vw,2rem)] uppercase tracking-[0.15em] text-text-primary leading-[1.15] mb-12"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               {aboutHeading}
@@ -60,13 +60,13 @@ export async function About() {
 
       {/* ── Team ── */}
       {teamMembers.length > 0 && (
-        <div className="w-full py-24 sm:py-28">
+        <div className="w-full py-40 sm:py-52">
           <RevealSection>
-            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 mb-16 text-center">
+            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 mb-20 sm:mb-24 text-center">
               The Team
             </p>
           </RevealSection>
-          <div className="flex flex-wrap justify-center gap-x-12 sm:gap-x-16 lg:gap-x-20 gap-y-14">
+          <div className="flex flex-wrap justify-center gap-x-16 sm:gap-x-20 lg:gap-x-28 gap-y-16">
             {teamMembers.map((member) => (
               <RevealSection key={member.id}>
                 <div className="text-center group w-[200px] sm:w-[220px] flex flex-col items-center">
@@ -74,13 +74,13 @@ export async function About() {
                     <img
                       src={member.photoUrl}
                       alt={member.name}
-                      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mx-auto mb-5 grayscale transition-all duration-700 group-hover:grayscale-0"
+                      className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-6 grayscale transition-all duration-700 group-hover:grayscale-0"
                     />
                   ) : (
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white/[0.04] mx-auto mb-5" />
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-white/[0.04] mb-6" />
                   )}
                   <p
-                    className="text-[13px] uppercase tracking-[0.12em] text-text-primary/80 mb-1"
+                    className="text-[13px] uppercase tracking-[0.12em] text-text-primary/80 mb-1.5"
                     style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     {member.name}
@@ -89,7 +89,7 @@ export async function About() {
                     {member.role}
                   </p>
                   {member.bio && (
-                    <p className="text-[13px] text-text-muted/30 leading-[1.7] mt-3 max-w-[220px] mx-auto">
+                    <p className="text-[13px] text-text-muted/30 leading-[1.7] mt-4 max-w-[220px]">
                       {member.bio}
                     </p>
                   )}
@@ -102,18 +102,18 @@ export async function About() {
 
       {/* ── Testimonials ── */}
       {testimonials.length > 0 && (
-        <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }} className="py-24 sm:py-28">
+        <div className="py-40 sm:py-52" style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
           <RevealSection>
-            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 mb-16 text-center">
+            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 mb-20 sm:mb-24 text-center">
               Kind Words
             </p>
           </RevealSection>
-          <div className="space-y-20 sm:space-y-24">
+          <div className="space-y-28 sm:space-y-36">
             {testimonials.map((testimonial) => (
               <RevealSection key={testimonial.id}>
                 <blockquote className="text-center">
                   <p
-                    className="text-[clamp(1rem,1.8vw,1.25rem)] italic text-text-primary/50 leading-[1.8] tracking-wide max-w-2xl mx-auto mb-8"
+                    className="text-[clamp(1rem,1.8vw,1.25rem)] italic text-text-primary/50 leading-[1.8] tracking-wide max-w-2xl mx-auto mb-10"
                     style={{ fontFamily: 'var(--font-heading)' }}
                   >
                     &ldquo;{testimonial.quote}&rdquo;
@@ -123,7 +123,7 @@ export async function About() {
                       {testimonial.personName}
                     </p>
                     {(testimonial.personTitle || testimonial.company) && (
-                      <p className="text-[11px] uppercase tracking-[0.15em] text-text-muted/25 mt-1">
+                      <p className="text-[11px] uppercase tracking-[0.15em] text-text-muted/25 mt-2">
                         {[testimonial.personTitle, testimonial.company]
                           .filter(Boolean)
                           .join(' — ')}
@@ -138,9 +138,9 @@ export async function About() {
       )}
 
       {/* ── Stats ── */}
-      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+      <div className="py-32 sm:py-40" style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
         <RevealSection>
-          <div className="flex justify-center gap-14 sm:gap-20 mb-24 sm:mb-28 py-8 border-t border-b border-white/[0.05]">
+          <div className="flex justify-center gap-14 sm:gap-20 py-10 border-t border-b border-white/[0.05]">
             <div className="text-center">
               <p className="text-lg sm:text-xl text-text-primary/70 font-heading tracking-wider">10+</p>
               <p className="text-[8px] uppercase tracking-[0.3em] text-text-muted/15 mt-2">Years</p>
@@ -155,12 +155,14 @@ export async function About() {
             </div>
           </div>
         </RevealSection>
+      </div>
 
-        {/* ── CTA ── */}
+      {/* ── CTA ── */}
+      <div className="py-40 sm:py-52" style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
         <RevealSection>
           <div className="text-center">
             <p
-              className="text-[clamp(1rem,2vw,1.35rem)] uppercase tracking-[0.15em] text-text-primary/60 mb-10 leading-tight"
+              className="text-[clamp(1rem,2vw,1.35rem)] uppercase tracking-[0.15em] text-text-primary/60 mb-14 leading-tight"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
               {ctaHeading}
