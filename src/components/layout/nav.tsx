@@ -33,25 +33,14 @@ export function Nav() {
         }`}
       >
         <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
-          {/* Logo — white image on hero, cream text on scroll */}
+          {/* Logo */}
           <a href="/" className="flex items-center">
-            {/* Image logo — visible on hero, hidden when scrolled */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
-              className="h-8 w-auto object-contain nav-logo-white"
-              style={{ display: scrolled ? 'none' : 'block' }}
+              className={`h-8 w-auto object-contain ${scrolled ? 'nav-logo-cream' : 'nav-logo-white'}`}
             />
-            {/* Text logo — hidden on hero, cream when scrolled */}
-            {scrolled && (
-              <span
-                className="uppercase tracking-[0.2em] font-bold"
-                style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', color: '#F5E6D0' }}
-              >
-                VLACOVISION
-              </span>
-            )}
           </a>
 
           {/* Desktop links */}
