@@ -47,13 +47,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Nav logo states — defined in CSS so Tailwind can't purge */
+/* Nav logo states */
 .nav-logo-white {
-  filter: invert(1) brightness(2);
+  filter: invert(1) brightness(2) !important;
 }
 
 .nav-logo-cream {
-  filter: invert(1) brightness(1.4) sepia(1) saturate(2) hue-rotate(340deg);
+  filter: invert(1) brightness(1.2) sepia(1) saturate(3) hue-rotate(340deg) !important;
 }
 
 /* Selection color */
