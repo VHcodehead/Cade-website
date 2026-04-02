@@ -29,7 +29,7 @@ function LogoSet() {
             alt={logo.name}
             width={180}
             height={60}
-            className="max-h-[40px] sm:max-h-[50px] w-auto max-w-[160px] sm:max-w-[180px] object-contain"
+            className="max-h-[40px] sm:max-h-[50px] w-auto max-w-[160px] sm:max-w-[180px] object-contain brightness-0 invert opacity-70"
             unoptimized
           />
         </div>
