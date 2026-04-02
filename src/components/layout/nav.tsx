@@ -33,14 +33,35 @@ export function Nav() {
         }`}
       >
         <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
-          {/* Logo */}
-          <a href="/" className="flex items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/Asset 11 (1).png"
-              alt="VLACOVISION"
-              className={`h-8 w-auto object-contain ${scrolled ? 'nav-logo-cream' : 'nav-logo-white'}`}
-            />
+          {/* Logo — full white image on hero, cream icon+text on scroll */}
+          <a href="/" className="flex items-center gap-2">
+            {!scrolled && (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/assets/Asset 11 (1).png"
+                  alt="VLACOVISION"
+                  className="h-8 w-auto object-contain nav-logo-white"
+                />
+              </>
+            )}
+            {scrolled && (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/assets/LOGO_noBG.jpg"
+                  alt=""
+                  className="nav-logo-white"
+                  style={{ height: '1.6rem', width: 'auto', objectFit: 'contain' }}
+                />
+                <span
+                  className="uppercase tracking-[0.2em] font-bold"
+                  style={{ fontFamily: 'var(--font-heading)', fontSize: '0.85rem', color: '#F5E6D0' }}
+                >
+                  VLACOVISION
+                </span>
+              </>
+            )}
           </a>
 
           {/* Desktop links */}
