@@ -3,8 +3,10 @@ import { db } from '@/lib/db';
 export async function Footer() {
   const siteConfig = await db.siteConfig.findFirst();
   const contactEmail = siteConfig?.contactEmail ?? 'cade@vlacovision.com';
-  const instagramUrl = siteConfig?.instagramUrl ?? 'https://www.instagram.com/vlacovision';
-  const vimeoProfileUrl = siteConfig?.vimeoProfileUrl ?? 'https://vimeo.com/vlacovision';
+  const rawInsta = siteConfig?.instagramUrl ?? 'https://www.instagram.com/vlacovision';
+  const rawVimeo = siteConfig?.vimeoProfileUrl ?? 'https://vimeo.com/vlacovision';
+  const instagramUrl = rawInsta.startsWith('http') ? rawInsta : 'https://' + rawInsta;
+  const vimeoProfileUrl = rawVimeo.startsWith('http') ? rawVimeo : 'https://' + rawVimeo;
   const year = new Date().getFullYear();
 
   return (
@@ -35,13 +37,9 @@ export async function Footer() {
               alt="VLACOVISION"
               style={{ height: '1.4rem', width: 'auto', objectFit: 'contain', marginBottom: '0.75rem' }}
             />
-            <p className="text-[11px] text-white/40 leading-[1.7]">
-              Premium video production · Bay Area &amp; worldwide
-            </p>
             <a
               href={`mailto:${contactEmail}`}
               className="text-[11px] text-white/60 hover:text-accent transition-colors duration-300"
-              style={{ marginTop: '0.5rem', display: 'inline-block' }}
             >
               {contactEmail}
             </a>
