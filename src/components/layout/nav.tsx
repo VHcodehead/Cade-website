@@ -28,7 +28,7 @@ export function Nav() {
         aria-label="Main navigation"
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-bg-base/90 backdrop-blur-md border-b border-border-subtle'
+            ? 'bg-bg-base/90 backdrop-blur-md'
             : 'bg-transparent'
         }`}
       >
