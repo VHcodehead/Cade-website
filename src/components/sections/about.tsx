@@ -69,7 +69,7 @@ export async function About() {
           <div className="flex flex-wrap justify-center gap-x-12 sm:gap-x-16 lg:gap-x-20 gap-y-14">
             {teamMembers.map((member) => (
               <RevealSection key={member.id}>
-                <div className="text-center group">
+                <div className="text-center group w-[160px] sm:w-[180px]">
                   {member.photoUrl ? (
                     <img
                       src={member.photoUrl}
