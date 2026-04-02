@@ -39,8 +39,8 @@ export function Nav() {
             <img
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
-              className={scrolled ? 'nav-logo-cream' : 'nav-logo-white'}
-              style={{ height: '1.5rem', width: 'auto', objectFit: 'contain' as const, transition: 'filter 0.5s ease' }}
+              className={`h-8 w-auto object-contain ${scrolled ? 'nav-logo-cream' : 'nav-logo-white'}`}
+              style={{ transition: 'filter 0.5s ease' }}
             />
           </a>
 
