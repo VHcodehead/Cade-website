@@ -66,7 +66,7 @@ export async function About() {
               The Team
             </p>
           </RevealSection>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14">
+          <div className="flex flex-wrap justify-center gap-x-12 sm:gap-x-16 lg:gap-x-20 gap-y-14">
             {teamMembers.map((member) => (
               <RevealSection key={member.id}>
                 <div className="text-center group">
