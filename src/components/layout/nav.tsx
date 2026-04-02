@@ -33,14 +33,22 @@ export function Nav() {
         }`}
       >
         <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
-          {/* Logo */}
-          <a href="/" className="flex items-center">
+          {/* Logo — image when on hero, cream tinted wrapper when scrolled */}
+          <a href="/" className="flex items-center relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
-              className={`h-8 w-auto object-contain ${scrolled ? 'nav-logo-cream' : 'nav-logo-white'}`}
-              style={{ transition: 'filter 0.5s ease' }}
+              className="h-8 w-auto object-contain nav-logo-white"
+            />
+            {/* Cream overlay — only visible when scrolled */}
+            <div
+              className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+              style={{
+                opacity: scrolled ? 1 : 0,
+                backgroundColor: '#F5E6D0',
+                mixBlendMode: 'multiply',
+              }}
             />
           </a>
 
