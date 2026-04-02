@@ -32,17 +32,17 @@ export async function Footer() {
             </p>
             <ul className="flex flex-col gap-4 list-none">
               <li>
-                <a href="#work" className="text-[12px] text-text-muted/40 transition-colors duration-300 hover:text-text-primary">
+                <a href="/#work" className="text-[12px] text-text-muted/40 transition-colors duration-300 hover:text-text-primary">
                   Work
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-[12px] text-text-muted/40 transition-colors duration-300 hover:text-text-primary">
+                <a href="/#about" className="text-[12px] text-text-muted/40 transition-colors duration-300 hover:text-text-primary">
                   About
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-[12px] text-text-muted/40 transition-colors duration-300 hover:text-text-primary">
+                <a href="/#contact" className="text-[12px] text-text-muted/40 transition-colors duration-300 hover:text-text-primary">
                   Contact
                 </a>
               </li>
