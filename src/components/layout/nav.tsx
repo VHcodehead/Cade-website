@@ -33,13 +33,13 @@ export function Nav() {
         }`}
       >
         <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
-          {/* Logo — white on hero, cream on scroll (two separate image files) */}
+          {/* Logo — white on hero, cream on scroll (two pre-rendered PNGs, no filters) */}
           <a href="/" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={scrolled ? '/assets/logo-cream.png' : '/assets/Asset 11 (1).png'}
               alt="VLACOVISION"
-              className={scrolled ? 'h-8 w-auto object-contain' : 'h-8 w-auto object-contain nav-logo-white'}
+              className="h-8 w-auto object-contain"
             />
           </a>
 
