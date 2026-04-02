@@ -23,7 +23,7 @@ export async function About() {
     <section id="about" className="px-6 sm:px-10 lg:px-16">
 
       {/* ── About Story ── */}
-      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '12rem', paddingBottom: '12rem' }}>
+      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '6rem', paddingBottom: '6rem' }}>
         <RevealSection>
           <div className="text-center">
             <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20" style={{ marginBottom: '2rem' }}>
@@ -61,13 +61,13 @@ export async function About() {
 
       {/* ── Team ── */}
       {teamMembers.length > 0 && (
-        <div style={{ paddingTop: '10rem', paddingBottom: '10rem' }}>
+        <div style={{ paddingTop: '7rem', paddingBottom: '7rem' }}>
           <RevealSection>
-            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 text-center" style={{ marginBottom: '5rem' }}>
+            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 text-center" style={{ marginBottom: '3.5rem' }}>
               The Team
             </p>
           </RevealSection>
-          <div className="flex flex-wrap justify-center" style={{ gap: '4rem 5rem' }}>
+          <div className="flex flex-wrap justify-center" style={{ gap: '3rem 4rem' }}>
             {teamMembers.map((member) => (
               <RevealSection key={member.id}>
                 <div className="text-center group flex flex-col items-center" style={{ width: '220px' }}>
@@ -104,13 +104,13 @@ export async function About() {
 
       {/* ── Testimonials ── */}
       {testimonials.length > 0 && (
-        <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '10rem', paddingBottom: '10rem' }}>
+        <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '7rem', paddingBottom: '7rem' }}>
           <RevealSection>
-            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 text-center" style={{ marginBottom: '5rem' }}>
+            <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 text-center" style={{ marginBottom: '3.5rem' }}>
               Kind Words
             </p>
           </RevealSection>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
             {testimonials.map((testimonial) => (
               <RevealSection key={testimonial.id}>
                 <blockquote className="text-center">
@@ -140,7 +140,7 @@ export async function About() {
       )}
 
       {/* ── Stats ── */}
-      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '8rem', paddingBottom: '8rem' }}>
+      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '6rem', paddingBottom: '6rem' }}>
         <RevealSection>
           <div className="flex justify-center" style={{ gap: '4rem', paddingTop: '2.5rem', paddingBottom: '2.5rem', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
             <div className="text-center">
@@ -160,7 +160,7 @@ export async function About() {
       </div>
 
       {/* ── CTA ── */}
-      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '10rem', paddingBottom: '10rem' }}>
+      <div style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', paddingTop: '7rem', paddingBottom: '7rem' }}>
         <RevealSection>
           <div className="text-center">
             <p
