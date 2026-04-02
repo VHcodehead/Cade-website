@@ -40,7 +40,9 @@ export function Nav() {
               alt="VLACOVISION"
               width={140}
               height={28}
-              className="h-6 w-auto object-contain invert brightness-200"
+              className={`h-6 w-auto object-contain invert transition-all duration-500 ${
+                scrolled ? 'brightness-[1.8] sepia-[0.3] saturate-[0.8]' : 'brightness-200'
+              }`}
               priority
               unoptimized
             />

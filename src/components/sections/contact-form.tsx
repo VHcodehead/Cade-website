@@ -1,12 +1,47 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useState, useRef } from 'react'
 import { submitContact, type ContactState } from '@/app/actions/contact'
 
-const initialState: ContactState = { status: 'idle' }
-
 export function ContactForm() {
-  const [state, formAction, isPending] = useActionState(submitContact, initialState)
+  const [state, setState] = useState<ContactState>({ status: 'idle' })
+  const [isPending, setIsPending] = useState(false)
+  const formRef = useRef<HTMLFormElement>(null)
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const form = formRef.current
+    if (!form) return
+
+    const formData = new FormData(form)
+
+    // Client-side validation
+    const name = formData.get('name') as string
+    const email = formData.get('email') as string
+    const message = formData.get('message') as string
+
+    if (!name?.trim()) {
+      setState({ status: 'error', errors: { name: ['Name is required'] } })
+      return
+    }
+    if (!email?.trim() || !email.includes('@')) {
+      setState({ status: 'error', errors: { email: ['Valid email is required'] } })
+      return
+    }
+    if (!message?.trim() || message.trim().length < 10) {
+      setState({ status: 'error', errors: { message: ['Message must be at least 10 characters'] } })
+      return
+    }
+
+    setIsPending(true)
+    const result = await submitContact({ status: 'idle' }, formData)
+    setState(result)
+    setIsPending(false)
+
+    if (result.status === 'success') {
+      form.reset()
+    }
+  }
 
   if (state.status === 'success') {
     return (
@@ -40,7 +75,7 @@ export function ContactForm() {
         </div>
 
         {/* Conversational form */}
-        <form action={formAction} className="space-y-16 sm:space-y-20">
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-16 sm:space-y-20">
           {/* Sentence 1: Introduction */}
           <div className="text-[clamp(1.1rem,2vw,1.5rem)] leading-[2.2] text-text-muted/40">
             <span>My name is </span>
