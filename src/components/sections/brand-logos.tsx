@@ -33,7 +33,7 @@ function LogoSet() {
             className={`object-contain ${
               logo.white ? 'brightness-0 invert opacity-70' : 'opacity-80'
             }`}
-            style={{ height: '60px', width: 'auto', maxWidth: '220px' }}
+            style={{ height: '45px', width: '160px', objectFit: 'contain' }}
             unoptimized
           />
         </div>
