@@ -116,7 +116,7 @@ export async function About() {
                 <blockquote className="text-center">
                   <p
                     className="text-[clamp(1rem,1.8vw,1.25rem)] italic text-text-primary/50 leading-[1.8] tracking-wide"
-                    style={{ fontFamily: 'var(--font-heading)', marginBottom: '2.5rem', maxWidth: '42rem', marginLeft: 'auto', marginRight: 'auto' }}
+                    style={{ fontFamily: 'var(--font-body)', marginBottom: '2.5rem', maxWidth: '42rem', marginLeft: 'auto', marginRight: 'auto' }}
                   >
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
