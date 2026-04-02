@@ -6,7 +6,7 @@ const BRAND_LOGOS = [
   { name: 'Nike', src: '/assets/brands/nike.png', white: true },
   { name: 'Disney', src: '/assets/brands/disney.png', white: true },
   { name: 'Lululemon', src: '/assets/brands/lululemon.png', white: true },
-  { name: 'Chase', src: '/assets/brands/chase.png', white: false },
+  { name: 'Chase', src: '/assets/brands/chase.png', white: false },  // custom: white text + blue icon
   { name: 'Columbia', src: '/assets/brands/columbia.png', white: true },
   { name: 'BF Goodrich', src: '/assets/brands/bfgoodrich.png', white: false },
   { name: 'Kith', src: '/assets/brands/kith.png', white: true },
