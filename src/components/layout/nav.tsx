@@ -40,12 +40,12 @@ export function Nav() {
               src="/assets/Asset 11 (1).png"
               alt="VLACOVISION"
               style={{
-                height: '1.5rem',
+                height: '2rem',
                 width: 'auto',
                 objectFit: 'contain',
                 transition: 'filter 0.5s ease',
                 filter: scrolled
-                  ? 'invert(1) sepia(0.5) saturate(3) hue-rotate(15deg) brightness(1.4)'
+                  ? 'invert(1) sepia(1) saturate(2) hue-rotate(350deg) brightness(1.3)'
                   : 'invert(1) brightness(2)',
               }}
             />
