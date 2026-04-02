@@ -60,7 +60,7 @@ export async function About() {
 
       {/* ── Team ── */}
       {teamMembers.length > 0 && (
-        <div className="max-w-5xl mx-auto py-24 sm:py-28">
+        <div className="w-full py-24 sm:py-28">
           <RevealSection>
             <p className="text-[9px] uppercase tracking-[0.4em] text-text-muted/20 mb-16 text-center">
               The Team
