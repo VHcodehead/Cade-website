@@ -9,6 +9,14 @@ const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap'
 export const metadata: Metadata = {
   title: 'VLACOVISION — Video Production',
   description: 'Premium video production for brands that move people. Bay Area and worldwide.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-icon.png',
+  },
 };
 
 export default function RootLayout({
