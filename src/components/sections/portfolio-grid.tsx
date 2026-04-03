@@ -133,8 +133,8 @@ export function PortfolioGrid({ projects, thumbnailUrls }: PortfolioGridProps) {
   });
 
   return (
-    <section id="work" className="px-4 sm:px-6 lg:px-8" style={{ scrollMarginTop: '5rem', paddingTop: '2rem', paddingBottom: '3rem' }}>
-      <AnimatedGrid className="max-w-[1800px] mx-auto flex flex-col gap-4 sm:gap-5">
+    <section id="work" className="px-4 sm:px-5" style={{ scrollMarginTop: '5rem', paddingTop: '2rem', paddingBottom: '3rem' }}>
+      <AnimatedGrid className="flex flex-col gap-4 sm:gap-5">
         {elements}
       </AnimatedGrid>
     </section>
