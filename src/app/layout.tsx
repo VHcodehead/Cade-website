@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable}`}>
-      <body className="bg-bg-base text-text-primary font-body">
+      <body className="bg-bg-base text-text-primary font-body overflow-x-hidden">
         <MotionProvider>
           {children}
         </MotionProvider>
