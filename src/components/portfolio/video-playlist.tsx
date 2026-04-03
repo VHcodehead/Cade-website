@@ -96,7 +96,7 @@ export function VideoPlaylist({ vimeoIds, thumbnailUrl, title }: VideoPlaylistPr
 
   if (!isPlaying) {
     return (
-      <div className="relative w-full aspect-video bg-black">
+      <div className="relative w-full aspect-video bg-black overflow-hidden">
         <button
           onClick={() => setIsPlaying(true)}
           aria-label={`Play ${title}`}
@@ -128,12 +128,12 @@ export function VideoPlaylist({ vimeoIds, thumbnailUrl, title }: VideoPlaylistPr
   }
 
   return (
-    <div className="relative w-full aspect-video bg-black">
+    <div className="relative w-full aspect-video bg-black overflow-hidden">
       <iframe
         ref={iframeRef}
         key={`${vimeoIds[currentIndex]}-${currentIndex}`}
         src={`https://player.vimeo.com/video/${vimeoIds[currentIndex]}?autoplay=1&api=1&player_id=playlist&dnt=1&title=0&byline=0&portrait=0`}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full scale-[1.05]"
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
       />
