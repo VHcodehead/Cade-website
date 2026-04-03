@@ -39,7 +39,7 @@ export function LogoGrid({ logos }: { logos: string[] }) {
               required
               className="block w-full text-sm text-text-muted file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-medium file:bg-bg-section file:text-text-primary hover:file:opacity-90 cursor-pointer"
             />
-            <p className="mt-1 text-xs text-text-muted">PNG, JPG, WebP, or SVG — max 2 MB</p>
+            <p className="mt-1 text-xs text-text-muted">PNG, JPG, WebP, or SVG — max 5 MB</p>
           </div>
           <button
             type="submit"
@@ -63,7 +63,7 @@ export function LogoGrid({ logos }: { logos: string[] }) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/assets/${filename}`}
+                src={`/api/uploads/logos/${filename}`}
                 alt={filename}
                 className="max-h-20 w-full object-contain"
               />
