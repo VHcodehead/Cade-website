@@ -83,8 +83,8 @@ export default async function HomePage() {
         <ContactForm />
       </div>
 
-      {/* Gradient: warmest → dark */}
-      <div className="h-16 sm:h-20 bg-gradient-to-b from-[#141416] to-[#0A0A0A]" />
+      {/* Minimal gap to footer */}
+      <div className="h-4 bg-gradient-to-b from-[#141416] to-[#0A0A0A]" />
     </>
   );
 }

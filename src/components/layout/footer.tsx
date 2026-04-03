@@ -10,7 +10,7 @@ export async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A0A0A]" style={{ paddingTop: '3rem', paddingBottom: '2rem' }}>
+    <footer className="bg-[#0A0A0A]" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
       <div style={{ maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
 
         {/* Top CTA */}
