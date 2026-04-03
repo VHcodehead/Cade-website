@@ -29,6 +29,8 @@ const projects = [
     services: 'Creative Direction, Production, Cinematography',
     year: 2024,
     vimeoId: '1044752527',
+    previewClipUrl: '/videos/aventon.mp4',
+    thumbnailUrl: '/thumbnails/aventon.jpg',
     sortOrder: 2,
     description:
       'VLACOVISION partnered with Aventon to showcase the electric bike revolution that\'s transforming urban mobility. This project highlights how Aventon\'s innovative e-bikes are empowering riders to reimagine their daily commutes, weekend adventures, and relationship with their cities.',
