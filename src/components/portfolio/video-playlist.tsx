@@ -19,21 +19,23 @@ export function VideoPlaylist({ vimeoIds, thumbnailUrl, title }: VideoPlaylistPr
 
   const handleMessage = useCallback(
     (event: MessageEvent) => {
-      if (typeof event.data !== 'string') return
+      let data: Record<string, unknown> | null = null
 
-      try {
-        const data = JSON.parse(event.data)
-        if (data.event === 'finish' || data.event === 'ended') {
-          if (currentIndex < totalVideos - 1) {
-            setCurrentIndex((prev) => prev + 1)
-          } else {
-            // Last video ended — reset to poster
-            setCurrentIndex(0)
-            setIsPlaying(false)
-          }
+      if (typeof event.data === 'string') {
+        try { data = JSON.parse(event.data) } catch { return }
+      } else if (typeof event.data === 'object') {
+        data = event.data
+      }
+
+      if (!data) return
+
+      if (data.event === 'finish' || data.event === 'ended' || data.method === 'finish') {
+        if (currentIndex < totalVideos - 1) {
+          setCurrentIndex((prev) => prev + 1)
+        } else {
+          setCurrentIndex(0)
+          setIsPlaying(false)
         }
-      } catch {
-        // Not a JSON message we care about
       }
     },
     [currentIndex, totalVideos]
@@ -89,7 +91,7 @@ export function VideoPlaylist({ vimeoIds, thumbnailUrl, title }: VideoPlaylistPr
     <div className="relative w-full aspect-video bg-black">
       <iframe
         key={currentVimeoId}
-        src={`https://player.vimeo.com/video/${currentVimeoId}?autoplay=1&dnt=1&title=0&byline=0&portrait=0`}
+        src={`https://player.vimeo.com/video/${currentVimeoId}?autoplay=1&api=1&dnt=1&title=0&byline=0&portrait=0`}
         className="absolute inset-0 w-full h-full"
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
