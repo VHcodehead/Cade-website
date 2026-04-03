@@ -13,21 +13,8 @@ export async function Footer() {
     <footer className="bg-[#0A0A0A]" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
       <div style={{ maxWidth: '1200px', marginLeft: 'auto', marginRight: 'auto', paddingLeft: '2rem', paddingRight: '2rem' }}>
 
-        {/* Top CTA */}
-        <div className="text-center" style={{ paddingBottom: '2.5rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-          <a href="/#contact" className="group inline-flex items-center gap-3">
-            <span
-              className="text-[12px] uppercase tracking-[0.2em] text-white/50 group-hover:text-accent transition-colors duration-500"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Start a Project
-            </span>
-            <span className="inline-block w-6 h-[1px] bg-current transition-all duration-500 group-hover:w-12 text-white/30 group-hover:text-accent" />
-          </a>
-        </div>
-
         {/* Main footer */}
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-10" style={{ paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-10" style={{ paddingTop: '1rem', paddingBottom: '2.5rem' }}>
 
           {/* Left */}
           <div>
