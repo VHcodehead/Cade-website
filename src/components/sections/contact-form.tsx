@@ -61,10 +61,10 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact" className="flex flex-col justify-center py-20 sm:py-24 px-6 sm:px-10 lg:px-16" style={{ scrollMarginTop: '6rem' }}>
+    <section id="contact" className="flex flex-col justify-center px-6 sm:px-10 lg:px-16" style={{ scrollMarginTop: '7rem', paddingTop: '3rem', paddingBottom: '2rem' }}>
       <div className="w-full" style={{ maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
         {/* Heading */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-10">
           <div className="w-10 h-[1px] bg-accent/30 mx-auto mb-12" />
           <h2
             className="text-[clamp(1.75rem,3.5vw,3rem)] uppercase tracking-[0.12em] text-text-primary leading-[1.1]"
@@ -75,7 +75,7 @@ export function ContactForm() {
         </div>
 
         {/* Conversational form */}
-        <form ref={formRef} onSubmit={handleSubmit} className="space-y-16 sm:space-y-20">
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-10 sm:space-y-12">
           {/* Sentence 1: Introduction */}
           <div className="text-[clamp(1.1rem,2vw,1.5rem)] leading-[2.2] text-text-muted/40">
             <span>My name is </span>
