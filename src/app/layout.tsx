@@ -7,8 +7,12 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'VLACOVISION — Video Production',
-  description: 'Premium video production for brands that move people. Bay Area and worldwide.',
+  title: {
+    default: 'VLACOVISION — Premium Video Production | Cade Vlaco',
+    template: '%s — VLACOVISION',
+  },
+  description: 'Vlacovision (Vlaco Vision) is a San Francisco Bay Area video production company founded by Cade Vlaco (CadeVlaco). Premium commercial film, brand storytelling, and creative direction for Nike, Disney, Lululemon, and more.',
+  keywords: ['vlacovision', 'vlaco vision', 'cade vlaco', 'cadevlaco', 'video production', 'Bay Area video production', 'Bay Area cinematography', 'commercial film', 'brand storytelling', 'San Francisco videographer', 'San Francisco cinematographer'],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
@@ -16,6 +20,11 @@ export const metadata: Metadata = {
       { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: '/apple-icon.png',
+  },
+  openGraph: {
+    siteName: 'VLACOVISION',
+    type: 'website',
+    locale: 'en_US',
   },
 };
 

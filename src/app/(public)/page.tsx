@@ -11,13 +11,13 @@ import { ContactForm } from '@/components/sections/contact-form';
 import { AnalyticsTracker } from '@/components/analytics/page-tracker';
 
 export const metadata: Metadata = {
-  title: 'VLACOVISION — Premium Video Production',
+  title: 'VLACOVISION — Premium Video Production | Cade Vlaco | Bay Area',
   description:
-    'Premium video production for brands that move people. Bay Area and worldwide. Nike, Disney, Lululemon, and more.',
+    'Vlacovision (Vlaco Vision) by Cade Vlaco (CadeVlaco) — premium video production, commercial film, and creative direction in the San Francisco Bay Area. Trusted by Nike, Disney, Lululemon, Chase, and more.',
   openGraph: {
-    title: 'VLACOVISION — Premium Video Production',
+    title: 'VLACOVISION — Premium Video Production | Cade Vlaco',
     description:
-      'Premium video production for brands that move people. Bay Area and worldwide.',
+      'Vlacovision by Cade Vlaco — premium video production and creative direction for brands that move people. Bay Area and worldwide.',
     type: 'website',
   },
 };
