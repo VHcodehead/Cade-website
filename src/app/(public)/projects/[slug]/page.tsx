@@ -30,7 +30,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${project.title} — VLACOVISION`,
     description,
+    alternates: {
+      canonical: `https://www.vlacovision.com/projects/${slug}`,
+    },
     openGraph: {
+      url: `https://www.vlacovision.com/projects/${slug}`,
       title: `${project.title} — VLACOVISION`,
       description,
       type: 'video.other',

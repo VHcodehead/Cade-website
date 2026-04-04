@@ -48,6 +48,9 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
       {/* Bottom gradient — tall, smooth dissolve into bg */}
       <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-bg-base via-bg-base/60 to-transparent pointer-events-none z-10" />
 
+      {/* SEO: H1 for search engines, visually hidden */}
+      <h1 className="sr-only">VLACOVISION — Premium Video Production and Bay Area Cinematography by Cade Vlaco</h1>
+
       {/* Center tagline — just the subtitle, no big VLACOVISION text */}
       <m.div
         className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"

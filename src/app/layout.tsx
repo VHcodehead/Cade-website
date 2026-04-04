@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne', display: 'swap' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.vlacovision.com'),
   title: {
     default: 'VLACOVISION — Premium Video Production | Cade Vlaco',
     template: '%s — VLACOVISION',
@@ -35,6 +36,51 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              '@id': 'https://www.vlacovision.com',
+              name: 'VLACOVISION',
+              alternateName: ['Vlaco Vision', 'VlacoVision'],
+              url: 'https://www.vlacovision.com',
+              logo: 'https://www.vlacovision.com/assets/logo-cream.png',
+              description: 'Premium video production, commercial film, and creative direction in the San Francisco Bay Area. Founded by Cade Vlaco.',
+              founder: {
+                '@type': 'Person',
+                name: 'Cade Vlaco',
+                alternateName: 'CadeVlaco',
+              },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'San Francisco',
+                addressRegion: 'CA',
+                addressCountry: 'US',
+              },
+              areaServed: [
+                { '@type': 'City', name: 'San Francisco' },
+                { '@type': 'AdministrativeArea', name: 'Bay Area' },
+                { '@type': 'AdministrativeArea', name: 'California' },
+              ],
+              sameAs: [
+                'https://www.instagram.com/vlacovision',
+                'https://vimeo.com/vlacovision',
+              ],
+              priceRange: '$$$',
+              knowsAbout: [
+                'video production',
+                'cinematography',
+                'commercial film',
+                'brand storytelling',
+                'creative direction',
+              ],
+            }),
+          }}
+        />
+      </head>
       <body className="bg-bg-base text-text-primary font-body overflow-x-hidden">
         <MotionProvider>
           {children}
