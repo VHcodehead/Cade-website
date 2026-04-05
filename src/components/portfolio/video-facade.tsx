@@ -16,8 +16,8 @@ export function VideoFacade({ vimeoId, thumbnailUrl, title }: VideoFacadeProps) 
     return (
       <div className="relative w-full aspect-video bg-black overflow-hidden">
         <iframe
-          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`}
-          className="absolute inset-0 w-full h-full scale-[1.05]"
+          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1&playsinline=1`}
+          className="absolute inset-0 w-full h-full"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullScreen
         />

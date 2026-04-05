@@ -31,6 +31,7 @@ export function Nav() {
             ? 'bg-bg-base/90 backdrop-blur-md'
             : 'bg-transparent'
         }`}
+        style={scrolled ? { WebkitBackdropFilter: 'blur(12px)' } : undefined}
       >
         <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
           {/* Logo — white on hero, cream on scroll (two pre-rendered PNGs, no filters) */}

@@ -23,7 +23,7 @@ export function RevealSection({ children, className }: RevealSectionProps) {
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: DURATION.cinematic, ease: EASING_SMOOTH }}
       className={className}
     >

@@ -30,11 +30,11 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Vimeo background iframe */}
-      <div className="absolute inset-0 scale-[1.15] pointer-events-none">
+      {/* Vimeo background iframe — negative inset zoom avoids Safari transform-on-iframe bugs */}
+      <div className="absolute pointer-events-none overflow-hidden" style={{ inset: '-7.5%' }}>
         <iframe
           ref={iframeRef}
-          src={`https://player.vimeo.com/video/${heroVimeoId}?autoplay=1&muted=1&loop=1&controls=0&title=0&byline=0&portrait=0&quality=auto`}
+          src={`https://player.vimeo.com/video/${heroVimeoId}?autoplay=1&muted=1&loop=1&controls=0&title=0&byline=0&portrait=0&quality=auto&playsinline=1`}
           className="absolute inset-0 w-full h-full"
           allow="autoplay; fullscreen"
           frameBorder="0"
