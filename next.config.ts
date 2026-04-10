@@ -23,6 +23,38 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Section anchors
+      { source: '/about', destination: '/#about', permanent: true },
+      { source: '/work', destination: '/#work', permanent: true },
+      { source: '/contact', destination: '/#contact', permanent: true },
+
+      // Old site root-level slugs → new /projects/ routes
+      { source: '/aether-nz', destination: '/projects/aether-nz', permanent: true },
+      { source: '/aventon', destination: '/projects/aventon', permanent: true },
+      { source: '/bf-goodrich', destination: '/projects/bf-goodrich', permanent: true },
+      { source: '/chase-sapphire', destination: '/projects/chase-sapphire', permanent: true },
+      { source: '/destroy-boredom', destination: '/projects/destroy-boredom', permanent: true },
+      { source: '/dirt', destination: '/projects/dirt', permanent: true },
+      { source: '/dr-bronners', destination: '/projects/dr-bronner-s', permanent: true },
+      { source: '/dr-bronners-2', destination: '/projects/dr-bronner-s', permanent: true },
+      { source: '/entelligence', destination: '/projects/entelligence', permanent: true },
+      { source: '/get-off-the-couch', destination: '/projects/get-off-the-couch', permanent: true },
+      { source: '/go-fast-campers', destination: '/projects/go-fast-campers', permanent: true },
+      { source: '/introducing-gt', destination: '/projects/introducing-gt', permanent: true },
+      { source: '/kith-x-columbia', destination: '/projects/kith-x-columbia', permanent: true },
+      { source: '/lost-summer', destination: '/projects/lost-summer', permanent: true },
+      { source: '/lululemon', destination: '/projects/lululemon', permanent: true },
+      { source: '/mikes-bikes', destination: '/projects/mikes-bikes', permanent: true },
+      { source: '/mikes-bikes-2', destination: '/projects/mikes-bikes-2', permanent: true },
+      { source: '/mbtv', destination: '/projects/mikes-bikes', permanent: true },
+      { source: '/offield', destination: '/projects/offield', permanent: true },
+      { source: '/prickly', destination: '/projects/prickly-motorsports', permanent: true },
+      { source: '/prickly-motorsports', destination: '/projects/prickly-motorsports', permanent: true },
+      { source: '/pulpan-brothers', destination: '/projects/pulpan-brothers', permanent: true },
+      { source: '/texino', destination: '/projects/texino', permanent: true },
+      { source: '/town-trail', destination: '/projects/town-trail', permanent: true },
+
+      // Old .html extensions
       { source: '/projects/aether-nz.html', destination: '/projects/aether-nz', permanent: true },
       { source: '/projects/aventon.html', destination: '/projects/aventon', permanent: true },
       { source: '/projects/bf-goodrich.html', destination: '/projects/bf-goodrich', permanent: true },
