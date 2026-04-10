@@ -164,16 +164,18 @@ export function ProjectCard({
             )
           )}
 
-          {/* Gradient overlay — always visible on mobile, hover on desktop */}
+          {/* Gradient overlay — appears with scroll on mobile, hover on desktop */}
           <div className={`absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-700 ${
-            isTouchDevice ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+            isTouchDevice
+              ? (isHovered ? 'opacity-100' : 'opacity-0')
+              : 'opacity-0 group-hover:opacity-100'
           }`} />
 
-          {/* Title + Client — always visible on mobile, slide up on desktop hover */}
+          {/* Title + Client — appears with scroll on mobile, slide up on desktop hover */}
           <div
             className={`absolute bottom-0 left-0 right-0 z-30 transition-all duration-500 ease-out ${
               isTouchDevice
-                ? 'translate-y-0 opacity-100'
+                ? (isHovered ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0')
                 : 'translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'
             }`}
             style={{ padding: '1.5rem 2rem' }}
