@@ -33,14 +33,14 @@ export function Nav() {
         }`}
         style={scrolled ? { WebkitBackdropFilter: 'blur(12px)' } : undefined}
       >
-        <div className="flex items-center justify-between h-20" style={{ paddingLeft: 'clamp(2.5rem, 5vw, 5rem)', paddingRight: 'clamp(2.5rem, 5vw, 5rem)' }}>
+        <div className="flex items-center justify-between h-14 md:h-20" style={{ paddingLeft: 'clamp(1.25rem, 5vw, 5rem)', paddingRight: 'clamp(1.25rem, 5vw, 5rem)' }}>
           {/* Logo — white on hero, cream on scroll (two pre-rendered PNGs, no filters) */}
           <a href="/" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={scrolled ? '/assets/logo-cream.png' : '/assets/logo-black.png'}
               alt="VLACOVISION"
-              className="h-8 w-auto object-contain"
+              className="h-6 md:h-8 w-auto object-contain"
             />
           </a>
 

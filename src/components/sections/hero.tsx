@@ -29,7 +29,7 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-dvh w-full overflow-hidden">
       {/* Vimeo background iframe — negative inset zoom avoids Safari transform-on-iframe bugs */}
       <div className="absolute pointer-events-none overflow-hidden" style={{ inset: '-7.5%' }}>
         <iframe
@@ -50,18 +50,6 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
 
       {/* SEO: H1 for search engines, visually hidden */}
       <h1 className="sr-only">VLACOVISION — Premium Video Production and Bay Area Cinematography by Cade Vlaco</h1>
-
-      {/* Center tagline — just the subtitle, no big VLACOVISION text */}
-      <m.div
-        className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.8, ease: EASING_SMOOTH }}
-      >
-        <p className="text-[11px] sm:text-[13px] uppercase tracking-[0.4em] text-text-primary/60">
-          Film &middot; Direction &middot; Production
-        </p>
-      </m.div>
 
       {/* Bottom-right sound toggle */}
       <button
@@ -102,15 +90,15 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
         )}
       </button>
 
-      {/* Scroll indicator — minimal line, not bouncy */}
+      {/* Scroll indicator */}
       <m.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
+        animate={{ opacity: 0.6 }}
         transition={{ duration: 1, delay: 2 }}
       >
-        <span className="text-[9px] uppercase tracking-[0.3em] text-text-primary">Scroll</span>
-        <span className="w-[1px] h-8 bg-text-primary/30 animate-pulse" />
+        <span className="text-[10px] uppercase tracking-[0.3em] text-text-primary">Scroll</span>
+        <span className="w-[1px] h-10 bg-text-primary/40 animate-pulse" />
       </m.div>
     </section>
   );

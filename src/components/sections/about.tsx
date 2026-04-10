@@ -40,14 +40,14 @@ export async function About() {
                 paragraphs.map((paragraph, i) => (
                   <p
                     key={i}
-                    className="text-[14px] text-text-muted/40 leading-[1.9] tracking-wide"
+                    className="text-[14px] text-text-muted/60 leading-[1.9] tracking-wide"
                     style={{ marginBottom: i < paragraphs.length - 1 ? '1.25rem' : 0 }}
                   >
                     {paragraph}
                   </p>
                 ))
               ) : (
-                <p className="text-[14px] text-text-muted/40 leading-[1.9] tracking-wide">
+                <p className="text-[14px] text-text-muted/60 leading-[1.9] tracking-wide">
                   A San Francisco Bay Area production house specializing in bold, authentic
                   storytelling through film. We bring creative vision to life through
                   production, post-production, and creative direction for brands that want to
@@ -87,11 +87,11 @@ export async function About() {
                   >
                     {member.name}
                   </p>
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-text-muted/25">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-text-muted/40">
                     {member.role}
                   </p>
                   {member.bio && (
-                    <p className="text-[13px] text-text-muted/30 leading-[1.7]" style={{ marginTop: '1rem', maxWidth: '220px' }}>
+                    <p className="text-[13px] text-text-muted/50 leading-[1.7]" style={{ marginTop: '1rem', maxWidth: '220px' }}>
                       {member.bio}
                     </p>
                   )}
@@ -145,15 +145,15 @@ export async function About() {
           <div className="flex justify-center" style={{ gap: '4rem', paddingTop: '2.5rem', paddingBottom: '2.5rem', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
             <div className="text-center">
               <p className="text-lg sm:text-xl text-text-primary/70 font-heading tracking-wider">10+</p>
-              <p className="text-[8px] uppercase tracking-[0.3em] text-text-muted/15" style={{ marginTop: '0.5rem' }}>Years</p>
+              <p className="text-[8px] uppercase tracking-[0.3em] text-text-muted/30" style={{ marginTop: '0.5rem' }}>Years</p>
             </div>
             <div className="text-center">
               <p className="text-lg sm:text-xl text-text-primary/70 font-heading tracking-wider">50+</p>
-              <p className="text-[8px] uppercase tracking-[0.3em] text-text-muted/15" style={{ marginTop: '0.5rem' }}>Projects</p>
+              <p className="text-[8px] uppercase tracking-[0.3em] text-text-muted/30" style={{ marginTop: '0.5rem' }}>Projects</p>
             </div>
             <div className="text-center">
               <p className="text-lg sm:text-xl text-text-primary/70 font-heading tracking-wider">Global</p>
-              <p className="text-[8px] uppercase tracking-[0.3em] text-text-muted/15" style={{ marginTop: '0.5rem' }}>Reach</p>
+              <p className="text-[8px] uppercase tracking-[0.3em] text-text-muted/30" style={{ marginTop: '0.5rem' }}>Reach</p>
             </div>
           </div>
         </RevealSection>
