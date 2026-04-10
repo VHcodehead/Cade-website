@@ -27,10 +27,17 @@ export function ProjectCard({
 }: ProjectCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const hasTrackedPlay = useRef<boolean>(false);
 
+  // Detect touch device
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia('(hover: none)').matches);
+  }, []);
+
+  // Play/pause video based on hover or mobile viewport intersection
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -41,6 +48,7 @@ export function ProjectCard({
     }
   }, [isHovered]);
 
+  // Lazy-load thumbnail when card enters viewport
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
@@ -57,6 +65,23 @@ export function ProjectCard({
     return () => observer.disconnect();
   }, []);
 
+  // Mobile: autoplay MP4 when card is centered on screen
+  useEffect(() => {
+    if (!isTouchDevice || !previewClipUrl) return;
+    const el = cardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setIsHovered(entries[0].isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [isTouchDevice, previewClipUrl]);
+
+  // Analytics tracking
   useEffect(() => {
     if (isHovered && !hasTrackedPlay.current) {
       hasTrackedPlay.current = true;
@@ -81,7 +106,9 @@ export function ProjectCard({
     }
   }, [isHovered, slug, id]);
 
-  const aspectClass = layout === 'full' ? 'aspect-[21/9]' : 'aspect-[16/9]';
+  const aspectClass = layout === 'full'
+    ? 'aspect-[4/5] sm:aspect-[21/9]'
+    : 'aspect-[4/5] sm:aspect-[16/9]';
 
   return (
     <div
@@ -124,7 +151,7 @@ export function ProjectCard({
               />
             </div>
           ) : (
-            isHovered && (
+            isHovered && !isTouchDevice && (
               <div className="absolute inset-0 z-10 pointer-events-none">
                 <iframe
                   src={`https://player.vimeo.com/video/${vimeoId}?background=1&quality=auto&autoplay=1&loop=1&muted=1&playsinline=1`}
@@ -137,11 +164,20 @@ export function ProjectCard({
             )
           )}
 
-          {/* Gradient — only on hover */}
-          <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          {/* Gradient overlay — always visible on mobile, hover on desktop */}
+          <div className={`absolute inset-0 z-20 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-700 ${
+            isTouchDevice ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+          }`} />
 
-          {/* Title + Client — slide up on hover */}
-          <div className="absolute bottom-0 left-0 right-0 z-30 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out" style={{ padding: '2rem 2.5rem' }}>
+          {/* Title + Client — always visible on mobile, slide up on desktop hover */}
+          <div
+            className={`absolute bottom-0 left-0 right-0 z-30 transition-all duration-500 ease-out ${
+              isTouchDevice
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'
+            }`}
+            style={{ padding: '1.5rem 2rem' }}
+          >
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 mb-2">
               {client}
             </p>
