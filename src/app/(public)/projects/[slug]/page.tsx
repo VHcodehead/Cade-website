@@ -40,6 +40,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'video.other',
       images: thumbnailUrl ? [thumbnailUrl] : [],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} — VLACOVISION`,
+      description,
+      images: thumbnailUrl ? [thumbnailUrl] : [],
+    },
   }
 }
 
