@@ -6,14 +6,22 @@ import Image from 'next/image';
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100);
     };
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handleResize = () => setIsMobile(mq.matches);
+    mq.addEventListener('change', handleResize);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      mq.removeEventListener('change', handleResize);
+    };
   }, []);
 
   const navLinks = [
@@ -38,7 +46,7 @@ export function Nav() {
           <a href="/" className="flex items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={scrolled ? '/assets/logo-cream.png' : '/assets/logo-black.png'}
+              src={scrolled && !isMobile ? '/assets/logo-cream.png' : '/assets/logo-black.png'}
               alt="VLACOVISION"
               className="h-6 md:h-8 w-auto object-contain"
             />
