@@ -49,7 +49,7 @@ function HeroClient({ heroVimeoId }: HeroClientProps) {
       <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-bg-base via-bg-base/60 to-transparent pointer-events-none z-10" />
 
       {/* SEO: H1 for search engines, visually hidden */}
-      <h1 className="sr-only">VLACOVISION — Premium Video Production and Bay Area Cinematography by Cade Vlaco</h1>
+      <h1 className="sr-only">VLACOVISION — Premium Video Production and San Diego Cinematography by Cade Vlaco</h1>
 
       {/* Bottom-right sound toggle */}
       <button
