@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     description:
       'Vlacovision by Cade Vlaco — premium video production and creative direction for brands that move people. Bay Area and worldwide.',
     type: 'website',
-    images: [{ url: '/assets/logo-cream.png', alt: 'VLACOVISION' }],
+    images: [{ url: '/assets/og-image.png', alt: 'VLACOVISION' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'VLACOVISION — Premium Video Production | Cade Vlaco',
     description:
       'Premium video production and creative direction for brands that move people. Bay Area and worldwide.',
-    images: ['/assets/logo-cream.png'],
+    images: ['/assets/og-image.png'],
   },
 };
 
