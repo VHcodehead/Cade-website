@@ -27,6 +27,14 @@ const nextConfig: NextConfig = {
       { source: '/about', destination: '/#about', permanent: true },
       { source: '/work', destination: '/#work', permanent: true },
       { source: '/contact', destination: '/#contact', permanent: true },
+      { source: '/story', destination: '/#about', permanent: true },
+      { source: '/brand', destination: '/#work', permanent: true },
+
+      // Old site short slugs (from cadevlacos.com era)
+      { source: '/destroyboredom', destination: '/projects/destroy-boredom', permanent: true },
+      { source: '/pintgt', destination: '/projects/introducing-gt', permanent: true },
+      { source: '/pulpan', destination: '/projects/pulpan-brothers', permanent: true },
+      { source: '/homegrown', destination: '/projects/homegrown-s25', permanent: true },
 
       // Old site root-level slugs → new /projects/ routes
       { source: '/aether-nz', destination: '/projects/aether-nz', permanent: true },
