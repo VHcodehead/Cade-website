@@ -4,10 +4,12 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host') || '';
 
-  if (host === 'vlacovision.com') {
-    const url = request.nextUrl.clone();
-    url.host = 'www.vlacovision.com';
-    return NextResponse.redirect(url, { status: 301 });
+  if (host.startsWith('vlacovision.com')) {
+    const { pathname, search, hash } = request.nextUrl;
+    return NextResponse.redirect(
+      `https://www.vlacovision.com${pathname}${search}${hash}`,
+      { status: 301 }
+    );
   }
 }
 
