@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     default: 'VLACOVISION — Premium Video Production | Cade Vlaco',
     template: '%s — VLACOVISION',
   },
-  description: 'Vlacovision (Vlaco Vision) is a San Diego video production company founded by Cade Vlaco (CadeVlaco). Premium commercial film, brand storytelling, and creative direction for Nike, Disney, Lululemon, and more.',
-  keywords: ['vlacovision', 'vlaco vision', 'cade vlaco', 'cadevlaco', 'video production', 'San Diego video production', 'San Diego cinematography', 'San Diego videographer', 'San Diego cinematographer', 'commercial film', 'brand storytelling', 'Southern California videographer'],
+  description: 'Vlacovision (Vlaco Vision) is a San Francisco Bay Area video production company founded by Cade Vlaco (CadeVlaco). Premium commercial film, brand storytelling, and creative direction for Nike, Disney, Lululemon, and more.',
+  keywords: ['vlacovision', 'vlaco vision', 'cade vlaco', 'cadevlaco', 'video production', 'Bay Area video production', 'Bay Area cinematography', 'San Francisco videographer', 'San Francisco cinematographer', 'commercial film', 'brand storytelling', 'Bay Area videographer'],
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
@@ -48,7 +48,7 @@ export default function RootLayout({
               alternateName: ['Vlaco Vision', 'VlacoVision'],
               url: 'https://www.vlacovision.com',
               logo: 'https://www.vlacovision.com/assets/logo-cream.png',
-              description: 'Premium video production, commercial film, and creative direction in San Diego, California. Founded by Cade Vlaco.',
+              description: 'Premium video production, commercial film, and creative direction in the San Francisco Bay Area. Founded by Cade Vlaco.',
               founder: {
                 '@type': 'Person',
                 name: 'Cade Vlaco',
@@ -56,13 +56,13 @@ export default function RootLayout({
               },
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'San Diego',
+                addressLocality: 'San Francisco',
                 addressRegion: 'CA',
                 addressCountry: 'US',
               },
               areaServed: [
-                { '@type': 'City', name: 'San Diego' },
-                { '@type': 'AdministrativeArea', name: 'Southern California' },
+                { '@type': 'City', name: 'San Francisco' },
+                { '@type': 'AdministrativeArea', name: 'Bay Area' },
                 { '@type': 'AdministrativeArea', name: 'California' },
               ],
               sameAs: [
