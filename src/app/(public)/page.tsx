@@ -52,10 +52,13 @@ export default async function HomePage() {
     },
   });
 
-  // Use DB thumbnail if exists, otherwise use vumbnail.com CDN (no API call needed)
+  // Use DB thumbnail if valid, otherwise use vumbnail.com CDN (no API call needed)
   const thumbnailUrls: Record<string, string | null> = {};
   for (const p of projects) {
-    thumbnailUrls[p.slug] = (p.thumbnailUrl && p.thumbnailUrl.length > 0)
+    const hasValidThumb = p.thumbnailUrl && (
+      p.thumbnailUrl.startsWith('http') || p.thumbnailUrl.startsWith('/api/uploads/')
+    );
+    thumbnailUrls[p.slug] = hasValidThumb
       ? p.thumbnailUrl
       : `https://vumbnail.com/${p.vimeoId}.jpg`;
   }
