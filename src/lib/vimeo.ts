@@ -34,7 +34,7 @@ export async function getVimeoThumbnail(vimeoId: string): Promise<string | null>
     // Fallback to vumbnail.com CDN
     return `https://vumbnail.com/${vimeoId}.jpg`;
   } catch {
-    return null;
+    return `https://vumbnail.com/${vimeoId}.jpg`;
   }
 }
 
