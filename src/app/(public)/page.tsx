@@ -2,7 +2,6 @@ export const dynamic = 'force-dynamic';
 
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
-import { getProjectThumbnails } from '@/lib/vimeo';
 import { Hero } from '@/components/sections/hero';
 import { BrandLogos } from '@/components/sections/brand-logos';
 import { PortfolioGrid } from '@/components/sections/portfolio-grid';
@@ -53,11 +52,12 @@ export default async function HomePage() {
     },
   });
 
-  // Use DB thumbnail if exists, otherwise fetch from Vimeo
-  const vimeoThumbnails = await getProjectThumbnails(projects);
+  // Use DB thumbnail if exists, otherwise use vumbnail.com CDN (no API call needed)
   const thumbnailUrls: Record<string, string | null> = {};
   for (const p of projects) {
-    thumbnailUrls[p.slug] = (p.thumbnailUrl && p.thumbnailUrl.length > 0) ? p.thumbnailUrl : (vimeoThumbnails[p.slug] ?? null);
+    thumbnailUrls[p.slug] = (p.thumbnailUrl && p.thumbnailUrl.length > 0)
+      ? p.thumbnailUrl
+      : `https://vumbnail.com/${p.vimeoId}.jpg`;
   }
 
   return (
