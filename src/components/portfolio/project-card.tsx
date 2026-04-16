@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 interface ProjectCardProps {
@@ -121,13 +120,11 @@ export function ProjectCard({
         <div className={`relative ${aspectClass} overflow-hidden bg-bg-card`}>
           {/* Thumbnail */}
           {isVisible && thumbnailUrl ? (
-            <Image
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
               src={thumbnailUrl}
               alt={title}
-              fill
-              unoptimized
-              className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]"
-              sizes={layout === 'full' ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]"
             />
           ) : (
             <div className="absolute inset-0 bg-bg-card" />
