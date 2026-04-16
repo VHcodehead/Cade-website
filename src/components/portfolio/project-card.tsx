@@ -118,18 +118,15 @@ export function ProjectCard({
     >
       <Link href={`/projects/${slug}`} className="block">
         <div className={`relative ${aspectClass} overflow-hidden bg-bg-card`}>
-          {/* Thumbnail */}
-          {thumbnailUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={thumbnailUrl}
-              alt={title}
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]"
-            />
-          ) : (
-            <div className="absolute inset-0 bg-bg-card" />
-          )}
+          {/* Thumbnail — falls back to Vimeo frame if DB path is broken */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={thumbnailUrl || `https://vumbnail.com/${vimeoId}.jpg`}
+            alt={title}
+            loading="lazy"
+            onError={(e) => { e.currentTarget.src = `https://vumbnail.com/${vimeoId}.jpg`; }}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.03]"
+          />
 
           {/* Hover: native MP4 (instant) or Vimeo iframe (fallback) */}
           {previewClipUrl ? (
